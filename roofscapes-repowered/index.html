@@ -6,30 +6,17 @@
   <title>Roofscapes RePowered</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/cesium@1.121.0/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.31/esri/themes/light/main.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="map" aria-label="3D map of Barcelona buildings"></div>
+  <div id="map" aria-label="3D map of Barcelona (Ajuntament de Barcelona model)"></div>
 
-  <nav class="toolbar" aria-label="Map tools">
+  <nav class="toolbar" aria-label="Jump to area">
     <button type="button" data-place="eixample">Eixample</button>
     <button type="button" data-place="gracia">Gràcia</button>
     <button type="button" data-place="poblenou">Poblenou</button>
-    <button type="button" id="load-btn" class="primary">Load buildings here</button>
   </nav>
-
-  <div class="timebar">
-    <label for="day-select">Shadows on</label>
-    <select id="day-select">
-      <option value="2">21 March</option>
-      <option value="5" selected>21 June</option>
-      <option value="8">21 September</option>
-      <option value="11">21 December</option>
-    </select>
-    <input id="hour-range" type="range" min="6" max="21" step="0.25" value="10" aria-label="Hour of day">
-    <output id="hour-out" for="hour-range">10:00</output>
-  </div>
 
   <aside id="panel">
     <header>
@@ -39,7 +26,11 @@
     </header>
 
     <section id="report" hidden>
-      <p id="r-building" class="building-line"></p>
+      <div class="building">
+        <p id="r-use" class="building-use"></p>
+        <p id="r-building" class="building-line"></p>
+        <p id="r-catastro" class="building-line"></p>
+      </div>
 
       <div class="hero-number">
         <span id="r-energy" class="big">–</span>
@@ -74,8 +65,7 @@
         <span><i style="--c: var(--sel)"></i>Selected roof</span>
         <span><i style="--c: var(--got-full)"></i>Fully supplied</span>
         <span><i style="--c: var(--got-part)"></i>Partly supplied</span>
-        <span><i style="--c: var(--bld)"></i>Height from OSM</span>
-        <span><i style="--c: var(--bld-est)"></i>Height estimated</span>
+        <span><i style="--c: linear-gradient(90deg,#3d4f63,#f2a516,#ffe066)"></i>Panel: shade → full sun</span>
       </div>
 
       <details class="assumptions">
@@ -87,9 +77,9 @@
     </section>
   </aside>
 
-  <script src="https://cdn.jsdelivr.net/npm/cesium@1.121.0/Build/Cesium/Cesium.js"></script>
   <script src="config.js"></script>
   <script src="solar.js"></script>
+  <script src="https://js.arcgis.com/4.31/"></script>
   <script src="app.js"></script>
 </body>
 </html>

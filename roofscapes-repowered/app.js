@@ -1,8 +1,20 @@
 /* Roofscapes RePowered — the map and the screen.
- * Buildings: OpenStreetMap (Overpass API), drawn in 3D with CesiumJS.
+ * 3D model and building data: Ajuntament de Barcelona open services (geo.bcn.cat), shown with the ArcGIS Maps SDK.
  * Sun and shade: our own calculation in solar.js.
  */
-(function () {
+require([
+  "esri/Map",
+  "esri/Basemap",
+  "esri/views/SceneView",
+  "esri/layers/SceneLayer",
+  "esri/layers/VectorTileLayer",
+  "esri/layers/OpenStreetMapLayer",
+  "esri/layers/GraphicsLayer",
+  "esri/Graphic",
+  "esri/widgets/Daylight",
+  "esri/widgets/ShadowCast",
+  "esri/widgets/Expand",
+], function (Map, Basemap, SceneView, SceneLayer, VectorTileLayer, OpenStreetMapLayer, GraphicsLayer, Graphic, Daylight, ShadowCast, Expand) {
   "use strict";
   const CFG = window.APP_CONFIG;
   const S = window.Solar;
@@ -14,29 +26,40 @@
     gracia: { lat: 41.4025, lng: 2.1567 },
     poblenou: { lat: 41.3995, lng: 2.1985 },
   };
-  const OVERPASS = [
-    "https://overpass-api.de/api/interpreter",
-    "https://overpass.kumi.systems/api/interpreter",
-    "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
-  ];
+  // Field names in the city's building layer (BCN_3DtoFeat).
+  const F = {
+    id: "objectid",
+    zMin: "edificacio_ajbcn_z_min_vol",
+    zMax: "edificacio_ajbcn_z_max_vol",
+    height: "bldgheight",
+    base: "baseelev",
+    roof: "roofform",
+    use: "uso_desc",
+    refcat: "edificacio_ajbcn_addspatialj_15",
+    deleg: "edificacio_ajbcn_addspatialjo_2",
+    muni: "edificacio_ajbcn_addspatialjo_3",
+    number: "edificacio_ajbcn_addspatialjo_9",
+    barri: "edificacio_ajbcn_barri",
+    district: "edificacio_ajbcn_districte",
+  };
+  const OUT_FIELDS = Object.values(F).join(",");
+  const SR = { wkid: 4326 };
 
-  const COL = {
-    bld: Cesium.Color.fromCssColorString("#d9d4cb"),
-    bldEst: Cesium.Color.fromCssColorString("#a59d90"),
-    sel: Cesium.Color.fromCssColorString("#e8930c"),
-    gotPart: Cesium.Color.fromCssColorString("#cde8c2"),
-    gotFull: Cesium.Color.fromCssColorString("#2f7d3a"),
-    panelLow: Cesium.Color.fromCssColorString("#3d4f63"),
-    panelMid: Cesium.Color.fromCssColorString("#f2a516"),
-    panelHigh: Cesium.Color.fromCssColorString("#ffe066"),
+  const COLORS = {
+    sel: [242, 165, 22],
+    gotPart: [205, 232, 194],
+    gotFull: [47, 125, 58],
+    panelLow: [61, 79, 99],
+    panelMid: [242, 165, 22],
+    panelHigh: [255, 224, 102],
   };
 
-  let viewer;
-  let area = null;        // { proj, buildings, index, sun, prim }
-  let panelPrim = null;
-  let ringEntity = null;
-  let colored = new Set(); // buildings whose colour was changed
-  let sel = null;          // { k, slots, roofArea }
+  let view, sceneLayer;
+  let area = null;          // { center, proj, buildings, index, sun }
+  let sel = null;           // { k, slots, roofArea, summary }
+  let panelGraphics = [];
+  const roofLayer = new GraphicsLayer({ elevationInfo: { mode: "absolute-height" }, title: "Results" });
+  const ringLayer = new GraphicsLayer({ elevationInfo: { mode: "on-the-ground" }, title: "2 km circle" });
 
   /* ---------- status ---------- */
   function setStatus(kind, text) {
@@ -46,308 +69,302 @@
   }
   const nextFrame = () => new Promise((r) => setTimeout(r, 30));
 
-  /* ---------- viewer ---------- */
-  function makeViewer() {
-    let baseLayer;
-    if (CFG.CESIUM_ION_TOKEN) {
-      Cesium.Ion.defaultAccessToken = CFG.CESIUM_ION_TOKEN;
-      baseLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(2));
-    } else {
-      baseLayer = new Cesium.ImageryLayer(new Cesium.OpenStreetMapImageryProvider({ url: "https://tile.openstreetmap.org/" }));
-    }
-    viewer = new Cesium.Viewer("map", {
-      baseLayer,
-      baseLayerPicker: false, geocoder: false, homeButton: false, sceneModePicker: false,
-      navigationHelpButton: false, animation: false, timeline: false, fullscreenButton: false,
-      infoBox: false, selectionIndicator: false,
-      shadows: true,
-      terrainShadows: Cesium.ShadowMode.RECEIVE_ONLY,
+  /* ---------- map ---------- */
+  function makeBasemap() {
+    const vt = new VectorTileLayer({ url: CFG.BASEMAP_STYLE });
+    const bm = new Basemap({ baseLayers: [vt], title: "Barcelona" });
+    vt.load().catch(() => {
+      console.warn("City basemap did not load; using OpenStreetMap.");
+      view.map.basemap = new Basemap({ baseLayers: [new OpenStreetMapLayer()], title: "OpenStreetMap" });
     });
-    viewer.scene.globe.depthTestAgainstTerrain = true;
-    viewer.scene.globe.enableLighting = true;
-    viewer.shadowMap.softShadows = true;
-    viewer.shadowMap.size = 2048;
-    viewer.shadowMap.maximumDistance = 2000;
-    viewer.clock.shouldAnimate = false;
-    viewer.scene.screenSpaceCameraController.minimumZoomDistance = 30;
-
-    const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
-    handler.setInputAction((e) => {
-      const picked = viewer.scene.pick(e.position);
-      if (Cesium.defined(picked) && typeof picked.id === "string" && picked.id[0] === "b") {
-        selectBuilding(Number(picked.id.slice(1)));
-      }
-    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    return bm;
   }
 
-  function lookAt(lat, lng, range, duration = 1.5, pitchDeg = -40) {
-    viewer.camera.flyToBoundingSphere(new Cesium.BoundingSphere(Cesium.Cartesian3.fromDegrees(lng, lat, 0), 1), {
-      offset: new Cesium.HeadingPitchRange(Cesium.Math.toRadians(20), Cesium.Math.toRadians(pitchDeg), range),
-      duration,
-    });
-  }
-
-  function viewCenter() {
-    const c = viewer.scene.canvas;
-    const hit = viewer.camera.pickEllipsoid(new Cesium.Cartesian2(c.clientWidth / 2, c.clientHeight / 2));
-    if (!hit) return null;
-    const carto = Cesium.Cartographic.fromCartesian(hit);
-    return { lat: Cesium.Math.toDegrees(carto.latitude), lng: Cesium.Math.toDegrees(carto.longitude) };
-  }
-
-  /* ---------- time of day (visual shadows) ---------- */
-  function updateClock() {
-    const m = Number($("day-select").value);
-    const hour = Number($("hour-range").value);
-    const tz = m >= 3 && m <= 9 ? 2 : 1; // Barcelona: CEST in summer, CET in winter
-    const hh = Math.floor(hour), mm = Math.round((hour - hh) * 60);
-    viewer.clock.currentTime = Cesium.JulianDate.fromDate(new Date(Date.UTC(2026, m, 21, hh - tz, mm)));
-    $("hour-out").textContent = `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}`;
-  }
-
-  /* ---------- OpenStreetMap buildings ---------- */
-  async function fetchOverpass(lat, lng, radius) {
-    const dLat = radius / 111320, dLng = radius / (111320 * Math.cos((lat * Math.PI) / 180));
-    const bb = `${(lat - dLat).toFixed(6)},${(lng - dLng).toFixed(6)},${(lat + dLat).toFixed(6)},${(lng + dLng).toFixed(6)}`;
-    const q = `[out:json][timeout:60];(way["building"](${bb});relation["building"]["type"="multipolygon"](${bb}););out geom;`;
-    let lastErr;
-    for (const url of OVERPASS) {
+  async function addSceneLayer(map) {
+    for (const url of CFG.SCENE_LAYERS) {
+      const layer = new SceneLayer({ url, popupEnabled: false, title: "Barcelona buildings" });
       try {
-        const res = await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: "data=" + encodeURIComponent(q),
-        });
-        if (!res.ok) throw new Error(`${res.status} from ${new URL(url).host}`);
-        return await res.json();
+        await layer.load();
+        const hField = (layer.fields || []).find((f) => /^bldgheight$/i.test(f.name));
+        layer.renderer = {
+          type: "simple",
+          symbol: {
+            type: "mesh-3d",
+            symbolLayers: [{
+              type: "fill",
+              material: { color: [214, 160, 145], colorMixMode: "replace" },
+              edges: { type: "solid", color: [70, 25, 20, 0.35], size: 0.4 },
+            }],
+          },
+          visualVariables: hField ? [{
+            type: "color",
+            field: hField.name,
+            stops: [
+              { value: 4, color: [241, 221, 213] },
+              { value: 18, color: [214, 140, 120] },
+              { value: 35, color: [160, 62, 48] },
+              { value: 60, color: [112, 30, 24] },
+            ],
+          }] : [],
+        };
+        map.add(layer, 0);
+        return layer;
       } catch (err) {
-        lastErr = err;
+        console.warn("3D layer did not load:", url, err);
       }
     }
-    throw new Error("Could not download buildings from OpenStreetMap (" + (lastErr && lastErr.message) + "). Try again in a minute.");
+    return null;
   }
 
-  function stitchOuter(members) {
-    const same = (a, b) => Math.abs(a[0] - b[0]) < 1e-9 && Math.abs(a[1] - b[1]) < 1e-9;
-    const segs = members
-      .filter((m) => m.type === "way" && m.role !== "inner" && m.geometry)
-      .map((m) => m.geometry.map((g) => [g.lon, g.lat]));
-    if (!segs.length) return null;
-    let ring = segs.shift();
-    let guard = 0;
-    while (!same(ring[0], ring[ring.length - 1]) && segs.length && guard++ < 500) {
-      const end = ring[ring.length - 1];
-      const k = segs.findIndex((s) => same(s[0], end) || same(s[s.length - 1], end));
-      if (k < 0) break;
-      let s = segs.splice(k, 1)[0];
-      if (!same(s[0], end)) s = s.slice().reverse();
-      ring = ring.concat(s.slice(1));
+  function goToPlace(p, zoom = 17) {
+    return view.goTo({ center: [p.lng, p.lat], zoom, tilt: 60, heading: 30 }, { duration: 1500 }).catch(() => {});
+  }
+
+  /* ---------- city building data (FeatureServer) ---------- */
+  async function query(params) {
+    const body = new URLSearchParams({
+      f: "json", where: "1=1", outFields: OUT_FIELDS, returnGeometry: "true",
+      multipatchOption: "xyFootprint", inSR: "4326", outSR: "4326", ...params,
+    });
+    let res;
+    try {
+      res = await fetch(CFG.BUILDINGS_FEATURE_LAYER + "/query", { method: "POST", body });
+    } catch (err) {
+      throw new Error("Could not reach the city's building data (geo.bcn.cat). Check the internet connection; if it keeps failing, the server may block requests from this address.");
     }
-    return same(ring[0], ring[ring.length - 1]) ? ring : null;
+    if (!res.ok) throw new Error(`City building data answered ${res.status}.`);
+    const json = await res.json();
+    if (json.error) throw new Error("City building data: " + (json.error.message || "error") + ".");
+    return json;
   }
 
-  function parseHeight(tags) {
-    const h = parseFloat(String(tags.height || "").replace(",", "."));
-    if (h > 2 && h < 300) return { height: h, source: "OSM height" };
-    const lv = parseFloat(tags["building:levels"]);
-    if (lv >= 1 && lv < 100) return { height: lv * CFG.FLOOR_HEIGHT_M, source: `OSM, ${lv} floors` };
-    return { height: CFG.DEFAULT_HEIGHT_M, source: "estimated" };
+  function queryAtPoint(lng, lat) {
+    return query({
+      geometry: JSON.stringify({ x: lng, y: lat, spatialReference: SR }),
+      geometryType: "esriGeometryPoint",
+      spatialRel: "esriSpatialRelIntersects",
+    });
   }
 
-  function parseBuildings(json, proj) {
+  async function queryArea(lng, lat, radius) {
+    const dLat = radius / 111320, dLng = radius / (111320 * Math.cos((lat * Math.PI) / 180));
+    const env = { xmin: lng - dLng, ymin: lat - dLat, xmax: lng + dLng, ymax: lat + dLat, spatialReference: SR };
+    const base = { geometry: JSON.stringify(env), geometryType: "esriGeometryEnvelope", spatialRel: "esriSpatialRelIntersects" };
+    const features = [];
+    let offset = 0;
+    for (let page = 0; page < 20; page++) {
+      let j;
+      try {
+        j = await query({ ...base, resultOffset: String(offset), resultRecordCount: "2000", orderByFields: F.id });
+      } catch (err) {
+        if (page === 0 && /pagina/i.test(err.message)) j = await query(base); // server without paging
+        else throw err;
+      }
+      const got = j.features || [];
+      features.push(...got);
+      setStatus("loading", `Loading neighbouring buildings… ${fmt(features.length)}`);
+      if (!j.exceededTransferLimit || !got.length) break;
+      offset += got.length;
+    }
+    return features;
+  }
+
+  function intensityFor(use) {
+    const u = String(use || "").toLowerCase();
+    const hit = CFG.DEMAND_BY_USE.find((d) => u.includes(d.match));
+    return hit ? hit.kwh : CFG.DEMAND_KWH_M2_YEAR;
+  }
+
+  // City features -> buildings for the solar engine (outer ring + courtyards; multi-part = several buildings).
+  function toBuildings(features, proj) {
     const out = [];
-    const seen = new Set();
-    for (const el of json.elements || []) {
-      const tags = el.tags || {};
-      if (!tags.building || tags.building === "roof" || tags.building === "no") continue;
-      let ring = null;
-      if (el.type === "way" && el.geometry) ring = el.geometry.map((g) => [g.lon, g.lat]);
-      else if (el.type === "relation" && el.members) ring = stitchOuter(el.members);
-      if (!ring) continue;
-      ring = S.cleanRing(ring);
-      if (!ring) continue;
-      const key = ring.map((p) => p[0].toFixed(6) + p[1].toFixed(6)).sort().join("");
-      if (seen.has(key)) continue;
-      seen.add(key);
-      const xy = ring.map(([lng, lat]) => proj.toXY(lng, lat));
-      const footprint = S.polygonArea(xy);
-      if (footprint < 8) continue;
-      const { height, source } = parseHeight(tags);
-      const b = { osm: `${el.type}/${el.id}`, ll: ring, xy, height, source, tags, footprint };
-      b.bbox = S.bbox(xy);
-      b.c = S.centroid(xy);
-      b.demand = S.buildingDemand(b, CFG);
-      out.push(b);
+    for (const f of features) {
+      const a = f.attributes || {}, g = f.geometry;
+      if (!g || !g.rings) continue;
+      const rings = g.rings.map((r) => S.cleanRing(r)).filter(Boolean)
+        .map((ll) => ({ ll, xy: ll.map(([lng, lat]) => proj.toXY(lng, lat)) }))
+        .sort((p, q) => S.polygonArea(q.xy) - S.polygonArea(p.xy));
+      const outers = [];
+      for (const r of rings) {
+        const host = outers.find((o) => S.pointInPolygon(r.xy[0][0], r.xy[0][1], o.xy));
+        if (host) host.holes.push(r);
+        else outers.push({ ...r, holes: [] });
+      }
+      const top = a[F.zMax] != null ? a[F.zMax] : (a[F.base] || 0) + (a[F.height] || 0);
+      const rel = a[F.height] != null ? a[F.height] : top - (a[F.zMin] || 0);
+      if (!(rel > 0.5)) continue;
+      for (const o of outers) {
+        const b = {
+          id: a[F.id], attrs: a, ll: o.ll, xy: o.xy,
+          holes: o.holes.map((h) => h.xy), holesLL: o.holes.map((h) => h.ll),
+          height: top, relHeight: rel,
+        };
+        b.bbox = S.bbox(b.xy);
+        b.c = S.centroid(b.xy);
+        b.footprint = S.footprintArea(b);
+        if (b.footprint < 4) continue;
+        b.floors = Math.max(1, Math.round(rel / CFG.FLOOR_HEIGHT_M));
+        b.intensity = intensityFor(a[F.use]);
+        b.demand = S.buildingDemand(b, CFG);
+        out.push(b);
+      }
     }
     return out;
   }
 
-  async function loadArea(center) {
-    const btn = $("load-btn");
-    btn.disabled = true;
-    setStatus("loading", "Downloading buildings from OpenStreetMap…");
+  async function loadArea(lng, lat) {
+    const features = await queryArea(lng, lat, CFG.LOAD_RADIUS_M);
+    const proj = S.makeProjection(lat, lng);
+    const buildings = toBuildings(features, proj);
+    area = { center: { lng, lat }, proj, buildings, index: S.buildIndex(buildings), sun: S.sunSamples(lat, lng) };
+  }
+
+  /* ---------- click -> building ---------- */
+  async function onClick(event) {
+    let pt = event.mapPoint;
     try {
-      const json = await fetchOverpass(center.lat, center.lng, CFG.LOAD_RADIUS_M);
-      const proj = S.makeProjection(center.lat, center.lng);
-      const buildings = parseBuildings(json, proj);
-      if (!buildings.length) throw new Error("No buildings found here. Move the map over the city and try again.");
-      clearSelection();
-      if (area && area.prim) viewer.scene.primitives.remove(area.prim);
-      area = {
-        center, proj, buildings,
-        index: S.buildIndex(buildings),
-        sun: S.sunSamples(center.lat, center.lng),
-        prim: drawBuildings(buildings),
-      };
-      const real = buildings.filter((b) => b.source !== "estimated").length;
-      setStatus("idle", `${fmt(buildings.length)} buildings loaded (${Math.round((100 * real) / buildings.length)}% with real height data). Click a roof.`);
+      const hit = await view.hitTest(event, sceneLayer ? { include: [sceneLayer] } : undefined);
+      const r = hit.results.find((x) => x.mapPoint);
+      if (r) pt = r.mapPoint;
+    } catch (_) { /* use the ground point */ }
+    if (!pt) return;
+    try {
+      await selectAt(pt.longitude, pt.latitude);
     } catch (err) {
       setStatus("error", err.message);
       console.error(err);
-    } finally {
-      btn.disabled = false;
     }
   }
 
-  function baseColor(b) {
-    return b.source === "estimated" ? COL.bldEst : COL.bld;
+  async function selectAt(lng, lat) {
+    setStatus("loading", "Finding the building…");
+    const j = await queryAtPoint(lng, lat);
+    const feats = (j.features || []).filter((f) => f.geometry);
+    if (!feats.length) { setStatus("idle", "No building at that point. Click on a roof."); return; }
+    const top = (f) => f.attributes[F.zMax] ?? 0;
+    const f = feats.reduce((a, b) => (top(b) > top(a) ? b : a));
+
+    const far = !area || Math.hypot(...area.proj.toXY(lng, lat)) > CFG.LOAD_RADIUS_M - 120;
+    if (far) {
+      setStatus("loading", "Loading neighbouring buildings…");
+      await loadArea(lng, lat);
+    }
+    const [px, py] = area.proj.toXY(lng, lat);
+    let k = area.buildings.findIndex((b) => b.id === f.attributes[F.id] && S.insideFootprint(px, py, b));
+    if (k < 0) k = area.buildings.findIndex((b) => b.id === f.attributes[F.id]);
+    if (k < 0) {
+      const extra = toBuildings([f], area.proj);
+      if (!extra.length) { setStatus("error", "This building has no usable outline in the city data."); return; }
+      area.buildings.push(...extra);
+      area.index = S.buildIndex(area.buildings);
+      k = area.buildings.length - extra.length;
+    }
+    await analyze(k);
   }
 
-  function drawBuildings(buildings) {
-    const instances = [];
-    buildings.forEach((b, i) => {
-      instances.push(new Cesium.GeometryInstance({
-        geometry: new Cesium.PolygonGeometry({
-          polygonHierarchy: new Cesium.PolygonHierarchy(Cesium.Cartesian3.fromDegreesArray(b.ll.flat())),
-          height: 0,
-          extrudedHeight: b.height,
-          vertexFormat: Cesium.PerInstanceColorAppearance.VERTEX_FORMAT,
-        }),
-        id: "b" + i,
-        attributes: { color: Cesium.ColorGeometryInstanceAttribute.fromColor(baseColor(b)) },
-      }));
-    });
-    return viewer.scene.primitives.add(new Cesium.Primitive({
-      geometryInstances: instances,
-      appearance: new Cesium.PerInstanceColorAppearance({ translucent: false, closed: true }),
-      shadows: Cesium.ShadowMode.ENABLED,
-    }));
-  }
-
-  function whenReady(prim, fn) {
-    if (prim.ready) return fn();
-    const remove = viewer.scene.postRender.addEventListener(() => {
-      if (prim.ready) { remove(); fn(); }
-    });
-  }
-
-  function setBuildingColor(i, color) {
-    const attr = area.prim.getGeometryInstanceAttributes("b" + i);
-    if (attr) attr.color = Cesium.ColorGeometryInstanceAttribute.toValue(color, attr.color);
-  }
-
-  /* ---------- selection ---------- */
-  function clearSelection() {
-    if (panelPrim) { viewer.scene.primitives.remove(panelPrim); panelPrim = null; }
-    if (ringEntity) { viewer.entities.remove(ringEntity); ringEntity = null; }
-    if (area && area.prim && area.prim.ready) colored.forEach((i) => setBuildingColor(i, baseColor(area.buildings[i])));
-    colored = new Set();
-    sel = null;
-    $("report").hidden = true;
-  }
-
-  async function selectBuilding(k) {
-    if (!area) return;
-    clearSelection();
+  /* ---------- analysis + drawing ---------- */
+  async function analyze(k) {
     const b = area.buildings[k];
     setStatus("loading", "Calculating sun and shade on the roof…");
     await nextFrame();
     const t0 = performance.now();
     const res = S.analyzeRoof(area.buildings, area.index, k, area.sun, CFG);
     sel = { k, ...res };
-    drawPanels();
-    drawRing(b);
+    drawSelection();
     updateResults();
     $("report").hidden = false;
-    const [lng, lat] = area.proj.toLngLat(b.c[0], b.c[1]);
-    lookAt(lat, lng, Math.max(160, Math.sqrt(b.footprint) * 6), 1.2, -50);
-    setStatus("idle", res.slots.length
-      ? `Roof calculated in ${fmt((performance.now() - t0) / 1000, 1)} s. Move the time bar to see the shadows.`
-      : "No panel fits on this roof after the edge setback. Try a bigger roof.");
+    const flat = !b.attrs[F.roof] || /flat/i.test(b.attrs[F.roof]);
+    setStatus("idle", (res.slots.length
+      ? `Calculated in ${fmt((performance.now() - t0) / 1000, 1)} s with ${fmt(area.buildings.length)} neighbouring buildings.`
+      : "No panel fits on this roof after the edge setback.") +
+      (flat ? "" : ` Roof form "${b.attrs[F.roof]}": panels are placed as if the roof were flat, so the result is approximate.`));
   }
 
-  function drawRing(b) {
-    const pts = [];
-    for (let a = 0; a <= 360; a += 3) {
-      const r = CFG.SHARE_RADIUS_M, t = (a * Math.PI) / 180;
-      const [lng, lat] = area.proj.toLngLat(b.c[0] + r * Math.sin(t), b.c[1] + r * Math.cos(t));
-      pts.push(lng, lat, 2);
-    }
-    ringEntity = viewer.entities.add({
-      polyline: {
-        positions: Cesium.Cartesian3.fromDegreesArrayHeights(pts),
-        width: 3,
-        material: new Cesium.PolylineDashMaterialProperty({ color: COL.sel }),
+  function ringToZ(ll, z) {
+    const r = ll.map(([lng, lat]) => [lng, lat, z]);
+    r.push(r[0]);
+    return r;
+  }
+
+  function slab(b, z, size, color) {
+    return new Graphic({
+      geometry: { type: "polygon", hasZ: true, spatialReference: SR, rings: [ringToZ(b.ll, z), ...(b.holesLL || []).map((h) => ringToZ(h, z))] },
+      symbol: {
+        type: "polygon-3d",
+        symbolLayers: [{ type: "extrude", size, material: { color }, edges: { type: "solid", color: [0, 0, 0, 0.25], size: 0.5 } }],
       },
     });
   }
 
+  function mix(a, b, t) { return a.map((v, i) => Math.round(v + (b[i] - v) * t)); }
   function panelColor(f) {
     const t = Math.min(1, Math.max(0, (f - 0.5) / 0.5));
-    return t < 0.6
-      ? Cesium.Color.lerp(COL.panelLow, COL.panelMid, t / 0.6, new Cesium.Color())
-      : Cesium.Color.lerp(COL.panelMid, COL.panelHigh, (t - 0.6) / 0.4, new Cesium.Color());
+    return t < 0.6 ? mix(COLORS.panelLow, COLORS.panelMid, t / 0.6) : mix(COLORS.panelMid, COLORS.panelHigh, (t - 0.6) / 0.4);
   }
 
-  function drawPanels() {
-    if (!sel.slots.length) return;
+  function drawSelection() {
+    roofLayer.removeAll();
+    ringLayer.removeAll();
     const b = area.buildings[sel.k];
-    const instances = sel.slots.map((s, j) => new Cesium.GeometryInstance({
-      geometry: new Cesium.PolygonGeometry({
-        polygonHierarchy: new Cesium.PolygonHierarchy(
-          Cesium.Cartesian3.fromDegreesArray(s.corners.flatMap(([x, y]) => area.proj.toLngLat(x, y)))),
-        height: b.height + 0.25,
-        extrudedHeight: b.height + 0.4,
-        vertexFormat: Cesium.PerInstanceColorAppearance.VERTEX_FORMAT,
-      }),
-      id: "p" + j,
-      attributes: {
-        color: Cesium.ColorGeometryInstanceAttribute.fromColor(panelColor(s.sunFactor)),
-        show: new Cesium.ShowGeometryInstanceAttribute(true),
+    roofLayer.add(slab(b, b.height + 0.02, 0.12, [...COLORS.sel, 0.9]));
+    panelGraphics = sel.slots.map((s) => new Graphic({
+      geometry: {
+        type: "polygon", hasZ: true, spatialReference: SR,
+        rings: [ringToZ(s.corners.map(([x, y]) => area.proj.toLngLat(x, y)), b.height + 0.3)],
       },
+      symbol: { type: "polygon-3d", symbolLayers: [{ type: "extrude", size: 0.12, material: { color: panelColor(s.sunFactor) } }] },
     }));
-    panelPrim = viewer.scene.primitives.add(new Cesium.Primitive({
-      geometryInstances: instances,
-      appearance: new Cesium.PerInstanceColorAppearance({ translucent: false, closed: true }),
-      shadows: Cesium.ShadowMode.DISABLED,
+    roofLayer.addMany(panelGraphics);
+
+    const path = [];
+    for (let a = 0; a <= 360; a += 3) {
+      const t = (a * Math.PI) / 180, r = CFG.SHARE_RADIUS_M;
+      path.push(area.proj.toLngLat(b.c[0] + r * Math.sin(t), b.c[1] + r * Math.cos(t)));
+    }
+    ringLayer.add(new Graphic({
+      geometry: { type: "polyline", paths: [path], spatialReference: SR },
+      symbol: { type: "line-3d", symbolLayers: [{ type: "line", size: 3, material: { color: COLORS.sel }, pattern: { type: "style", style: "dash" } }] },
     }));
+
+    const [lng, lat] = area.proj.toLngLat(b.c[0], b.c[1]);
+    view.goTo({ center: [lng, lat], zoom: 19, tilt: 55 }, { duration: 1200 }).catch(() => {});
   }
 
-  /* ---------- numbers + colours ---------- */
+  let neighbourGraphics = [];
+  function drawNeighbours(alloc) {
+    roofLayer.removeMany(neighbourGraphics);
+    neighbourGraphics = [];
+    alloc.forEach((v, i) => {
+      if (i === sel.k || v.received <= 0) return;
+      const b = area.buildings[i];
+      neighbourGraphics.push(slab(b, b.height + 0.05, 0.6, [...mix(COLORS.gotPart, COLORS.gotFull, Math.min(1, v.share)), 0.95]));
+    });
+    roofLayer.addMany(neighbourGraphics);
+  }
+
   function updateResults() {
     if (!sel) return;
     const min = Number($("sun-range").value) / 100;
     $("sun-out").textContent = `${Math.round(min * 100)}%`;
-    const b = area.buildings[sel.k];
+    const b = area.buildings[sel.k], a = b.attrs;
     const kept = sel.slots.filter((s) => s.sunFactor >= min);
+    sel.slots.forEach((s, j) => { if (panelGraphics[j]) panelGraphics[j].visible = s.sunFactor >= min; });
 
-    const prim = panelPrim;
-    if (prim) whenReady(prim, () => {
-      if (prim !== panelPrim) return;
-      sel.slots.forEach((s, j) => {
-        const a = prim.getGeometryInstanceAttributes("p" + j);
-        if (a) a.show = Cesium.ShowGeometryInstanceAttribute.toValue(s.sunFactor >= min, a.show);
-      });
-    });
-
-    const of = CFG.OBSTACLE_FACTOR;
     const panelArea = CFG.PANEL_LENGTH_M * CFG.PANEL_WIDTH_M;
-    const energy = kept.reduce((sum, s) => sum + S.panelYearKwh(s, CFG), 0) * of;
-    const panels = Math.round(kept.length * of);
-    const kwp = panels * panelArea * CFG.PANEL_EFFICIENCY; // 1 kW of sun per m² at test conditions
+    const energy = kept.reduce((sum, s) => sum + S.panelYearKwh(s, CFG), 0) * CFG.OBSTACLE_FACTOR;
+    const panels = Math.round(kept.length * CFG.OBSTACLE_FACTOR);
+    const kwp = panels * panelArea * CFG.PANEL_EFFICIENCY;
     const avgSun = kept.length ? kept.reduce((s, x) => s + x.sunFactor, 0) / kept.length : 0;
 
-    $("r-building").textContent = `${b.tags["addr:street"] ? b.tags["addr:street"] + " " + (b.tags["addr:housenumber"] || "") + " · " : ""}${fmt(b.height, 1)} m high (${b.source}) · OSM ${b.osm}`;
+    $("r-use").textContent = `${a[F.use] || "Use not given"} · roof: ${a[F.roof] || "unknown"}`;
+    $("r-building").textContent = `${fmt(b.relHeight, 1)} m high · about ${b.floors} floors · roof at ${fmt(b.height, 1)} m above sea level · city ID ${b.id}`;
+    const ref = a[F.refcat];
+    if (ref && ref.trim().length >= 14) {
+      const url = `https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaBienes.aspx?del=${a[F.deleg] || 8}&muni=${a[F.muni] || 900}&rc1=${ref.slice(0, 7)}&rc2=${ref.slice(7, 14)}`;
+      $("r-catastro").innerHTML = `Cadastral ref. ${ref} · <a href="${url}" target="_blank" rel="noopener">open in Catastro</a>`;
+    } else {
+      $("r-catastro").textContent = "";
+    }
     $("r-energy").textContent = fmt(energy);
     $("r-roof").textContent = `${fmt(sel.roofArea)} m²`;
     $("r-slots").textContent = fmt(sel.slots.length);
@@ -355,29 +372,17 @@
     $("r-parea").textContent = `${fmt(panels * panelArea)} m²`;
     $("r-kwp").textContent = `${fmt(kwp, 1)} kWp`;
     $("r-shade").textContent = kept.length ? `${fmt((1 - avgSun) * 100)}%` : "–";
-    $("r-own").textContent = `Covers ${fmt(Math.min(999, (100 * energy) / b.demand))}% of this building's own use (≈ ${fmt(b.demand)} kWh/yr, assumed).`;
+    $("r-own").textContent = `Covers ${fmt(Math.min(999, (100 * energy) / b.demand))}% of this building's own use (≈ ${fmt(b.demand)} kWh/yr at ${b.intensity} kWh/m², assumed).`;
 
     shareEnergy(energy);
     fillAssumptions();
-    sel.summary = { energy, panels, kwp, avgSun, minSun: min };
+    sel.summary = { energy_kwh_year: energy, panels, kwp, avg_sun_factor: avgSun, min_sun_kept: min };
   }
 
   function shareEnergy(energy) {
     const policy = $("policy-select").value;
     const alloc = S.allocate(area.buildings, sel.k, energy, CFG, policy);
-    const prim = area.prim;
-    whenReady(prim, () => {
-      colored.forEach((i) => setBuildingColor(i, baseColor(area.buildings[i])));
-      colored = new Set();
-      alloc.forEach((v, i) => {
-        if (i === sel.k || v.received <= 0) return;
-        setBuildingColor(i, Cesium.Color.lerp(COL.gotPart, COL.gotFull, Math.min(1, v.share), new Cesium.Color()));
-        colored.add(i);
-      });
-      setBuildingColor(sel.k, COL.sel);
-      colored.add(sel.k);
-    });
-
+    drawNeighbours(alloc);
     const own = alloc.get(sel.k);
     const others = [...alloc.entries()].filter(([i, v]) => i !== sel.k && v.received > 0);
     const full = others.filter(([, v]) => v.share >= 0.999).length;
@@ -386,7 +391,7 @@
     if (policy === "equal") {
       text = `Every building in the loaded area (${fmt(alloc.size)}) gets ${fmt((own ? own.share : 0) * 100, 2)}% of its yearly use.`;
     } else if (!others.length) {
-      text = `All the energy stays in this building: it uses more than the roof makes. Nothing is left for neighbours.`;
+      text = "All the energy stays in this building: it uses more than the roof makes. Nothing is left for neighbours.";
     } else {
       text = `${fmt(shared)} kWh/yr go to ${fmt(others.length)} neighbours: ${fmt(full)} fully supplied${others.length > full ? ", 1 partly" : ""}.`;
     }
@@ -395,12 +400,13 @@
 
   function fillAssumptions() {
     const items = [
+      `Buildings, heights, roof form and use: Ajuntament de Barcelona 3D model (BCN_3DtoFeat).`,
       `Sun: ${fmt(CFG.GHI_KWH_M2_YEAR)} kWh/m² per year on open flat ground, ${Math.round(CFG.DIFFUSE_FRACTION * 100)}% of it diffuse sky light.`,
       `Panels: ${CFG.PANEL_LENGTH_M} × ${CFG.PANEL_WIDTH_M} m, ${Math.round(CFG.PANEL_EFFICIENCY * 100)}% efficient, ${Math.round(CFG.PERFORMANCE_RATIO * 100)}% system performance, laid flat.`,
-      `${CFG.ROOF_SETBACK_M} m free strip along the roof edge; ${Math.round((1 - CFG.OBSTACLE_FACTOR) * 100)}% of slots lost to stairs, tanks and AC units (until the AI reads the roof).`,
-      `Demand: ${CFG.DEMAND_KWH_M2_YEAR} kWh per m² of floor per year; floors = height ÷ ${CFG.FLOOR_HEIGHT_M} m.`,
-      `Shade: neighbours from OpenStreetMap as flat-topped blocks; trees are not included. Buildings without height data are ${CFG.DEFAULT_HEIGHT_M} m.`,
-      `Sharing: yearly totals, inside the loaded area and the ${fmt(CFG.SHARE_RADIUS_M / 1000)} km circle. Hour-by-hour matching comes next.`,
+      `${CFG.ROOF_SETBACK_M} m free strip along roof edges and courtyards; ${Math.round((1 - CFG.OBSTACLE_FACTOR) * 100)}% of slots lost to stairs, tanks and AC units (until the AI reads the roof).`,
+      `Demand: floor area × kWh per m² by use (residential ${intensityFor("residencial")}, offices ${intensityFor("oficina")}, retail ${intensityFor("comercial")}…).`,
+      `Shade: neighbours as flat-topped blocks at their roof height; trees are not included.`,
+      `Sharing: yearly totals, buildings within ${fmt(CFG.LOAD_RADIUS_M)} m loaded (the circle shows the full ${fmt(CFG.SHARE_RADIUS_M / 1000)} km). Hour-by-hour matching comes next.`,
     ];
     $("r-assumptions").innerHTML = items.map((t) => `<li>${t}</li>`).join("");
   }
@@ -410,7 +416,8 @@
     const b = area.buildings[sel.k];
     const [lng, lat] = area.proj.toLngLat(b.c[0], b.c[1]);
     const data = {
-      building: { osm: b.osm, lat, lng, height_m: b.height, height_source: b.source, footprint_m2: b.footprint, demand_kwh_year: b.demand, tags: b.tags },
+      source: "Ajuntament de Barcelona, BCN_3DtoFeat",
+      building: { city_id: b.id, lat, lng, height_m: b.relHeight, roof_m_asl: b.height, floors: b.floors, footprint_m2: b.footprint, demand_kwh_year: b.demand, attributes: b.attrs },
       result: { roof_area_m2: sel.roofArea, panel_slots: sel.slots.length, ...sel.summary },
       panels: sel.slots.map((s) => {
         const [plng, plat] = area.proj.toLngLat(s.cx, s.cy);
@@ -419,43 +426,50 @@
       assumptions: CFG,
     };
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = `roof_${b.osm.replace("/", "_")}.json`;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `roof_${b.id}.json`;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(link.href), 1000);
   }
 
   /* ---------- start ---------- */
   async function main() {
-    try {
-      makeViewer();
-    } catch (err) {
-      setStatus("error", "The 3D map could not start. This browser may not support WebGL.");
-      console.error(err);
-      return;
-    }
-    updateClock();
-    $("day-select").addEventListener("change", updateClock);
-    $("hour-range").addEventListener("input", updateClock);
+    const map = new Map({ basemap: makeBasemap(), ground: "world-elevation" });
+    view = new SceneView({
+      container: "map",
+      map,
+      qualityProfile: "high",
+      popupEnabled: false,
+      environment: {
+        lighting: { type: "sun", date: new Date(Date.UTC(2026, 5, 21, 8, 0)), directShadowsEnabled: true },
+        atmosphereEnabled: true,
+      },
+      camera: { position: { longitude: 2.1598, latitude: 41.3858, z: 650 }, heading: 30, tilt: 60 },
+    });
+    map.addMany([roofLayer, ringLayer]);
+
+    view.ui.add(new Expand({ view, content: new Daylight({ view, dateOrSeason: "date" }), expandTooltip: "Sun and shadows", expanded: window.innerWidth > 900 }), "bottom-left");
+    view.ui.add(new Expand({ view, content: new ShadowCast({ view }), expandTooltip: "Hours of shadow" }), "bottom-left");
+
     $("sun-range").addEventListener("input", updateResults);
     $("policy-select").addEventListener("change", updateResults);
     $("save-btn").addEventListener("click", saveJson);
-    $("load-btn").addEventListener("click", () => {
-      const c = viewCenter();
-      if (c) loadArea(c);
-      else setStatus("error", "Tilt the map down so the centre of the screen shows the city, then try again.");
-    });
     document.querySelectorAll("[data-place]").forEach((btn) =>
-      btn.addEventListener("click", () => {
-        const p = PLACES[btn.dataset.place];
-        lookAt(p.lat, p.lng, 1100);
-        setTimeout(() => loadArea(p), 300);
-      }));
+      btn.addEventListener("click", () => goToPlace(PLACES[btn.dataset.place])));
 
-    lookAt(PLACES.eixample.lat, PLACES.eixample.lng, 1100, 0);
-    loadArea(PLACES.eixample);
+    try {
+      await view.when();
+    } catch (err) {
+      setStatus("error", "The 3D map could not start. This browser may not support WebGL2.");
+      console.error(err);
+      return;
+    }
+    sceneLayer = await addSceneLayer(map);
+    if (!sceneLayer) setStatus("error", "The city's 3D model did not load. The calculation still works: click where a building is.");
+    else setStatus("idle", "Click any roof to calculate its solar potential.");
+    view.on("click", onClick);
   }
 
   main();
-})();
+});

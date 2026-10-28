@@ -98,6 +98,19 @@
     return { cell, map, maxH };
   }
 
+  // Inside the footprint and not inside a courtyard (hole).
+  function insideFootprint(x, y, b) {
+    if (!pointInPolygon(x, y, b.xy)) return false;
+    if (b.holes) for (const h of b.holes) if (pointInPolygon(x, y, h)) return false;
+    return true;
+  }
+
+  function footprintArea(b) {
+    let a = polygonArea(b.xy);
+    if (b.holes) for (const h of b.holes) a -= polygonArea(h);
+    return Math.max(0, a);
+  }
+
   function heightAbove(index, buildings, x, y, z) {
     // tallest building at (x, y) that is higher than z; 0 if none
     const list = index.map.get(Math.floor(x / index.cell) + "," + Math.floor(y / index.cell));
@@ -108,7 +121,7 @@
       if (b.height <= z || b.height <= h) continue;
       const [x0, y0, x1, y1] = b.bbox;
       if (x < x0 || x > x1 || y < y0 || y > y1) continue;
-      if (pointInPolygon(x, y, b.xy)) h = b.height;
+      if (insideFootprint(x, y, b)) h = b.height;
     }
     return h;
   }
@@ -211,7 +224,9 @@
     for (let u = u0 + cfg.ROOF_SETBACK_M; u + L <= u1 - cfg.ROOF_SETBACK_M + 1e-6; u += L + gap) {
       for (let v = v0 + cfg.ROOF_SETBACK_M; v + W <= v1 - cfg.ROOF_SETBACK_M + 1e-6; v += W + gap) {
         const corners = [toXY(u, v), toXY(u + L, v), toXY(u + L, v + W), toXY(u, v + W)];
-        const ok = corners.every(([x, y]) => pointInPolygon(x, y, p) && minEdgeDistance(x, y, p) >= cfg.ROOF_SETBACK_M - 1e-6);
+        const rings = [p, ...(b.holes || [])];
+        const ok = corners.every(([x, y]) =>
+          insideFootprint(x, y, b) && rings.every((r) => minEdgeDistance(x, y, r) >= cfg.ROOF_SETBACK_M - 1e-6));
         if (!ok) continue;
         const [cx, cy] = toXY(u + L / 2, v + W / 2);
         slots.push({ corners, cx, cy });
@@ -234,7 +249,7 @@
       sl.sunFactor = (1 - kd) * sl.direct + kd * sl.sky;  // 1 = no shade at all
       sl.kwhM2 = cfg.GHI_KWH_M2_YEAR * sl.sunFactor;      // yearly sun on the panel, kWh/m²
     }
-    return { slots, roofArea: polygonArea(b.xy) };
+    return { slots, roofArea: footprintArea(b) };
   }
 
   /* ---------- energy and demand ---------- */
@@ -242,9 +257,10 @@
     return slot.kwhM2 * cfg.PANEL_LENGTH_M * cfg.PANEL_WIDTH_M * cfg.PANEL_EFFICIENCY * cfg.PERFORMANCE_RATIO;
   }
 
+  // Yearly electricity use: floor area × intensity. b.floors / b.intensity can be set from city data.
   function buildingDemand(b, cfg) {
-    const floors = Math.max(1, Math.round(b.height / cfg.FLOOR_HEIGHT_M));
-    return polygonArea(b.xy) * floors * cfg.DEMAND_KWH_M2_YEAR;
+    const floors = b.floors || Math.max(1, Math.round(b.height / cfg.FLOOR_HEIGHT_M));
+    return footprintArea(b) * floors * (b.intensity || cfg.DEMAND_KWH_M2_YEAR);
   }
 
   // Who gets the energy. Returns Map(buildingIndex -> {received, demand, share}).
@@ -275,7 +291,7 @@
   }
 
   const api = {
-    makeProjection, polygonArea, centroid, pointInPolygon, bbox, cleanRing, buildIndex,
+    makeProjection, polygonArea, footprintArea, insideFootprint, centroid, pointInPolygon, bbox, cleanRing, buildIndex,
     sunPosition, sunSamples, isShaded, skyView, panelSlots, analyzeRoof, panelYearKwh, buildingDemand, allocate,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
