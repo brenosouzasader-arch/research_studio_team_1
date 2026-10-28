@@ -7,8 +7,9 @@ Without --model it uses LiDAR rules only (the baseline). With a trained model
 it also reads the orthophoto, and an area counts as an obstacle if either the
 LiDAR or the model says so (the safe choice for panel layout).
 
-Writes <out>.json (numbers), <out>_usable.geojson (usable area, EPSG:25831)
-and <out>_preview.png (photo with the reading on top).
+Writes <out>.json (numbers), <out>_usable.geojson (usable area, EPSG:25831),
+<out>_preview.png (photo with the reading on top), <out>_photo.png (the plain
+roof photo) and <out>_height.png (LiDAR height above the main roof level).
 """
 import argparse
 import json
@@ -16,6 +17,7 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image
+from scipy import ndimage
 from shapely.geometry import mapping
 
 from step1.find_building import find_building
@@ -90,12 +92,36 @@ def lidar_only(lroof):
     return summary, lroof.usable, None, lroof.grid
 
 
-def preview(rgb, classes, roof, path, alpha=0.45):
+USABLE_COLOR = (255, 230, 0)   # yellow outline: where panels fit
+# height colours from 1 m below to 5 m above the main roof: blue, green, yellow, red
+HEIGHT_STOPS = np.array([-1.0, 0.0, 1.0, 2.5, 5.0])
+HEIGHT_COLORS = np.array([(40, 70, 160), (60, 180, 75), (180, 210, 60), (250, 200, 40), (215, 40, 40)])
+
+
+def _edge(mask):
+    return mask & ~ndimage.binary_erosion(mask)
+
+
+def preview(rgb, classes, roof, usable, path, alpha=0.45):
+    """Photo + class colours on the roof, roof outline in white, usable area outlined in yellow."""
     overlay = classes_to_colors(classes).astype(np.float32)
     base = rgb.astype(np.float32) if rgb is not None else np.full(overlay.shape, 128.0)
     out = base.copy()
     out[roof] = (1 - alpha) * base[roof] + alpha * overlay[roof]
+    out[_edge(roof)] = 255
+    out[_edge(usable)] = USABLE_COLOR
     Image.fromarray(out.clip(0, 255).astype(np.uint8)).save(path)
+
+
+def height_image(height, roof, path):
+    """LiDAR height above the main roof level as colours; outside the roof is grey."""
+    out = np.full(height.shape + (3,), 200, dtype=np.float32)
+    ok = roof & np.isfinite(height)
+    h = np.clip(height[ok], HEIGHT_STOPS[0], HEIGHT_STOPS[-1])
+    for ch in range(3):
+        out[..., ch][ok] = np.interp(h, HEIGHT_STOPS, HEIGHT_COLORS[:, ch])
+    out[_edge(roof)] = 0
+    Image.fromarray(out.astype(np.uint8)).save(path)
 
 
 def read_roof(laz_dir, address=None, lat=None, lon=None, model_path=None, out="roof"):
@@ -142,7 +168,12 @@ def read_roof(laz_dir, address=None, lat=None, lon=None, model_path=None, out="r
           "features": [] if poly is None else [{"type": "Feature", "geometry": mapping(poly),
                                                "properties": {"usable_area_m2": summary["usable_area_m2"]}}]}
     Path(f"{out}_usable.geojson").write_text(json.dumps(fc), encoding="utf-8")
-    preview(rgb, classes, upsample(lroof.roof, FACTOR), f"{out}_preview.png")
+    roof_fine = upsample(lroof.roof, FACTOR)
+    usable_fine = usable if usable.shape == roof_fine.shape else upsample(usable, FACTOR)
+    preview(rgb, classes, roof_fine, usable_fine, f"{out}_preview.png")
+    if rgb is not None:
+        Image.fromarray(rgb).save(f"{out}_photo.png")
+    height_image(upsample(height_above_roof(lroof), FACTOR), roof_fine, f"{out}_height.png")
     return result
 
 

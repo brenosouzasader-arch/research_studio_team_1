@@ -1,22 +1,106 @@
 {
-  "query": "Carrer de Roger de Ll\u00faria 56, Barcelona",
-  "lat": 41.39305916,
-  "lon": 2.16913541,
-  "geocoder": "ICGC",
-  "refcat": "0629625DF3802H",
-  "catastro_address": "CL ROGER DE LLURIA 56 BARCELONA (BARCELONA)",
-  "building_id": "0629625DF3802H",
-  "year_built": 1900,
-  "current_use": "1_residential",
-  "dwellings": 10,
-  "building_height_m": 18.0,
-  "height_source": "estimate (3 m per Catastro floor)",
-  "footprint_area_m2": 502.6,
-  "footprint_wkt": "POLYGON ((430537.82 4582731.82, 430539.55 4582733.88, 430540.02 4582734.44, 430543.22 4582738.25, 430543.38 4582738.44, 430545.85 4582741.39, 430546.76 4582742.47, 430549.51 4582745.75, 430551.5 4582748.12, 430557.51 4582755.28, 430559.07 4582757.13, 430569.69 4582746.16, 430561.42 4582738.02, 430555.15 4582731.84, 430552.23 4582728.97, 430542.51 4582719.39, 430534.39 4582727.73, 430536.3 4582730.01, 430537.82 4582731.82), (430560.83 4582738.72, 430561.48 4582739.29, 430552.77 4582748.1, 430552.15 4582747.42, 430560.83 4582738.72))",
-  "lidar_tiles": [],
-  "roof": null,
-  "flat_roof": null,
-  "heritage_protected": null,
-  "heritage_details": null,
-  "warnings": []
+  "building": {
+    "refcat": "0629625DF3802H",
+    "address": "CL ROGER DE LLURIA 56 BARCELONA (BARCELONA)",
+    "query": "Carrer de Roger de Ll\u00faria 56, Barcelona",
+    "year_built": 1900,
+    "dwellings": 10
+  },
+  "roof": {
+    "method": "lidar only",
+    "usable_area_m2": 201.2,
+    "free_area_m2": 335.0,
+    "obstacle_area_m2": 153.2,
+    "existing_panels_m2": null,
+    "confidence": "medium"
+  },
+  "lidar": {
+    "roof_area_m2": 503.5,
+    "lidar_coverage": 0.97,
+    "surfaces": [
+      {
+        "height_m": 47.73,
+        "area_m2": 228.5
+      },
+      {
+        "height_m": 30.19,
+        "area_m2": 50.5
+      },
+      {
+        "height_m": 30.33,
+        "area_m2": 34.5
+      },
+      {
+        "height_m": 49.89,
+        "area_m2": 21.5
+      }
+    ],
+    "obstacles": [
+      {
+        "area_m2": 66.5,
+        "height_m": 20.99,
+        "x": 430559.41,
+        "y": 4582747.08
+      },
+      {
+        "area_m2": 45.0,
+        "height_m": 5.35,
+        "x": 430544.41,
+        "y": 4582731.5
+      },
+      {
+        "area_m2": 25.5,
+        "height_m": 3.24,
+        "x": 430542.76,
+        "y": 4582724.2
+      },
+      {
+        "area_m2": 8.5,
+        "height_m": 1.39,
+        "x": 430545.68,
+        "y": 4582739.72
+      },
+      {
+        "area_m2": 2.75,
+        "height_m": 2.41,
+        "x": 430568.02,
+        "y": 4582746.66
+      },
+      {
+        "area_m2": 1.75,
+        "height_m": 2.35,
+        "x": 430555.39,
+        "y": 4582741.96
+      },
+      {
+        "area_m2": 0.75,
+        "height_m": 5.68,
+        "x": 430548.92,
+        "y": 4582744.75
+      },
+      {
+        "area_m2": 0.5,
+        "height_m": 1.84,
+        "x": 430554.75,
+        "y": 4582736.0
+      },
+      {
+        "area_m2": 0.5,
+        "height_m": 1.22,
+        "x": 430552.5,
+        "y": 4582731.5
+      },
+      {
+        "area_m2": 0.5,
+        "height_m": 5.26,
+        "x": 430537.0,
+        "y": 4582730.5
+      }
+    ],
+    "obstacle_area_m2": 153.2,
+    "noise_area_m2": 1.0,
+    "free_area_m2": 335.0,
+    "usable_area_m2": 201.2
+  },
+  "photo_error": null
 }

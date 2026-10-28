@@ -9,7 +9,7 @@ It works in two layers:
 | LiDAR rules (no AI) | Roof levels, and anything that sticks out: stair housings, lift rooms, tanks, AC units, parapets | Groups 0.5 m cells whose heights differ by at most 0.15 m into surfaces (after Awrangjeb & Fraser 2014). Surfaces of 20 m² or more are usable; everything else is an obstacle |
 | AI photo model | What LiDAR misses: skylights, small units, **existing solar panels** | U-Net (ResNet-34 encoder) on the ICGC orthophoto + LiDAR height, 0.1 m pixels, trained on our labelled roofs |
 
-Usable area = free surface, minus 1 m along the roof edge and 0.5 m around each obstacle. With the model, an area is an obstacle if **either** LiDAR or the model says so.
+Usable area = free surface, minus 1 m along the roof edge and 0.5 m around each obstacle, keeping only pieces at least 1 m wide and 2 m² in area (room for one panel). With the model, an area is an obstacle if **either** LiDAR or the model says so.
 
 ## Setup
 
@@ -29,7 +29,13 @@ Download the ICGC LiDAR tile (LAZ) that covers the building into `data\lidar`, t
 python -m step2.read_roof "Carrer de Roger de Llúria 56, Barcelona" --laz-dir data\lidar --out lluria56
 ```
 
-Outputs: `lluria56.json` (numbers), `lluria56_usable.geojson` (drag into QGIS) and `lluria56_preview.png` (photo with green = free, red = obstacle).
+Outputs:
+
+- `lluria56.json`: the numbers
+- `lluria56_preview.png`: photo with green = free, red = obstacle, white = roof outline, yellow = where panels fit
+- `lluria56_photo.png`: the plain roof photo
+- `lluria56_height.png`: height above the main roof, green = roof level, yellow = about 1 to 2.5 m (parapets, AC units), orange to red = 2.5 m and up (stair housings, lift rooms), blue = lower than the main roof
+- `lluria56_usable.geojson`: the usable area, to drag into QGIS
 
 ## 2. Make training chips and label them
 
