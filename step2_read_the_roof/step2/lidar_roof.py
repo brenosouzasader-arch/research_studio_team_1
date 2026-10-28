@@ -19,7 +19,9 @@ LiDAR misses objects under about 0.5 m2 and things that barely stick out
 """
 from dataclasses import dataclass, field
 
+import laspy
 import numpy as np
+import shapely
 from scipy import ndimage
 from scipy.sparse import coo_matrix
 from scipy.sparse.csgraph import connected_components
@@ -28,6 +30,9 @@ from step1 import lidar as step1_lidar
 
 from .grid import Grid
 
+# ICGC classes: 6 = building, 77 = "other building" (structures above the roof,
+# e.g. stair housings and tanks). Both belong to the roof reading.
+ROOF_CLASSES = (6, 77)
 GRID_RES = 0.5            # metres per LiDAR cell
 FLAT_SLOPE_DEG = 10.0     # surfaces steeper than this overall are ramps or pitched parts
 HEIGHT_TOL = 0.15         # max height step between neighbours in one surface
@@ -35,6 +40,8 @@ MIN_SURFACE_M2 = 20.0     # smaller raised flat areas (stair housing tops) count
 MIN_OBSTACLE_M2 = 0.5     # smaller blobs are listed as noise, but still not usable
 EDGE_SETBACK_M = 1.0      # keep panels this far from the roof edge
 OBSTACLE_CLEARANCE_M = 0.5
+PANEL_WIDTH_M = 1.0       # usable strips narrower than a panel are dropped
+MIN_PATCH_M2 = 2.0        # usable pieces smaller than one panel are dropped
 
 
 @dataclass
@@ -149,16 +156,40 @@ def read_roof_lidar(footprint, points, res=GRID_RES):
 
 def usable_mask(roof, free, obstacle, res,
                 edge_setback=EDGE_SETBACK_M, clearance=OBSTACLE_CLEARANCE_M):
-    """Free cells at least edge_setback from the roof edge and clearance from obstacles."""
+    """Free cells at least edge_setback from the roof edge and clearance from obstacles,
+    keeping only pieces where a panel actually fits (at least PANEL_WIDTH_M wide
+    and MIN_PATCH_M2 in area)."""
     # distance from a cell centre to the nearest outside / obstacle cell, minus half a cell
     to_edge = (ndimage.distance_transform_edt(roof) - 0.5) * res
     to_obstacle = (ndimage.distance_transform_edt(~obstacle) - 0.5) * res if obstacle.any() \
         else np.full(roof.shape, np.inf)
-    return free & roof & (to_edge > edge_setback) & (to_obstacle > clearance)
+    usable = free & roof & (to_edge > edge_setback) & (to_obstacle > clearance)
+    k = max(1, int(np.ceil(PANEL_WIDTH_M / res)))
+    usable = ndimage.binary_opening(usable, structure=np.ones((k, k)))
+    pieces, n = ndimage.label(usable)
+    if n:
+        sizes = ndimage.sum(usable, pieces, index=np.arange(1, n + 1)) * res * res
+        usable &= np.isin(pieces, np.flatnonzero(sizes >= MIN_PATCH_M2) + 1)
+    return usable
+
+
+def roof_points(footprint, tiles, classes=ROOF_CLASSES):
+    """Points of the given classes inside the footprint, as N x 3 (x, y, z)."""
+    chunks = []
+    minx, miny, maxx, maxy = footprint.bounds
+    for path in tiles:
+        las = laspy.read(path)
+        x, y, z = np.asarray(las.x), np.asarray(las.y), np.asarray(las.z)
+        keep = np.isin(np.asarray(las.classification), classes)
+        keep &= (x >= minx) & (x <= maxx) & (y >= miny) & (y <= maxy)
+        x, y, z = x[keep], y[keep], z[keep]
+        inside = shapely.contains_xy(footprint, x, y)
+        chunks.append(np.column_stack([x[inside], y[inside], z[inside]]))
+    return np.vstack(chunks) if chunks else np.empty((0, 3))
 
 
 def read_roof_from_tiles(footprint, laz_dir):
     tiles = step1_lidar.find_tiles(footprint, laz_dir)
     if not tiles:
         return None
-    return read_roof_lidar(footprint, step1_lidar.roof_points(footprint, tiles))
+    return read_roof_lidar(footprint, roof_points(footprint, tiles))

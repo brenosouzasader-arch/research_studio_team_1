@@ -1,0 +1,6 @@
+# step 2, LiDAR part (on top of requirements.txt)
+scipy
+pillow
+# step 2, AI part: only needed to train or use the model
+torch
+segmentation-models-pytorch

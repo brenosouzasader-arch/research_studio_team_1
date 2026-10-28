@@ -31,12 +31,13 @@ def _points():
 
 
 def _write_las(path, x, y, z, cls=6):
-    header = laspy.LasHeader(point_format=3, version="1.4")
+    cls = np.broadcast_to(np.asarray(cls, dtype=np.uint8), x.shape)
+    header = laspy.LasHeader(point_format=6, version="1.4")  # format 6 allows class 77
     header.offsets = [x.min(), y.min(), z.min()]
     header.scales = [0.01, 0.01, 0.01]
     las = laspy.LasData(header)
     las.x, las.y, las.z = x, y, z
-    las.classification = np.full(len(x), cls, dtype=np.uint8)
+    las.classification = cls
     las.write(path)
 
 
@@ -46,8 +47,12 @@ class _Record:
 
 @pytest.fixture
 def offline(tmp_path, monkeypatch):
-    """A LiDAR tile on disk; Catastro and the orthophoto replaced by stand-ins."""
-    _write_las(tmp_path / "tile.laz", *_points())
+    """A LiDAR tile on disk; Catastro and the orthophoto replaced by stand-ins.
+
+    The stair housing is class 77 ("other building"), as ICGC labels rooftop structures.
+    """
+    x, y, z = _points()
+    _write_las(tmp_path / "tile.laz", x, y, z, np.where(z > 26, 77, 6))
     for mod in (dataset, read_roof):
         monkeypatch.setattr(mod, "find_building", lambda *a, **k: (_Record(), FP))
     grey = lambda grid: np.full((grid.height, grid.width, 3), 120, dtype=np.uint8)  # noqa: E731
@@ -113,8 +118,11 @@ def test_make_chip_and_train_and_read_roof(offline, monkeypatch):
     base = str(offline / "roof")
     res = read_roof.read_roof(offline, address="Test", out=base)
     assert res["roof"]["method"] == "lidar only" and res["roof"]["usable_area_m2"] > 150
+    assert json.loads(open(base + "_usable.geojson").read())["features"]
+    # a 1-epoch model is still random, so its usable area may be empty: only check it runs
     res = read_roof.read_roof(offline, address="Test", model_path=out, out=base)
     assert res["roof"]["method"] == "lidar + ai"
     assert res["roof"]["obstacle_area_m2"] >= 9
     assert Image.open(base + "_preview.png").size == (Image.open(chips / f"{cid}_rgb.png").size)
-    assert json.loads(open(base + "_usable.geojson").read())["features"]
+    for name in ("_photo.png", "_height.png"):
+        assert Image.open(base + name).size == Image.open(base + "_preview.png").size

@@ -1,0 +1,14 @@
+.venv/
+data/
+models/
+__pycache__/
+*.laz
+*.las
+lluria56*
+.venv/
+data/
+models/
+__pycache__/
+*.laz
+*.las
+lluria56*
