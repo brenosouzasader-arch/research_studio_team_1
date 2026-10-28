@@ -69,6 +69,16 @@ python -m step2.read_roof "Carrer de Roger de Llúria 56, Barcelona" --laz-dir d
 
 The JSON then also has `existing_panels_m2`, `seen_only_by_ai_m2` (what the AI added over LiDAR), `model_certainty`, and `confidence` (high, medium or low).
 
+## 5. Show the roof on the 3D map (Roofscapes RePowered)
+
+Add `--web` with the map folder, and the reading is sent to Daria's 3D map:
+
+```
+python -m step2.read_roof "Carrer de Roger de Llúria 56, Barcelona" --laz-dir data\lidar --out lluria56 --web ..\..\roofscapes-repowered
+```
+
+For a roof you already read: `python -m step2.export_web lluria56 --web ..\..\roofscapes-repowered`. Clicking that building on the map then places panels only on the usable area.
+
 ## Known gaps: check these first
 
 - **Orthophoto service not yet tested live.** It was written without access to ICGC from the workspace. If the photo fails, run `python -m step2.ortho --layers` and set `ORTHO_LAYER` in `step2/ortho.py` to the current colour orthophoto layer.
@@ -85,5 +95,6 @@ step2/dataset.py     training chips + LiDAR pre-labels
 step2/model.py       U-Net, classes and colours, prediction
 step2/train.py       training with a block split, IoU scores
 step2/read_roof.py   the step 2 command: address -> roof reading
+step2/export_web.py  sends a reading to the Roofscapes RePowered map (roofs/<refcat>.json)
 tests/test_step2_*.py offline tests
 ```

@@ -22,6 +22,7 @@ require([
   const fmt = (n, d = 0) => Number(n).toLocaleString("en-US", { maximumFractionDigits: d, minimumFractionDigits: d });
 
   const PLACES = {
+    focus: { lat: 41.3928, lng: 2.1684 }, // our 9 blocks: Passeig de Gràcia to Bruc, Aragó to Gran Via
     eixample: { lat: 41.3917, lng: 2.1649 },
     gracia: { lat: 41.4025, lng: 2.1567 },
     poblenou: { lat: 41.3995, lng: 2.1985 },
@@ -52,11 +53,12 @@ require([
     panelLow: [61, 79, 99],
     panelMid: [242, 165, 22],
     panelHigh: [255, 224, 102],
+    usable: [255, 230, 0],
   };
 
   let view, sceneLayer;
   let area = null;          // { center, proj, buildings, index, sun }
-  let sel = null;           // { k, slots, roofArea, summary }
+  let sel = null;           // { k, slots, roofArea, reading, summary }
   let panelGraphics = [];
   const roofLayer = new GraphicsLayer({ elevationInfo: { mode: "absolute-height" }, title: "Results" });
   const ringLayer = new GraphicsLayer({ elevationInfo: { mode: "on-the-ground" }, title: "2 km circle" });
@@ -236,10 +238,43 @@ require([
     }
   }
 
-  async function selectAt(lng, lat) {
+  // Buildings within `radius` metres of a point (an address point often falls on the facade or the street).
+  function queryNear(lng, lat, radius) {
+    return query({
+      geometry: JSON.stringify({ x: lng, y: lat, spatialReference: SR }),
+      geometryType: "esriGeometryPoint",
+      spatialRel: "esriSpatialRelIntersects",
+      distance: String(radius), units: "esriSRUnit_Meter",
+    });
+  }
+
+  // The feature whose outline is closest to the point.
+  function nearestFeature(feats, lng, lat) {
+    const proj = S.makeProjection(lat, lng);
+    let best = null, bestD = Infinity;
+    for (const f of feats) {
+      for (const r of f.geometry.rings || []) {
+        const xy = r.map(([x, y]) => proj.toXY(x, y));
+        const d = S.pointInPolygon(0, 0, xy) ? 0 : Math.min(...xy.map(([x, y]) => Math.hypot(x, y)));
+        if (d < bestD) { bestD = d; best = f; }
+      }
+    }
+    return best;
+  }
+
+  async function selectAt(lng, lat, nearby = 0) {
     setStatus("loading", "Finding the building…");
     const j = await queryAtPoint(lng, lat);
-    const feats = (j.features || []).filter((f) => f.geometry);
+    let feats = (j.features || []).filter((f) => f.geometry);
+    if (!feats.length && nearby) {
+      const near = ((await queryNear(lng, lat, nearby)).features || []).filter((f) => f.geometry);
+      const f = nearestFeature(near, lng, lat);
+      if (f) {
+        feats = [f];
+        const [x, y] = S.centroid(f.geometry.rings[0].map(([a, b]) => S.makeProjection(lat, lng).toXY(a, b)));
+        [lng, lat] = S.makeProjection(lat, lng).toLngLat(x, y);
+      }
+    }
     if (!feats.length) { setStatus("idle", "No building at that point. Click on a roof."); return; }
     const top = (f) => f.attributes[F.zMax] ?? 0;
     const f = feats.reduce((a, b) => (top(b) > top(a) ? b : a));
@@ -262,21 +297,98 @@ require([
     await analyze(k);
   }
 
+  /* ---------- address search ---------- */
+  async function geocode(text) {
+    const q = /barcelona/i.test(text) ? text : `${text}, Barcelona`;
+    const icgc = await getJson(`https://eines.icgc.cat/geocodificador/cerca?size=1&text=${encodeURIComponent(q)}`);
+    const f = icgc && icgc.features && icgc.features[0];
+    if (f) return { lng: f.geometry.coordinates[0], lat: f.geometry.coordinates[1], label: f.properties.etiqueta || f.properties.label || q };
+    const osm = await getJson(`https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=es&q=${encodeURIComponent(q)}`);
+    if (osm && osm[0]) return { lng: +osm[0].lon, lat: +osm[0].lat, label: osm[0].display_name };
+    return null;
+  }
+
+  async function onSearch(event) {
+    event.preventDefault();
+    const text = $("search-input").value.trim();
+    if (!text) return;
+    setStatus("loading", `Looking up "${text}"…`);
+    try {
+      const hit = await geocode(text);
+      if (!hit) { setStatus("error", `Could not find "${text}". Try "Carrer de Pau Claris 100" or click the roof on the map.`); return; }
+      await selectAt(hit.lng, hit.lat, 25);
+    } catch (err) {
+      setStatus("error", err.message);
+      console.error(err);
+    }
+  }
+
+  // Buttons for every roof in roofs/index.json, so read roofs are easy to find.
+  async function listReadRoofs() {
+    if (!roofIndex) roofIndex = (await getJson("roofs/index.json")) || { roofs: [] };
+    const roofs = roofIndex.roofs.filter((r) => r.bbox);
+    $("read-roofs").hidden = !roofs.length;
+    $("read-roofs-list").replaceChildren(...roofs.map((r) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = (r.address || r.refcat).replace(/ BARCELONA.*$/i, "");
+      btn.title = `${fmt(r.usable_area_m2)} m² usable, confidence ${r.confidence}`;
+      btn.addEventListener("click", () =>
+        selectAt((r.bbox[0] + r.bbox[2]) / 2, (r.bbox[1] + r.bbox[3]) / 2, 25).catch((err) => setStatus("error", err.message)));
+      return btn;
+    }));
+  }
+
+  /* ---------- step 2 roof readings (roofs/<refcat>.json, written by step2.export_web) ---------- */
+  let roofIndex = null;
+  const readings = {}; // refcat -> reading ("Map" is the ArcGIS map class in this file)
+
+  async function getJson(url) {
+    try {
+      const res = await fetch(url, { cache: "no-cache" });
+      return res.ok ? await res.json() : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  // The step 2 reading for this building, or null: matched by cadastral reference,
+  // otherwise by the building's centre falling inside a reading's area.
+  async function loadReading(b) {
+    if (!roofIndex) roofIndex = (await getJson("roofs/index.json")) || { roofs: [] };
+    const ref = String(b.attrs[F.refcat] || "").trim().slice(0, 14).toUpperCase();
+    const [lng, lat] = area.proj.toLngLat(b.c[0], b.c[1]);
+    const hit = roofIndex.roofs.find((r) => r.refcat === ref) ||
+      roofIndex.roofs.find((r) => r.bbox && lng >= r.bbox[0] && lng <= r.bbox[2] && lat >= r.bbox[1] && lat <= r.bbox[3]);
+    if (!hit) return null;
+    if (!(hit.refcat in readings)) readings[hit.refcat] = await getJson(`roofs/${hit.refcat}.json`);
+    return readings[hit.refcat];
+  }
+
+  // Reading areas from longitude/latitude to the solar engine's local metres.
+  function usableXY(reading) {
+    return reading.usable.map((poly) => poly.map((ring) => ring.map(([lng, lat]) => area.proj.toXY(lng, lat))));
+  }
+
+  const obstacleFactor = () => (sel && sel.reading ? 1 : CFG.OBSTACLE_FACTOR);
+
   /* ---------- analysis + drawing ---------- */
   async function analyze(k) {
     const b = area.buildings[k];
+    const reading = await loadReading(b);
     setStatus("loading", "Calculating sun and shade on the roof…");
     await nextFrame();
     const t0 = performance.now();
-    const res = S.analyzeRoof(area.buildings, area.index, k, area.sun, CFG);
-    sel = { k, ...res };
+    const res = S.analyzeRoof(area.buildings, area.index, k, area.sun, CFG, reading ? usableXY(reading) : undefined);
+    sel = { k, ...res, reading };
     drawSelection();
     updateResults();
     $("report").hidden = false;
     const flat = !b.attrs[F.roof] || /flat/i.test(b.attrs[F.roof]);
     setStatus("idle", (res.slots.length
       ? `Calculated in ${fmt((performance.now() - t0) / 1000, 1)} s with ${fmt(area.buildings.length)} neighbouring buildings.`
-      : "No panel fits on this roof after the edge setback.") +
+      : reading ? "No panel fits on the usable area that step 2 found on this roof."
+        : "No panel fits on this roof after the edge setback.") +
       (flat ? "" : ` Roof form "${b.attrs[F.roof]}": panels are placed as if the roof were flat, so the result is approximate.`));
   }
 
@@ -315,6 +427,12 @@ require([
       symbol: { type: "polygon-3d", symbolLayers: [{ type: "extrude", size: 0.12, material: { color: panelColor(s.sunFactor) } }] },
     }));
     roofLayer.addMany(panelGraphics);
+    if (sel.reading) {
+      roofLayer.addMany(sel.reading.usable.flat().map((ring) => new Graphic({
+        geometry: { type: "polyline", hasZ: true, spatialReference: SR, paths: [ringToZ(ring, b.height + 0.2)] },
+        symbol: { type: "line-3d", symbolLayers: [{ type: "line", size: 2, material: { color: COLORS.usable } }] },
+      })));
+    }
 
     const path = [];
     for (let a = 0; a <= 360; a += 3) {
@@ -351,8 +469,8 @@ require([
     sel.slots.forEach((s, j) => { if (panelGraphics[j]) panelGraphics[j].visible = s.sunFactor >= min; });
 
     const panelArea = CFG.PANEL_LENGTH_M * CFG.PANEL_WIDTH_M;
-    const energy = kept.reduce((sum, s) => sum + S.panelYearKwh(s, CFG), 0) * CFG.OBSTACLE_FACTOR;
-    const panels = Math.round(kept.length * CFG.OBSTACLE_FACTOR);
+    const energy = kept.reduce((sum, s) => sum + S.panelYearKwh(s, CFG), 0) * obstacleFactor();
+    const panels = Math.round(kept.length * obstacleFactor());
     const kwp = panels * panelArea * CFG.PANEL_EFFICIENCY;
     const avgSun = kept.length ? kept.reduce((s, x) => s + x.sunFactor, 0) / kept.length : 0;
 
@@ -365,9 +483,15 @@ require([
     } else {
       $("r-catastro").textContent = "";
     }
+    const rd = sel.reading;
+    $("r-reading").textContent = rd
+      ? `Roof read by step 2 (${rd.roof.method}, confidence ${rd.roof.confidence}): ${fmt(rd.roof.usable_area_m2)} m² usable, ${fmt(rd.roof.obstacle_area_m2)} m² of stairs, tanks and other obstacles. Panels sit only on the usable area (yellow outline).`
+      : `Roof not read yet: ${Math.round((1 - CFG.OBSTACLE_FACTOR) * 100)}% of panel slots assumed lost to obstacles. Run step 2 with --web for this building to replace the guess.`;
+    $("r-reading").dataset.kind = rd ? "read" : "guess";
     $("r-energy").textContent = fmt(energy);
     $("r-roof").textContent = `${fmt(sel.roofArea)} m²`;
     $("r-slots").textContent = fmt(sel.slots.length);
+    $("r-slots-label").textContent = rd ? "Panel slots (usable area)" : "Panel slots (geometry)";
     $("r-panels").textContent = fmt(panels);
     $("r-parea").textContent = `${fmt(panels * panelArea)} m²`;
     $("r-kwp").textContent = `${fmt(kwp, 1)} kWp`;
@@ -376,7 +500,7 @@ require([
 
     shareEnergy(energy);
     fillAssumptions();
-    sel.summary = { energy_kwh_year: energy, panels, kwp, avg_sun_factor: avgSun, min_sun_kept: min };
+    sel.summary = { energy_kwh_year: energy, panels, kwp, avg_sun_factor: avgSun, min_sun_kept: min, obstacle_factor: obstacleFactor() };
   }
 
   function shareEnergy(energy) {
@@ -403,7 +527,9 @@ require([
       `Buildings, heights, roof form and use: Ajuntament de Barcelona 3D model (BCN_3DtoFeat).`,
       `Sun: ${fmt(CFG.GHI_KWH_M2_YEAR)} kWh/m² per year on open flat ground, ${Math.round(CFG.DIFFUSE_FRACTION * 100)}% of it diffuse sky light.`,
       `Panels: ${CFG.PANEL_LENGTH_M} × ${CFG.PANEL_WIDTH_M} m, ${Math.round(CFG.PANEL_EFFICIENCY * 100)}% efficient, ${Math.round(CFG.PERFORMANCE_RATIO * 100)}% system performance, laid flat.`,
-      `${CFG.ROOF_SETBACK_M} m free strip along roof edges and courtyards; ${Math.round((1 - CFG.OBSTACLE_FACTOR) * 100)}% of slots lost to stairs, tanks and AC units (until the AI reads the roof).`,
+      sel && sel.reading
+        ? `Usable roof from step 2 (ICGC LiDAR${sel.reading.roof.method === "lidar + ai" ? " + AI on the orthophoto" : ""}): 1 m from edges, 0.5 m from obstacles, strips narrower than a panel removed.`
+        : `${CFG.ROOF_SETBACK_M} m free strip along roof edges and courtyards; ${Math.round((1 - CFG.OBSTACLE_FACTOR) * 100)}% of slots lost to stairs, tanks and AC units (until the AI reads the roof).`,
       `Demand: floor area × kWh per m² by use (residential ${intensityFor("residencial")}, offices ${intensityFor("oficina")}, retail ${intensityFor("comercial")}…).`,
       `Shade: neighbours as flat-topped blocks at their roof height; trees are not included.`,
       `Sharing: yearly totals, buildings within ${fmt(CFG.LOAD_RADIUS_M)} m loaded (the circle shows the full ${fmt(CFG.SHARE_RADIUS_M / 1000)} km). Hour-by-hour matching comes next.`,
@@ -419,6 +545,7 @@ require([
       source: "Ajuntament de Barcelona, BCN_3DtoFeat",
       building: { city_id: b.id, lat, lng, height_m: b.relHeight, roof_m_asl: b.height, floors: b.floors, footprint_m2: b.footprint, demand_kwh_year: b.demand, attributes: b.attrs },
       result: { roof_area_m2: sel.roofArea, panel_slots: sel.slots.length, ...sel.summary },
+      roof_reading: sel.reading ? { refcat: sel.reading.refcat, ...sel.reading.roof } : null,
       panels: sel.slots.map((s) => {
         const [plng, plat] = area.proj.toLngLat(s.cx, s.cy);
         return { lat: plat, lng: plng, sun_factor: +s.sunFactor.toFixed(3), direct: +s.direct.toFixed(3), sky: +s.sky.toFixed(3), kwh_year: +S.panelYearKwh(s, CFG).toFixed(1) };
@@ -455,6 +582,8 @@ require([
     $("sun-range").addEventListener("input", updateResults);
     $("policy-select").addEventListener("change", updateResults);
     $("save-btn").addEventListener("click", saveJson);
+    $("search").addEventListener("submit", onSearch);
+    listReadRoofs();
     document.querySelectorAll("[data-place]").forEach((btn) =>
       btn.addEventListener("click", () => goToPlace(PLACES[btn.dataset.place])));
 
@@ -467,7 +596,8 @@ require([
     }
     sceneLayer = await addSceneLayer(map);
     if (!sceneLayer) setStatus("error", "The city's 3D model did not load. The calculation still works: click where a building is.");
-    else setStatus("idle", "Click any roof to calculate its solar potential.");
+    else setStatus("idle", "Type an address, or click any roof, to calculate its solar potential.");
+    goToPlace(PLACES.focus);
     view.on("click", onClick);
   }
 

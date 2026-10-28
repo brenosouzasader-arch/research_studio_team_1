@@ -10,6 +10,7 @@ LiDAR or the model says so (the safe choice for panel layout).
 Writes <out>.json (numbers), <out>_usable.geojson (usable area, EPSG:25831),
 <out>_preview.png (photo with the reading on top), <out>_photo.png (the plain
 roof photo) and <out>_height.png (LiDAR height above the main roof level).
+With --web <roofscapes-repowered folder> it also hands the reading to the 3D map.
 """
 import argparse
 import json
@@ -22,7 +23,7 @@ from shapely.geometry import mapping
 
 from step1.find_building import find_building
 
-from . import ortho
+from . import export_web, ortho
 from .dataset import FACTOR, height_above_roof, lidar_prelabel
 from .grid import upsample
 from .lidar_roof import read_roof_from_tiles, usable_mask
@@ -124,7 +125,7 @@ def height_image(height, roof, path):
     Image.fromarray(out.astype(np.uint8)).save(path)
 
 
-def read_roof(laz_dir, address=None, lat=None, lon=None, model_path=None, out="roof"):
+def read_roof(laz_dir, address=None, lat=None, lon=None, model_path=None, out="roof", web_dir=None):
     record, fp = find_building(address, lat, lon)
     lroof = read_roof_from_tiles(fp, laz_dir)
     if lroof is None:
@@ -174,6 +175,8 @@ def read_roof(laz_dir, address=None, lat=None, lon=None, model_path=None, out="r
     if rgb is not None:
         Image.fromarray(rgb).save(f"{out}_photo.png")
     height_image(upsample(height_above_roof(lroof), FACTOR), roof_fine, f"{out}_height.png")
+    if web_dir:
+        result["web_file"] = str(export_web.export(result, fc, web_dir))
     return result
 
 
@@ -185,11 +188,12 @@ def main():
     ap.add_argument("--laz-dir", required=True, help="folder with ICGC/CNIG LAZ tiles")
     ap.add_argument("--model", help="trained model (models/roof_unet.pt); leave out for LiDAR only")
     ap.add_argument("--out", default="roof", help="output name, without extension")
+    ap.add_argument("--web", help="roofscapes-repowered folder: also send the reading to the 3D map")
     args = ap.parse_args()
     if not args.address and (args.lat is None or args.lon is None):
         ap.error("give an address, or both --lat and --lon")
-    result = read_roof(args.laz_dir, args.address, args.lat, args.lon, args.model, args.out)
-    print(json.dumps({k: result[k] for k in ("building", "roof", "photo_error")}, indent=2, default=str))
+    result = read_roof(args.laz_dir, args.address, args.lat, args.lon, args.model, args.out, args.web)
+    print(json.dumps({k: result.get(k) for k in ("building", "roof", "photo_error", "web_file")}, indent=2, default=str))
 
 
 if __name__ == "__main__":

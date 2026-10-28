@@ -1,0 +1,16 @@
+{
+ "roofs": [
+  {
+   "refcat": "0629625DF3802H",
+   "address": "CL ROGER DE LLURIA 56 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1690994,
+    41.393038,
+    2.1694624,
+    41.3933322
+   ],
+   "usable_area_m2": 201.2,
+   "confidence": "medium"
+  }
+ ]
+}

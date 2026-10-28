@@ -39,8 +39,8 @@ Open with a local web server (not by double-clicking):
 
 ## Use it
 
-1. The map opens over the Eixample. Rotate with right-click drag, zoom with the wheel.
-2. Click a roof. The first click loads the neighbouring buildings from the city (a few seconds).
+1. The map opens over our 9 blocks (Passeig de Gràcia to Bruc, Aragó to Gran Via). Rotate with right-click drag, zoom with the wheel.
+2. Type an address in the **Address** box and press **Find roof** (ICGC geocoder, OpenStreetMap as backup), click a yellow **Roofs read by step 2** button, or click a roof. The first click loads the neighbouring buildings from the city (a few seconds).
 3. The Roof Report fills in; panels appear on the roof (dark = shade, yellow = full sun); the roof is outlined in orange; the 2 km circle appears.
 4. **Keep panels with at least X% of full sun** removes shaded panels.
 5. **Who gets the energy** colours the supplied roofs green.
@@ -48,10 +48,22 @@ Open with a local web server (not by double-clicking):
 7. **Save roof data (JSON)** saves every panel's result for the dataset and for checks against PVGIS, Ladybug or Google Solar.
 8. **open in Catastro** opens the building's cadastral record.
 
+## Roof reading from step 2 (link to the Python pipeline)
+
+Step 2 (`step1_find_building/step1_find_building/step2`) reads a roof from ICGC LiDAR (and, once trained, the AI on the orthophoto) and finds the **usable area**: free flat roof, 1 m from edges, 0.5 m from stairs, tanks and AC units. Send a reading to this map with `--web`:
+
+```
+python -m step2.read_roof "Carrer de Roger de Llúria 56, Barcelona" --laz-dir data\lidar --out lluria56 --web ..\..\roofscapes-repowered
+```
+
+or, for a roof that was already read: `python -m step2.export_web lluria56 --web ..\..\roofscapes-repowered`.
+
+This writes `roofs/<cadastral ref>.json` and `roofs/index.json`. When you click that building, the map matches it by cadastral reference, places panels **only on the usable area** (yellow outline), and drops the 25% obstacle guess. The Roof Report says whether the roof was read or guessed. Roger de Llúria 56 is already included.
+
 ## How the calculation works
 
 1. **Footprint** from the city layer (with courtyards). Height = `bldgheight`; roof level = `z_max_vol` (metres above sea level), so hills are included in the shade.
-2. **Panel slots**: the roof is turned to its longest edge and filled with 1.76 × 1.13 m panels, keeping 1 m from every edge and courtyard.
+2. **Panel slots**: the roof is turned to its longest edge and filled with 1.76 × 1.13 m panels, keeping 1 m from every edge and courtyard. On a roof read by step 2, panels must lie fully on the usable area; several grid shifts and both panel directions are tried and the fullest layout is kept.
 3. **Sun path**: 140 sun positions (every hour of the 15th of each month), weighted by direct sun strength.
 4. **Shade**: from each panel a ray goes towards the sun every 1 m; if it passes inside a higher neighbour, the panel is in shade at that hour.
 5. **Sky view**: horizon measured in 16 directions → share of diffuse sky light.
@@ -61,7 +73,8 @@ Open with a local web server (not by double-clicking):
 
 ## Known limits (next steps)
 
-- Roof obstacles are a fixed 25% assumption → **AI roof reading** on aerial photos will replace it.
+- Roof obstacles are a fixed 25% assumption on roofs that step 2 has not read yet (see below).
+- On a step 2 roof, panels on lower roof levels are still drawn and shaded at the top roof height.
 - Pitched roofs (`roofform` not Flat) are treated as flat; the page says so.
 - Trees are not in the shade model.
 - Yearly totals → next: hour-by-hour matching (no sun at night).

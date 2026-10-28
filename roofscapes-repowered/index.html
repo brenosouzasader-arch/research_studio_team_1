@@ -13,6 +13,7 @@
   <div id="map" aria-label="3D map of Barcelona (Ajuntament de Barcelona model)"></div>
 
   <nav class="toolbar" aria-label="Jump to area">
+    <button type="button" data-place="focus">Our 9 blocks</button>
     <button type="button" data-place="eixample">Eixample</button>
     <button type="button" data-place="gracia">Gràcia</button>
     <button type="button" data-place="poblenou">Poblenou</button>
@@ -22,7 +23,18 @@
     <header>
       <p class="eyebrow">Roofscapes RePowered</p>
       <h1>Roof Report</h1>
+      <form id="search" class="search" role="search">
+        <label for="search-input">Address</label>
+        <div class="search-row">
+          <input id="search-input" type="text" placeholder="Carrer de Roger de Llúria 56" autocomplete="street-address">
+          <button type="submit">Find roof</button>
+        </div>
+      </form>
       <p id="status" class="status" data-kind="loading">Starting the 3D map…</p>
+      <div id="read-roofs" class="read-roofs" hidden>
+        <p>Roofs read by step 2:</p>
+        <div id="read-roofs-list"></div>
+      </div>
     </header>
 
     <section id="report" hidden>
@@ -37,6 +49,7 @@
         <span class="unit">kWh / year</span>
       </div>
       <p id="r-own" class="own-line"></p>
+      <p id="r-reading" class="reading-line"></p>
 
       <label class="slider-label" for="sun-range">
         Keep panels with at least <strong id="sun-out">75%</strong> of full sun
@@ -45,7 +58,7 @@
 
       <dl class="stats">
         <div><dt>Roof area</dt><dd id="r-roof">–</dd></div>
-        <div><dt>Panel slots (geometry)</dt><dd id="r-slots">–</dd></div>
+        <div><dt id="r-slots-label">Panel slots (geometry)</dt><dd id="r-slots">–</dd></div>
         <div><dt>Panels after obstacles</dt><dd id="r-panels">–</dd></div>
         <div><dt>Panel area</dt><dd id="r-parea">–</dd></div>
         <div><dt>Installed power</dt><dd id="r-kwp">–</dd></div>
@@ -65,6 +78,7 @@
         <span><i style="--c: var(--sel)"></i>Selected roof</span>
         <span><i style="--c: var(--got-full)"></i>Fully supplied</span>
         <span><i style="--c: var(--got-part)"></i>Partly supplied</span>
+        <span><i style="--c: #ffe600"></i>Usable roof (step 2)</span>
         <span><i style="--c: linear-gradient(90deg,#3d4f63,#f2a516,#ffe066)"></i>Panel: shade → full sun</span>
       </div>
 

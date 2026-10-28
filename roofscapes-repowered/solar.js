@@ -210,35 +210,62 @@
     return ang;
   }
 
+  // Inside one of the usable areas from step 2 (each area = [outer ring, ...holes]).
+  function insideUsable(x, y, usable) {
+    return usable.some(([outer, ...holes]) => pointInPolygon(x, y, outer) && !holes.some((h) => pointInPolygon(x, y, h)));
+  }
+
   // Panel slots on the roof, aligned to its longest edge, kept `setback` metres from every edge.
-  function panelSlots(b, cfg) {
+  // With `usable` (step 2 roof reading), a panel must lie fully on the usable area instead:
+  // step 2 has already kept it away from edges, courtyards, stairs, tanks and AC units.
+  // The usable area is irregular, so several grid shifts and both panel directions are tried
+  // and the layout with the most panels is kept.
+  function panelSlots(b, cfg, usable) {
     const p = b.xy;
     const th = longestEdgeAngle(p);
     const c = Math.cos(th), s = Math.sin(th);
     const toUV = ([x, y]) => [x * c + y * s, -x * s + y * c];
     const toXY = (u, v) => [u * c - v * s, u * s + v * c];
-    const uv = p.map(toUV);
-    const [u0, v0, u1, v1] = bbox(uv);
-    const L = cfg.PANEL_LENGTH_M, W = cfg.PANEL_WIDTH_M, gap = cfg.PANEL_GAP_M;
-    const slots = [];
-    for (let u = u0 + cfg.ROOF_SETBACK_M; u + L <= u1 - cfg.ROOF_SETBACK_M + 1e-6; u += L + gap) {
-      for (let v = v0 + cfg.ROOF_SETBACK_M; v + W <= v1 - cfg.ROOF_SETBACK_M + 1e-6; v += W + gap) {
-        const corners = [toXY(u, v), toXY(u + L, v), toXY(u + L, v + W), toXY(u, v + W)];
-        const rings = [p, ...(b.holes || [])];
-        const ok = corners.every(([x, y]) =>
-          insideFootprint(x, y, b) && rings.every((r) => minEdgeDistance(x, y, r) >= cfg.ROOF_SETBACK_M - 1e-6));
-        if (!ok) continue;
-        const [cx, cy] = toXY(u + L / 2, v + W / 2);
-        slots.push({ corners, cx, cy });
+    const [u0, v0, u1, v1] = bbox(p.map(toUV));
+    const gap = cfg.PANEL_GAP_M;
+    const rings = [p, ...(b.holes || [])];
+    const onRoof = ([x, y]) =>
+      insideFootprint(x, y, b) && rings.every((r) => minEdgeDistance(x, y, r) >= cfg.ROOF_SETBACK_M - 1e-6);
+
+    function layout(L, W, du, dv, inset) {
+      const slots = [];
+      for (let u = u0 + inset + du; u + L <= u1 - inset + 1e-6; u += L + gap) {
+        for (let v = v0 + inset + dv; v + W <= v1 - inset + 1e-6; v += W + gap) {
+          const corners = [toXY(u, v), toXY(u + L, v), toXY(u + L, v + W), toXY(u, v + W)];
+          // usable: also test edge midpoints and centre, so a panel cannot straddle a small obstacle
+          const ok = usable
+            ? [0, 0.5, 1].every((a) => [0, 0.5, 1].every((q) => insideUsable(...toXY(u + a * L, v + q * W), usable)))
+            : corners.every(onRoof);
+          if (!ok) continue;
+          const [cx, cy] = toXY(u + L / 2, v + W / 2);
+          slots.push({ corners, cx, cy });
+        }
       }
+      return slots;
     }
-    return slots;
+
+    const L = cfg.PANEL_LENGTH_M, W = cfg.PANEL_WIDTH_M;
+    if (!usable) return layout(L, W, 0, 0, cfg.ROOF_SETBACK_M);
+    let best = [];
+    for (const [l, w] of [[L, W], [W, L]])
+      for (let du = 0; du < l + gap; du += 0.25)
+        for (let dv = 0; dv < w + gap; dv += 0.25) {
+          const slots = layout(l, w, du, dv, 0);
+          if (slots.length > best.length) best = slots;
+        }
+    return best;
   }
 
   // Full analysis of one roof: slots, shade, sky view, yearly sun per slot.
-  function analyzeRoof(buildings, index, k, sun, cfg) {
+  // `usable`: optional step 2 usable areas in local x/y (see panelSlots).
+  function analyzeRoof(buildings, index, k, sun, cfg, usable) {
     const b = buildings[k];
-    const slots = panelSlots(b, cfg);
+    const slots = panelSlots(b, cfg, usable);
     const z = b.height + cfg.PANEL_HEIGHT_ABOVE_ROOF_M;
     const kd = cfg.DIFFUSE_FRACTION;
     for (const sl of slots) {
@@ -292,7 +319,7 @@
 
   const api = {
     makeProjection, polygonArea, footprintArea, insideFootprint, centroid, pointInPolygon, bbox, cleanRing, buildIndex,
-    sunPosition, sunSamples, isShaded, skyView, panelSlots, analyzeRoof, panelYearKwh, buildingDemand, allocate,
+    sunPosition, sunSamples, isShaded, skyView, insideUsable, panelSlots, analyzeRoof, panelYearKwh, buildingDemand, allocate,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.Solar = api;
