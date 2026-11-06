@@ -1,0 +1,48 @@
+{
+  "building": {
+    "refcat": "0526627DF3802F",
+    "address": "GV CORTS CATALANES 619 N2-621 BARCELONA (BARCELONA)",
+    "query": "41.3906557,2.169277"
+  },
+  "yield": {
+    "panels": 2,
+    "kwp": 0.84,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.8,
+    "yearly_kwh": 1071,
+    "kwh_per_kwp": 1275,
+    "mean_shade_loss": 0.087,
+    "monthly_kwh": [
+      49,
+      72,
+      90,
+      104,
+      129,
+      131,
+      135,
+      125,
+      91,
+      49,
+      49,
+      46
+    ],
+    "peak_hour_kw": 0.66,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 38.0,
+  "panels": [
+    {
+      "x": 430557.58,
+      "y": 4582457.18,
+      "kwh_year": 532.5,
+      "shade_loss": 0.092
+    },
+    {
+      "x": 430558.88,
+      "y": 4582458.44,
+      "kwh_year": 538.2,
+      "shade_loss": 0.082
+    }
+  ]
+}

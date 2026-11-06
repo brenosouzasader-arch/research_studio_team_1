@@ -1,0 +1,11 @@
+community,host_address,host_refcat,block,panels,kwp,yearly_kwh,kwh_per_kwp,buildings,flats_joining,offices_schools_joining,cost_eur,used_on_the_spot_pct,saving_eur_per_year,payback_years,farthest_member_m,flags
+1,"PS GRACIA 54, Barcelona",0328610DF3802G,7,49,20.58,28235,1372,6,15,2,28812,99.8,4511,6.4,67,grid permits likely needed (over 15 kW); host owners must approve other buildings' shares
+2,"PS GRACIA 52, Barcelona",0328609DF3802G,7,18,7.56,10323,1365,4,6,2,10584,99.9,1651,6.4,139,host owners must approve other buildings' shares
+3,"GV CORTS CATALANES 631, Barcelona",0627614DF3802H,2,16,6.72,8943,1331,4,5,2,9408,99.8,1429,6.6,107,host owners must approve other buildings' shares
+4,"PS GRACIA 30, Barcelona",0526620DF3802F,1,21,8.82,11721,1329,3,8,2,12348,99.6,1870,6.6,90,host owners must approve other buildings' shares
+5,"CL DIPUTACIO 291, Barcelona",0628208DF3802H,5,20,8.4,11141,1326,7,11,2,11760,97.6,1753,6.7,52,host owners must approve other buildings' shares
+6,"CL ROGER DE LLURIA 29, Barcelona",0627611DF3802H,2,28,11.76,15579,1325,5,9,2,16464,97.8,2455,6.7,139,host owners must approve other buildings' shares
+7,"GV CORTS CATALANES 635, Barcelona",0728509DF3802H,3,57,23.94,31279,1307,9,18,2,33516,99.9,5000,6.7,91,grid permits likely needed (over 15 kW); host owners must approve other buildings' shares
+8,"CL CONSELL DE CENT 314, Barcelona",0427602DF3802G,4,14,5.88,7627,1297,4,5,2,8232,100.0,1220,6.7,92,host owners must approve other buildings' shares
+9,"CL BRUC 55, Barcelona",0728501DF3802H,3,23,9.66,12524,1296,5,7,2,13524,98.2,1979,6.8,101,host owners must approve other buildings' shares
+10,"CL ROGER DE LLURIA 54, Barcelona",0629624DF3802H,6,13,5.46,7054,1292,3,7,2,7644,99.7,1127,6.8,149,host owners must approve other buildings' shares

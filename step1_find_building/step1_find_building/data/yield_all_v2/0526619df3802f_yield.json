@@ -1,0 +1,96 @@
+{
+  "building": {
+    "refcat": "0526619DF3802F",
+    "address": "PS GRACIA 28 BARCELONA (BARCELONA)",
+    "query": "41.3904628,2.1678238"
+  },
+  "yield": {
+    "panels": 10,
+    "kwp": 4.2,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 224.5,
+    "yearly_kwh": 5068,
+    "kwh_per_kwp": 1207,
+    "mean_shade_loss": 0.147,
+    "monthly_kwh": [
+      208,
+      308,
+      419,
+      505,
+      655,
+      644,
+      679,
+      597,
+      422,
+      227,
+      214,
+      189
+    ],
+    "peak_hour_kw": 3.23,
+    "panels_left_out": 2,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 103.2,
+  "panels": [
+    {
+      "x": 430414.56,
+      "y": 4582431.76,
+      "kwh_year": 519.8,
+      "shade_loss": 0.125
+    },
+    {
+      "x": 430415.85,
+      "y": 4582430.49,
+      "kwh_year": 537.6,
+      "shade_loss": 0.095
+    },
+    {
+      "x": 430417.15,
+      "y": 4582429.22,
+      "kwh_year": 522.0,
+      "shade_loss": 0.121
+    },
+    {
+      "x": 430418.44,
+      "y": 4582427.95,
+      "kwh_year": 517.7,
+      "shade_loss": 0.129
+    },
+    {
+      "x": 430421.02,
+      "y": 4582425.42,
+      "kwh_year": 548.7,
+      "shade_loss": 0.077
+    },
+    {
+      "x": 430415.64,
+      "y": 4582432.85,
+      "kwh_year": 504.7,
+      "shade_loss": 0.151
+    },
+    {
+      "x": 430416.71,
+      "y": 4582433.94,
+      "kwh_year": 473.0,
+      "shade_loss": 0.205
+    },
+    {
+      "x": 430426.6,
+      "y": 4582441.43,
+      "kwh_year": 592.9,
+      "shade_loss": 0.002
+    },
+    {
+      "x": 430436.06,
+      "y": 4582440.74,
+      "kwh_year": 431.5,
+      "shade_loss": 0.272
+    },
+    {
+      "x": 430430.68,
+      "y": 4582448.17,
+      "kwh_year": 419.8,
+      "shade_loss": 0.293
+    }
+  ]
+}

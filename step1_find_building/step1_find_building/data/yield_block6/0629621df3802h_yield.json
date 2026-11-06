@@ -1,0 +1,54 @@
+{
+  "building": {
+    "refcat": "0629621DF3802H",
+    "address": "CL ROGER DE LLURIA 48 BARCELONA (BARCELONA)",
+    "query": "41.3927313,2.1697532"
+  },
+  "yield": {
+    "panels": 3,
+    "kwp": 1.26,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.9,
+    "yearly_kwh": 1718,
+    "kwh_per_kwp": 1363,
+    "mean_shade_loss": 0.022,
+    "monthly_kwh": [
+      77,
+      112,
+      142,
+      167,
+      214,
+      213,
+      222,
+      197,
+      144,
+      79,
+      78,
+      73
+    ],
+    "peak_hour_kw": 1.0,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 45.5,
+  "panels": [
+    {
+      "x": 430597.5,
+      "y": 4582690.34,
+      "kwh_year": 581.1,
+      "shade_loss": 0.007
+    },
+    {
+      "x": 430595.13,
+      "y": 4582690.18,
+      "kwh_year": 564.6,
+      "shade_loss": 0.036
+    },
+    {
+      "x": 430596.43,
+      "y": 4582691.44,
+      "kwh_year": 572.3,
+      "shade_loss": 0.022
+    }
+  ]
+}

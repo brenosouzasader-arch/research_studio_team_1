@@ -1,0 +1,60 @@
+{
+  "building": {
+    "refcat": "0328606DF3802G",
+    "address": "PS GRACIA 46 BARCELONA (BARCELONA)",
+    "query": "41.3920057,2.1661159"
+  },
+  "yield": {
+    "panels": 4,
+    "kwp": 1.68,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.6,
+    "yearly_kwh": 2051,
+    "kwh_per_kwp": 1221,
+    "mean_shade_loss": 0.123,
+    "monthly_kwh": [
+      69,
+      121,
+      171,
+      211,
+      277,
+      275,
+      284,
+      253,
+      173,
+      93,
+      77,
+      49
+    ],
+    "peak_hour_kw": 1.32,
+    "panels_left_out": 23,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 179.2,
+  "panels": [
+    {
+      "x": 430286.31,
+      "y": 4582600.34,
+      "kwh_year": 539.5,
+      "shade_loss": 0.077
+    },
+    {
+      "x": 430287.6,
+      "y": 4582601.61,
+      "kwh_year": 562.7,
+      "shade_loss": 0.038
+    },
+    {
+      "x": 430283.09,
+      "y": 4582603.63,
+      "kwh_year": 450.2,
+      "shade_loss": 0.229
+    },
+    {
+      "x": 430282.01,
+      "y": 4582604.72,
+      "kwh_year": 498.9,
+      "shade_loss": 0.147
+    }
+  ]
+}

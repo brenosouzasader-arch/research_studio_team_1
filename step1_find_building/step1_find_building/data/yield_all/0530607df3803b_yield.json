@@ -1,0 +1,35 @@
+{
+  "building": {
+    "refcat": "0530607DF3803B",
+    "address": "CL BRUC 77 BARCELONA (BARCELONA)",
+    "query": "41.3944217,2.1689864"
+  },
+  "yield": {
+    "panels": 0,
+    "kwp": 0.0,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.7,
+    "yearly_kwh": 0,
+    "kwh_per_kwp": null,
+    "mean_shade_loss": null,
+    "monthly_kwh": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "peak_hour_kw": 0.0,
+    "panels_left_out": 2,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 23.0,
+  "panels": []
+}

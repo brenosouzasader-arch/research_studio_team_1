@@ -1,0 +1,60 @@
+{
+  "building": {
+    "refcat": "0328613DF3802G",
+    "address": "CL ARAGO 284(B) BARCELONA (BARCELONA)",
+    "query": "41.3925831,2.1661041"
+  },
+  "yield": {
+    "panels": 4,
+    "kwp": 1.68,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 224.6,
+    "yearly_kwh": 2101,
+    "kwh_per_kwp": 1251,
+    "mean_shade_loss": 0.115,
+    "monthly_kwh": [
+      76,
+      112,
+      177,
+      216,
+      283,
+      280,
+      294,
+      255,
+      179,
+      93,
+      76,
+      59
+    ],
+    "peak_hour_kw": 1.31,
+    "panels_left_out": 1,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 65.0,
+  "panels": [
+    {
+      "x": 430283.04,
+      "y": 4582672.16,
+      "kwh_year": 555.8,
+      "shade_loss": 0.064
+    },
+    {
+      "x": 430276.63,
+      "y": 4582691.43,
+      "kwh_year": 483.7,
+      "shade_loss": 0.184
+    },
+    {
+      "x": 430277.7,
+      "y": 4582692.52,
+      "kwh_year": 524.2,
+      "shade_loss": 0.116
+    },
+    {
+      "x": 430278.78,
+      "y": 4582693.61,
+      "kwh_year": 537.4,
+      "shade_loss": 0.094
+    }
+  ]
+}

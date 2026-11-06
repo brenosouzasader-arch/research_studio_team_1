@@ -1,0 +1,35 @@
+{
+  "building": {
+    "refcat": "0429609DF3802G",
+    "address": "CL PAU CLARIS 128 BARCELONA (BARCELONA)",
+    "query": "41.3931111,2.1671189"
+  },
+  "yield": {
+    "panels": 0,
+    "kwp": 0.0,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 224.7,
+    "yearly_kwh": 0,
+    "kwh_per_kwp": null,
+    "mean_shade_loss": null,
+    "monthly_kwh": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "peak_hour_kw": 0.0,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 2.0,
+  "panels": []
+}

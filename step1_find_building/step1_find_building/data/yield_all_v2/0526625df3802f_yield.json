@@ -1,0 +1,42 @@
+{
+  "building": {
+    "refcat": "0526625DF3802F",
+    "address": "CL DIPUTACIO 268 BARCELONA (BARCELONA)",
+    "query": "41.3912247,2.1685315"
+  },
+  "yield": {
+    "panels": 1,
+    "kwp": 0.42,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 136.3,
+    "yearly_kwh": 496,
+    "kwh_per_kwp": 1181,
+    "mean_shade_loss": 0.151,
+    "monthly_kwh": [
+      11,
+      19,
+      43,
+      55,
+      71,
+      70,
+      73,
+      65,
+      47,
+      20,
+      12,
+      8
+    ],
+    "peak_hour_kw": 0.33,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 15.2,
+  "panels": [
+    {
+      "x": 430484.02,
+      "y": 4582531.13,
+      "kwh_year": 496.2,
+      "shade_loss": 0.151
+    }
+  ]
+}

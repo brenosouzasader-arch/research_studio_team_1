@@ -1,0 +1,48 @@
+{
+  "building": {
+    "refcat": "0627613DF3802H",
+    "address": "GV CORTS CATALANES 633 BARCELONA (BARCELONA)",
+    "query": "41.391586,2.1704905"
+  },
+  "yield": {
+    "panels": 2,
+    "kwp": 0.84,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.7,
+    "yearly_kwh": 1150,
+    "kwh_per_kwp": 1369,
+    "mean_shade_loss": 0.018,
+    "monthly_kwh": [
+      51,
+      74,
+      95,
+      113,
+      144,
+      143,
+      148,
+      133,
+      97,
+      53,
+      51,
+      48
+    ],
+    "peak_hour_kw": 0.67,
+    "panels_left_out": 1,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 18.8,
+  "panels": [
+    {
+      "x": 430644.72,
+      "y": 4582563.08,
+      "kwh_year": 575.8,
+      "shade_loss": 0.016
+    },
+    {
+      "x": 430643.65,
+      "y": 4582564.18,
+      "kwh_year": 574.0,
+      "shade_loss": 0.019
+    }
+  ]
+}

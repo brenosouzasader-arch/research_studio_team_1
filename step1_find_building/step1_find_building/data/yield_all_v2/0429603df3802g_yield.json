@@ -1,0 +1,42 @@
+{
+  "building": {
+    "refcat": "0429603DF3802G",
+    "address": "CL ARAGO 290 BARCELONA (BARCELONA)",
+    "query": "41.3934785,2.1671022"
+  },
+  "yield": {
+    "panels": 1,
+    "kwp": 0.42,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 137.4,
+    "yearly_kwh": 437,
+    "kwh_per_kwp": 1039,
+    "mean_shade_loss": 0.253,
+    "monthly_kwh": [
+      8,
+      11,
+      32,
+      52,
+      68,
+      66,
+      70,
+      61,
+      39,
+      15,
+      8,
+      7
+    ],
+    "peak_hour_kw": 0.33,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 19.2,
+  "panels": [
+    {
+      "x": 430359.18,
+      "y": 4582777.19,
+      "kwh_year": 436.6,
+      "shade_loss": 0.253
+    }
+  ]
+}

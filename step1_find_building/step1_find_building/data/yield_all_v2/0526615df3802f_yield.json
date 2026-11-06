@@ -1,0 +1,54 @@
+{
+  "building": {
+    "refcat": "0526615DF3802F",
+    "address": "PS GRACIA 22 BARCELONA (BARCELONA)",
+    "query": "41.3902393,2.1681673"
+  },
+  "yield": {
+    "panels": 3,
+    "kwp": 1.26,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 137.9,
+    "yearly_kwh": 1671,
+    "kwh_per_kwp": 1326,
+    "mean_shade_loss": 0.049,
+    "monthly_kwh": [
+      74,
+      102,
+      135,
+      165,
+      214,
+      212,
+      221,
+      196,
+      137,
+      74,
+      73,
+      68
+    ],
+    "peak_hour_kw": 1.0,
+    "panels_left_out": 2,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 36.8,
+  "panels": [
+    {
+      "x": 430448.57,
+      "y": 4582406.62,
+      "kwh_year": 557.4,
+      "shade_loss": 0.049
+    },
+    {
+      "x": 430449.92,
+      "y": 4582407.84,
+      "kwh_year": 552.3,
+      "shade_loss": 0.057
+    },
+    {
+      "x": 430446.2,
+      "y": 4582406.55,
+      "kwh_year": 560.9,
+      "shade_loss": 0.042
+    }
+  ]
+}

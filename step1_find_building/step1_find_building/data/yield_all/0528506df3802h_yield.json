@@ -1,0 +1,72 @@
+{
+  "building": {
+    "refcat": "0528506DF3802H",
+    "address": "PJ PERMANYER 10 BARCELONA (BARCELONA)",
+    "query": "41.3924917,2.1684666"
+  },
+  "yield": {
+    "panels": 6,
+    "kwp": 2.52,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.8,
+    "yearly_kwh": 3163,
+    "kwh_per_kwp": 1255,
+    "mean_shade_loss": 0.1,
+    "monthly_kwh": [
+      134,
+      193,
+      262,
+      315,
+      406,
+      398,
+      418,
+      376,
+      267,
+      140,
+      135,
+      119
+    ],
+    "peak_hour_kw": 1.97,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 38.2,
+  "panels": [
+    {
+      "x": 430486.25,
+      "y": 4582658.61,
+      "kwh_year": 527.6,
+      "shade_loss": 0.098
+    },
+    {
+      "x": 430487.55,
+      "y": 4582659.87,
+      "kwh_year": 532.7,
+      "shade_loss": 0.09
+    },
+    {
+      "x": 430480.68,
+      "y": 4582661.74,
+      "kwh_year": 526.0,
+      "shade_loss": 0.101
+    },
+    {
+      "x": 430481.98,
+      "y": 4582663.01,
+      "kwh_year": 527.9,
+      "shade_loss": 0.098
+    },
+    {
+      "x": 430479.61,
+      "y": 4582662.84,
+      "kwh_year": 523.6,
+      "shade_loss": 0.106
+    },
+    {
+      "x": 430480.91,
+      "y": 4582664.11,
+      "kwh_year": 524.8,
+      "shade_loss": 0.104
+    }
+  ]
+}

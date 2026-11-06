@@ -1,0 +1,84 @@
+{
+  "building": {
+    "refcat": "0328611DF3802G",
+    "address": "CL ARAGO 282 BARCELONA (BARCELONA)",
+    "query": "41.3923143,2.1658323"
+  },
+  "yield": {
+    "panels": 8,
+    "kwp": 3.36,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.3,
+    "yearly_kwh": 3203,
+    "kwh_per_kwp": 953,
+    "mean_shade_loss": 0.316,
+    "monthly_kwh": [
+      116,
+      185,
+      255,
+      324,
+      428,
+      422,
+      451,
+      395,
+      273,
+      130,
+      120,
+      106
+    ],
+    "peak_hour_kw": 2.55,
+    "panels_left_out": 2,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 81.8,
+  "panels": [
+    {
+      "x": 430261.52,
+      "y": 4582652.39,
+      "kwh_year": 364.7,
+      "shade_loss": 0.377
+    },
+    {
+      "x": 430264.09,
+      "y": 4582654.94,
+      "kwh_year": 420.5,
+      "shade_loss": 0.281
+    },
+    {
+      "x": 430265.38,
+      "y": 4582656.21,
+      "kwh_year": 423.0,
+      "shade_loss": 0.277
+    },
+    {
+      "x": 430266.67,
+      "y": 4582657.49,
+      "kwh_year": 403.4,
+      "shade_loss": 0.312
+    },
+    {
+      "x": 430264.3,
+      "y": 4582657.3,
+      "kwh_year": 405.6,
+      "shade_loss": 0.308
+    },
+    {
+      "x": 430263.22,
+      "y": 4582658.39,
+      "kwh_year": 370.7,
+      "shade_loss": 0.367
+    },
+    {
+      "x": 430254.59,
+      "y": 4582667.11,
+      "kwh_year": 410.8,
+      "shade_loss": 0.298
+    },
+    {
+      "x": 430255.87,
+      "y": 4582668.38,
+      "kwh_year": 404.8,
+      "shade_loss": 0.308
+    }
+  ]
+}

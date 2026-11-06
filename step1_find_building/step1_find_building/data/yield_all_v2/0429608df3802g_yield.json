@@ -1,0 +1,54 @@
+{
+  "building": {
+    "refcat": "0429608DF3802G",
+    "address": "CL PAU CLARIS 126 BARCELONA (BARCELONA)",
+    "query": "41.3930369,2.1672059"
+  },
+  "yield": {
+    "panels": 3,
+    "kwp": 1.26,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.1,
+    "yearly_kwh": 1434,
+    "kwh_per_kwp": 1138,
+    "mean_shade_loss": 0.181,
+    "monthly_kwh": [
+      36,
+      50,
+      120,
+      160,
+      208,
+      205,
+      214,
+      191,
+      128,
+      55,
+      38,
+      28
+    ],
+    "peak_hour_kw": 0.99,
+    "panels_left_out": 4,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 57.2,
+  "panels": [
+    {
+      "x": 430380.21,
+      "y": 4582724.19,
+      "kwh_year": 459.9,
+      "shade_loss": 0.213
+    },
+    {
+      "x": 430378.05,
+      "y": 4582726.36,
+      "kwh_year": 495.2,
+      "shade_loss": 0.152
+    },
+    {
+      "x": 430375.68,
+      "y": 4582726.17,
+      "kwh_year": 478.5,
+      "shade_loss": 0.18
+    }
+  ]
+}

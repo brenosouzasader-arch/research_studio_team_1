@@ -1,0 +1,42 @@
+{
+  "building": {
+    "refcat": "0429610DF3802G",
+    "address": "CL PAU CLARIS 130 BARCELONA (BARCELONA)",
+    "query": "41.393186,2.1670233"
+  },
+  "yield": {
+    "panels": 1,
+    "kwp": 0.42,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.0,
+    "yearly_kwh": 471,
+    "kwh_per_kwp": 1120,
+    "mean_shade_loss": 0.194,
+    "monthly_kwh": [
+      11,
+      23,
+      41,
+      51,
+      66,
+      66,
+      69,
+      61,
+      43,
+      19,
+      14,
+      7
+    ],
+    "peak_hour_kw": 0.32,
+    "panels_left_out": 5,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 69.0,
+  "panels": [
+    {
+      "x": 430357.35,
+      "y": 4582729.7,
+      "kwh_year": 470.6,
+      "shade_loss": 0.194
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "building": {
+    "refcat": "0529303DF3802H",
+    "address": "CL ROGER DE LLURIA 57 BARCELONA (BARCELONA)",
+    "query": "41.3935957,2.1678964"
+  },
+  "yield": {
+    "panels": 4,
+    "kwp": 1.68,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.8,
+    "yearly_kwh": 2289,
+    "kwh_per_kwp": 1362,
+    "mean_shade_loss": 0.023,
+    "monthly_kwh": [
+      103,
+      148,
+      190,
+      224,
+      287,
+      284,
+      294,
+      263,
+      192,
+      105,
+      103,
+      96
+    ],
+    "peak_hour_kw": 1.33,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 45.8,
+  "panels": [
+    {
+      "x": 430437.11,
+      "y": 4582778.08,
+      "kwh_year": 578.6,
+      "shade_loss": 0.012
+    },
+    {
+      "x": 430436.04,
+      "y": 4582779.18,
+      "kwh_year": 571.3,
+      "shade_loss": 0.025
+    },
+    {
+      "x": 430437.34,
+      "y": 4582780.44,
+      "kwh_year": 571.4,
+      "shade_loss": 0.024
+    },
+    {
+      "x": 430438.63,
+      "y": 4582781.7,
+      "kwh_year": 567.3,
+      "shade_loss": 0.031
+    }
+  ]
+}

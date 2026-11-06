@@ -1,0 +1,96 @@
+{
+  "building": {
+    "refcat": "0530606DF3803B",
+    "address": "CL BRUC 79 BARCELONA (BARCELONA)",
+    "query": "41.3944914,2.168888"
+  },
+  "yield": {
+    "panels": 10,
+    "kwp": 4.2,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.8,
+    "yearly_kwh": 4894,
+    "kwh_per_kwp": 1165,
+    "mean_shade_loss": 0.164,
+    "monthly_kwh": [
+      171,
+      294,
+      402,
+      494,
+      648,
+      651,
+      678,
+      595,
+      420,
+      215,
+      186,
+      139
+    ],
+    "peak_hour_kw": 3.27,
+    "panels_left_out": 3,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 84.5,
+  "panels": [
+    {
+      "x": 430528.93,
+      "y": 4582889.32,
+      "kwh_year": 353.3,
+      "shade_loss": 0.395
+    },
+    {
+      "x": 430526.56,
+      "y": 4582889.16,
+      "kwh_year": 542.8,
+      "shade_loss": 0.072
+    },
+    {
+      "x": 430529.16,
+      "y": 4582891.68,
+      "kwh_year": 430.7,
+      "shade_loss": 0.263
+    },
+    {
+      "x": 430519.01,
+      "y": 4582883.95,
+      "kwh_year": 547.5,
+      "shade_loss": 0.065
+    },
+    {
+      "x": 430528.09,
+      "y": 4582892.78,
+      "kwh_year": 417.1,
+      "shade_loss": 0.287
+    },
+    {
+      "x": 430515.34,
+      "y": 4582882.53,
+      "kwh_year": 564.1,
+      "shade_loss": 0.037
+    },
+    {
+      "x": 430516.64,
+      "y": 4582883.79,
+      "kwh_year": 562.0,
+      "shade_loss": 0.04
+    },
+    {
+      "x": 430517.94,
+      "y": 4582885.05,
+      "kwh_year": 538.6,
+      "shade_loss": 0.08
+    },
+    {
+      "x": 430523.13,
+      "y": 4582890.1,
+      "kwh_year": 533.5,
+      "shade_loss": 0.088
+    },
+    {
+      "x": 430527.02,
+      "y": 4582893.88,
+      "kwh_year": 403.9,
+      "shade_loss": 0.31
+    }
+  ]
+}

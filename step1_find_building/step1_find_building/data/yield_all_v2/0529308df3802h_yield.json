@@ -1,0 +1,60 @@
+{
+  "building": {
+    "refcat": "0529308DF3802H",
+    "address": "PJ MENDEZ VIGO 4 BARCELONA (BARCELONA)",
+    "query": "41.3932492,2.1679657"
+  },
+  "yield": {
+    "panels": 4,
+    "kwp": 1.68,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.1,
+    "yearly_kwh": 2175,
+    "kwh_per_kwp": 1295,
+    "mean_shade_loss": 0.07,
+    "monthly_kwh": [
+      88,
+      134,
+      179,
+      216,
+      280,
+      279,
+      289,
+      255,
+      182,
+      98,
+      91,
+      85
+    ],
+    "peak_hour_kw": 1.32,
+    "panels_left_out": 2,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 56.2,
+  "panels": [
+    {
+      "x": 430442.74,
+      "y": 4582750.88,
+      "kwh_year": 541.0,
+      "shade_loss": 0.074
+    },
+    {
+      "x": 430444.03,
+      "y": 4582752.16,
+      "kwh_year": 538.1,
+      "shade_loss": 0.08
+    },
+    {
+      "x": 430440.38,
+      "y": 4582750.69,
+      "kwh_year": 551.3,
+      "shade_loss": 0.057
+    },
+    {
+      "x": 430441.66,
+      "y": 4582751.96,
+      "kwh_year": 544.6,
+      "shade_loss": 0.068
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "building": {
+    "refcat": "0629615DF3802H",
+    "address": "CL DIPUTACIO 317 BARCELONA (BARCELONA)",
+    "query": "41.3931553,2.1705379"
+  },
+  "yield": {
+    "panels": 2,
+    "kwp": 0.84,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.9,
+    "yearly_kwh": 945,
+    "kwh_per_kwp": 1125,
+    "mean_shade_loss": 0.192,
+    "monthly_kwh": [
+      33,
+      45,
+      69,
+      95,
+      134,
+      136,
+      140,
+      117,
+      75,
+      37,
+      33,
+      30
+    ],
+    "peak_hour_kw": 0.66,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 35.8,
+  "panels": [
+    {
+      "x": 430653.5,
+      "y": 4582737.83,
+      "kwh_year": 364.2,
+      "shade_loss": 0.376
+    },
+    {
+      "x": 430648.39,
+      "y": 4582745.7,
+      "kwh_year": 580.8,
+      "shade_loss": 0.008
+    }
+  ]
+}

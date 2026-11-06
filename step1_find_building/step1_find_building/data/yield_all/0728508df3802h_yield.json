@@ -1,0 +1,60 @@
+{
+  "building": {
+    "refcat": "0728508DF3802H",
+    "address": "GV CORTS CATALANES 637 BARCELONA (BARCELONA)",
+    "query": "41.3920467,2.1710358"
+  },
+  "yield": {
+    "panels": 4,
+    "kwp": 1.68,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.8,
+    "yearly_kwh": 2012,
+    "kwh_per_kwp": 1198,
+    "mean_shade_loss": 0.139,
+    "monthly_kwh": [
+      72,
+      104,
+      163,
+      207,
+      274,
+      268,
+      279,
+      249,
+      171,
+      88,
+      78,
+      59
+    ],
+    "peak_hour_kw": 1.32,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 56.0,
+  "panels": [
+    {
+      "x": 430694.6,
+      "y": 4582615.92,
+      "kwh_year": 399.3,
+      "shade_loss": 0.319
+    },
+    {
+      "x": 430696.13,
+      "y": 4582619.55,
+      "kwh_year": 519.2,
+      "shade_loss": 0.111
+    },
+    {
+      "x": 430691.17,
+      "y": 4582616.86,
+      "kwh_year": 548.9,
+      "shade_loss": 0.061
+    },
+    {
+      "x": 430692.47,
+      "y": 4582618.12,
+      "kwh_year": 545.1,
+      "shade_loss": 0.067
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "building": {
+    "refcat": "0528514DF3802H",
+    "address": "CL CONSELL DE CENT 332 BARCELONA (BARCELONA)",
+    "query": "41.3926058,2.1681269"
+  },
+  "yield": {
+    "panels": 2,
+    "kwp": 0.84,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 136.0,
+    "yearly_kwh": 1153,
+    "kwh_per_kwp": 1372,
+    "mean_shade_loss": 0.016,
+    "monthly_kwh": [
+      52,
+      75,
+      96,
+      113,
+      144,
+      143,
+      148,
+      132,
+      97,
+      53,
+      52,
+      49
+    ],
+    "peak_hour_kw": 0.67,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 23.8,
+  "panels": [
+    {
+      "x": 430461.75,
+      "y": 4582673.11,
+      "kwh_year": 577.9,
+      "shade_loss": 0.013
+    },
+    {
+      "x": 430460.68,
+      "y": 4582674.21,
+      "kwh_year": 575.0,
+      "shade_loss": 0.018
+    }
+  ]
+}

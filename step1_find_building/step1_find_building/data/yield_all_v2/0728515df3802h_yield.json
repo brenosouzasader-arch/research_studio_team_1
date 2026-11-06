@@ -1,0 +1,54 @@
+{
+  "building": {
+    "refcat": "0728515DF3802H",
+    "address": "CL DIPUTACIO 288 BARCELONA (BARCELONA)",
+    "query": "41.3925336,2.1703563"
+  },
+  "yield": {
+    "panels": 3,
+    "kwp": 1.26,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.6,
+    "yearly_kwh": 1468,
+    "kwh_per_kwp": 1165,
+    "mean_shade_loss": 0.165,
+    "monthly_kwh": [
+      64,
+      93,
+      123,
+      144,
+      183,
+      189,
+      192,
+      168,
+      122,
+      67,
+      64,
+      58
+    ],
+    "peak_hour_kw": 0.99,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 40.2,
+  "panels": [
+    {
+      "x": 430642.29,
+      "y": 4582665.28,
+      "kwh_year": 540.9,
+      "shade_loss": 0.076
+    },
+    {
+      "x": 430646.17,
+      "y": 4582669.07,
+      "kwh_year": 541.2,
+      "shade_loss": 0.075
+    },
+    {
+      "x": 430631.78,
+      "y": 4582678.6,
+      "kwh_year": 385.8,
+      "shade_loss": 0.345
+    }
+  ]
+}

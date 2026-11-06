@@ -1,0 +1,60 @@
+{
+  "building": {
+    "refcat": "0530604DF3803B",
+    "address": "CL ARAGO 312 BARCELONA (BARCELONA)",
+    "query": "41.3946576,2.1686909"
+  },
+  "yield": {
+    "panels": 4,
+    "kwp": 1.68,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.0,
+    "yearly_kwh": 2246,
+    "kwh_per_kwp": 1337,
+    "mean_shade_loss": 0.04,
+    "monthly_kwh": [
+      95,
+      142,
+      186,
+      222,
+      286,
+      283,
+      294,
+      261,
+      189,
+      101,
+      98,
+      89
+    ],
+    "peak_hour_kw": 1.33,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 50.2,
+  "panels": [
+    {
+      "x": 430507.38,
+      "y": 4582902.17,
+      "kwh_year": 499.8,
+      "shade_loss": 0.144
+    },
+    {
+      "x": 430502.84,
+      "y": 4582904.14,
+      "kwh_year": 580.8,
+      "shade_loss": 0.007
+    },
+    {
+      "x": 430497.92,
+      "y": 4582901.39,
+      "kwh_year": 581.5,
+      "shade_loss": 0.006
+    },
+    {
+      "x": 430503.04,
+      "y": 4582906.51,
+      "kwh_year": 583.8,
+      "shade_loss": 0.002
+    }
+  ]
+}

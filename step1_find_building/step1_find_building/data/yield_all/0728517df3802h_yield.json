@@ -1,0 +1,78 @@
+{
+  "building": {
+    "refcat": "0728517DF3802H",
+    "address": "CL DIPUTACIO 292 BARCELONA (BARCELONA)",
+    "query": "41.3926441,2.1706505"
+  },
+  "yield": {
+    "panels": 7,
+    "kwp": 2.94,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.6,
+    "yearly_kwh": 2979,
+    "kwh_per_kwp": 1013,
+    "mean_shade_loss": 0.272,
+    "monthly_kwh": [
+      99,
+      179,
+      247,
+      311,
+      400,
+      392,
+      414,
+      372,
+      261,
+      124,
+      112,
+      70
+    ],
+    "peak_hour_kw": 2.24,
+    "panels_left_out": 1,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 102.2,
+  "panels": [
+    {
+      "x": 430678.28,
+      "y": 4582668.21,
+      "kwh_year": 440.8,
+      "shade_loss": 0.245
+    },
+    {
+      "x": 430679.57,
+      "y": 4582669.47,
+      "kwh_year": 445.3,
+      "shade_loss": 0.238
+    },
+    {
+      "x": 430674.84,
+      "y": 4582669.14,
+      "kwh_year": 422.9,
+      "shade_loss": 0.276
+    },
+    {
+      "x": 430678.72,
+      "y": 4582672.93,
+      "kwh_year": 413.8,
+      "shade_loss": 0.292
+    },
+    {
+      "x": 430675.06,
+      "y": 4582671.5,
+      "kwh_year": 422.6,
+      "shade_loss": 0.277
+    },
+    {
+      "x": 430676.36,
+      "y": 4582672.76,
+      "kwh_year": 421.4,
+      "shade_loss": 0.28
+    },
+    {
+      "x": 430677.65,
+      "y": 4582674.03,
+      "kwh_year": 412.5,
+      "shade_loss": 0.295
+    }
+  ]
+}

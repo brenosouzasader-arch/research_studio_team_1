@@ -1,0 +1,54 @@
+{
+  "building": {
+    "refcat": "0528501DF3802H",
+    "address": "CL CONSELL DE CENT 340 BARCELONA (BARCELONA)",
+    "query": "41.3929256,2.1686895"
+  },
+  "yield": {
+    "panels": 3,
+    "kwp": 1.26,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.4,
+    "yearly_kwh": 1281,
+    "kwh_per_kwp": 1017,
+    "mean_shade_loss": 0.27,
+    "monthly_kwh": [
+      40,
+      71,
+      101,
+      128,
+      180,
+      182,
+      187,
+      157,
+      109,
+      55,
+      42,
+      29
+    ],
+    "peak_hour_kw": 0.98,
+    "panels_left_out": 1,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 76.8,
+  "panels": [
+    {
+      "x": 430485.12,
+      "y": 4582715.14,
+      "kwh_year": 360.1,
+      "shade_loss": 0.386
+    },
+    {
+      "x": 430486.4,
+      "y": 4582716.41,
+      "kwh_year": 438.6,
+      "shade_loss": 0.25
+    },
+    {
+      "x": 430487.69,
+      "y": 4582717.69,
+      "kwh_year": 482.7,
+      "shade_loss": 0.174
+    }
+  ]
+}

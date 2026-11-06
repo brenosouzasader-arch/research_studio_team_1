@@ -1,0 +1,96 @@
+{
+  "building": {
+    "refcat": "0529301DF3802H",
+    "address": "PJ MENDEZ VIGO 10 BARCELONA (BARCELONA)",
+    "query": "41.3938704,2.1675896"
+  },
+  "yield": {
+    "panels": 10,
+    "kwp": 4.2,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.6,
+    "yearly_kwh": 5559,
+    "kwh_per_kwp": 1324,
+    "mean_shade_loss": 0.049,
+    "monthly_kwh": [
+      229,
+      327,
+      452,
+      555,
+      721,
+      718,
+      743,
+      657,
+      466,
+      246,
+      233,
+      213
+    ],
+    "peak_hour_kw": 3.33,
+    "panels_left_out": 2,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 142.5,
+  "panels": [
+    {
+      "x": 430410.66,
+      "y": 4582801.65,
+      "kwh_year": 561.9,
+      "shade_loss": 0.039
+    },
+    {
+      "x": 430411.95,
+      "y": 4582802.92,
+      "kwh_year": 555.4,
+      "shade_loss": 0.05
+    },
+    {
+      "x": 430413.25,
+      "y": 4582804.18,
+      "kwh_year": 552.8,
+      "shade_loss": 0.054
+    },
+    {
+      "x": 430409.59,
+      "y": 4582802.74,
+      "kwh_year": 565.8,
+      "shade_loss": 0.032
+    },
+    {
+      "x": 430410.88,
+      "y": 4582804.01,
+      "kwh_year": 561.3,
+      "shade_loss": 0.04
+    },
+    {
+      "x": 430412.17,
+      "y": 4582805.28,
+      "kwh_year": 559.5,
+      "shade_loss": 0.043
+    },
+    {
+      "x": 430409.81,
+      "y": 4582805.11,
+      "kwh_year": 566.8,
+      "shade_loss": 0.031
+    },
+    {
+      "x": 430408.73,
+      "y": 4582806.2,
+      "kwh_year": 565.4,
+      "shade_loss": 0.033
+    },
+    {
+      "x": 430406.37,
+      "y": 4582806.03,
+      "kwh_year": 519.0,
+      "shade_loss": 0.111
+    },
+    {
+      "x": 430405.29,
+      "y": 4582807.12,
+      "kwh_year": 551.5,
+      "shade_loss": 0.057
+    }
+  ]
+}

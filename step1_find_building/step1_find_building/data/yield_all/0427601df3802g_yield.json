@@ -1,0 +1,35 @@
+{
+  "building": {
+    "refcat": "0427601DF3802G",
+    "address": "PS GRACIA 42 BARCELONA (BARCELONA)",
+    "query": "41.3914665,2.166579"
+  },
+  "yield": {
+    "panels": 0,
+    "kwp": 0.0,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 225.0,
+    "yearly_kwh": 0,
+    "kwh_per_kwp": null,
+    "mean_shade_loss": null,
+    "monthly_kwh": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "peak_hour_kw": 0.0,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 17.5,
+  "panels": []
+}

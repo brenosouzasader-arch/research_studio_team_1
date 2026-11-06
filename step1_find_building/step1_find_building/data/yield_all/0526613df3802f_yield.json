@@ -1,0 +1,78 @@
+{
+  "building": {
+    "refcat": "0526613DF3802F",
+    "address": "GV CORTS CATALANES 611 BARCELONA (BARCELONA)",
+    "query": "41.3899601,2.1683527"
+  },
+  "yield": {
+    "panels": 7,
+    "kwp": 2.94,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 136.8,
+    "yearly_kwh": 3458,
+    "kwh_per_kwp": 1176,
+    "mean_shade_loss": 0.156,
+    "monthly_kwh": [
+      130,
+      198,
+      282,
+      345,
+      461,
+      458,
+      479,
+      417,
+      287,
+      152,
+      133,
+      115
+    ],
+    "peak_hour_kw": 2.3,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 66.0,
+  "panels": [
+    {
+      "x": 430473.64,
+      "y": 4582381.46,
+      "kwh_year": 538.7,
+      "shade_loss": 0.08
+    },
+    {
+      "x": 430474.96,
+      "y": 4582382.7,
+      "kwh_year": 556.6,
+      "shade_loss": 0.049
+    },
+    {
+      "x": 430480.24,
+      "y": 4582387.66,
+      "kwh_year": 385.1,
+      "shade_loss": 0.34
+    },
+    {
+      "x": 430481.56,
+      "y": 4582388.9,
+      "kwh_year": 403.5,
+      "shade_loss": 0.31
+    },
+    {
+      "x": 430480.51,
+      "y": 4582390.02,
+      "kwh_year": 460.3,
+      "shade_loss": 0.213
+    },
+    {
+      "x": 430474.21,
+      "y": 4582396.72,
+      "kwh_year": 566.4,
+      "shade_loss": 0.034
+    },
+    {
+      "x": 430473.16,
+      "y": 4582397.84,
+      "kwh_year": 546.9,
+      "shade_loss": 0.067
+    }
+  ]
+}

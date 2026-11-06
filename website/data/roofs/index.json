@@ -1,19 +1,2661 @@
 {
  "roofs": [
   {
+   "refcat": "0328601DF3802G",
+   "address": "CL ARAGO 284(T) BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 0.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328602DF3802G",
+   "address": "CL PAU CLARIS 121 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1667175,
+    41.3921626,
+    2.1671988,
+    41.3926018
+   ],
+   "usable_area_m2": 486.8,
+   "confidence": null,
+   "yearly_kwh": 54669,
+   "panels": 104,
+   "kwp": 43.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328603DF3802G",
+   "address": "CL CONSELL DE CENT 357 N2-359 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 22.5,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328604DF3802G",
+   "address": "CL CONSELL DE CENT 355 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1662404,
+    41.3918613,
+    2.1664014,
+    41.3919941
+   ],
+   "usable_area_m2": 104.8,
+   "confidence": null,
+   "yearly_kwh": 5768,
+   "panels": 12,
+   "kwp": 5.04,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328605DF3802G",
+   "address": "PS GRACIA 44 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1661493,
+    41.3917598,
+    2.1663622,
+    41.3918509
+   ],
+   "usable_area_m2": 63.5,
+   "confidence": null,
+   "yearly_kwh": 1329,
+   "panels": 3,
+   "kwp": 1.26,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328606DF3802G",
+   "address": "PS GRACIA 46 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1660575,
+    41.3919098,
+    2.166149,
+    41.3919672
+   ],
+   "usable_area_m2": 85.5,
+   "confidence": null,
+   "yearly_kwh": 2114,
+   "panels": 4,
+   "kwp": 1.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328607DF3802G",
+   "address": "PS GRACIA 48 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1659004,
+    41.3920441,
+    2.1660045,
+    41.3921132
+   ],
+   "usable_area_m2": 115.5,
+   "confidence": null,
+   "yearly_kwh": 4706,
+   "panels": 11,
+   "kwp": 4.62,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328608DF3802G",
+   "address": "PS GRACIA 50 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1656404,
+    41.3920182,
+    2.1659006,
+    41.3921941
+   ],
+   "usable_area_m2": 99.8,
+   "confidence": null,
+   "yearly_kwh": 7371,
+   "panels": 16,
+   "kwp": 6.72,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328609DF3802G",
+   "address": "PS GRACIA 52 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1656185,
+    41.392136,
+    2.1657378,
+    41.3922265
+   ],
+   "usable_area_m2": 78.8,
+   "confidence": null,
+   "yearly_kwh": 10323,
+   "panels": 18,
+   "kwp": 7.56,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328610DF3802G",
+   "address": "PS GRACIA 54 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1655286,
+    41.3922012,
+    2.1657163,
+    41.3923857
+   ],
+   "usable_area_m2": 194.2,
+   "confidence": null,
+   "yearly_kwh": 28235,
+   "panels": 49,
+   "kwp": 20.58,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328611DF3802G",
+   "address": "CL ARAGO 282 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1657226,
+    41.3923731,
+    2.1658925,
+    41.3925349
+   ],
+   "usable_area_m2": 81.8,
+   "confidence": null,
+   "yearly_kwh": 3203,
+   "panels": 8,
+   "kwp": 3.36,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328612DF3802G",
+   "address": "CL ARAGO 284 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1657553,
+    41.392567,
+    2.1658841,
+    41.3926548
+   ],
+   "usable_area_m2": 66.8,
+   "confidence": null,
+   "yearly_kwh": 2141,
+   "panels": 5,
+   "kwp": 2.1,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0328613DF3802G",
+   "address": "CL ARAGO 284(B) BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1659833,
+    41.3925531,
+    2.1660866,
+    41.3927641
+   ],
+   "usable_area_m2": 65.0,
+   "confidence": null,
+   "yearly_kwh": 2101,
+   "panels": 4,
+   "kwp": 1.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427601DF3802G",
+   "address": "PS GRACIA 42 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 17.5,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427602DF3802G",
+   "address": "CL CONSELL DE CENT 314 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1666801,
+    41.3915567,
+    2.1669657,
+    41.3918191
+   ],
+   "usable_area_m2": 147.0,
+   "confidence": null,
+   "yearly_kwh": 7627,
+   "panels": 14,
+   "kwp": 5.88,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427603DF3802G",
+   "address": "CL CONSELL DE CENT 318 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1670467,
+    41.3916963,
+    2.1671505,
+    41.3917996
+   ],
+   "usable_area_m2": 97.5,
+   "confidence": null,
+   "yearly_kwh": 4796,
+   "panels": 9,
+   "kwp": 3.78,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427604DF3802G",
+   "address": "CL CONSELL DE CENT 320 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1671944,
+    41.3917991,
+    2.1673037,
+    41.3918825
+   ],
+   "usable_area_m2": 76.5,
+   "confidence": null,
+   "yearly_kwh": 8635,
+   "panels": 17,
+   "kwp": 7.14,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427605DF3802G",
+   "address": "CL CONSELL DE CENT 322 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1672949,
+    41.3919065,
+    2.1673193,
+    41.3919247
+   ],
+   "usable_area_m2": 26.0,
+   "confidence": null,
+   "yearly_kwh": 492,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427606DF3802G",
+   "address": "CL CONSELL DE CENT 324 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1674734,
+    41.3920209,
+    2.1675105,
+    41.392049
+   ],
+   "usable_area_m2": 41.2,
+   "confidence": null,
+   "yearly_kwh": 844,
+   "panels": 2,
+   "kwp": 0.84,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427607DF3802G",
+   "address": "CL PAU CLARIS 119 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.167444,
+    41.3921505,
+    2.167579,
+    41.3922097
+   ],
+   "usable_area_m2": 70.5,
+   "confidence": null,
+   "yearly_kwh": 4331,
+   "panels": 9,
+   "kwp": 3.78,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427608DF3802G",
+   "address": "CL PAU CLARIS 117 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1675569,
+    41.3920326,
+    2.1677331,
+    41.3921557
+   ],
+   "usable_area_m2": 139.5,
+   "confidence": null,
+   "yearly_kwh": 9727,
+   "panels": 21,
+   "kwp": 8.82,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427609DF3802G",
+   "address": "CL PAU CLARIS 115 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1676848,
+    41.3918864,
+    2.1677091,
+    41.3919047
+   ],
+   "usable_area_m2": 12.0,
+   "confidence": null,
+   "yearly_kwh": 421,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427610DF3802G",
+   "address": "CL PAU CLARIS 113 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1679108,
+    41.3918046,
+    2.1679867,
+    41.3919063
+   ],
+   "usable_area_m2": 80.0,
+   "confidence": null,
+   "yearly_kwh": 3554,
+   "panels": 8,
+   "kwp": 3.36,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427611DF3802G",
+   "address": "CL PAU CLARIS 111 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1680069,
+    41.3917418,
+    2.1680466,
+    41.3917715
+   ],
+   "usable_area_m2": 14.2,
+   "confidence": null,
+   "yearly_kwh": 1024,
+   "panels": 2,
+   "kwp": 0.84,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427612DF3802G",
+   "address": "CL PAU CLARIS 109 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1680745,
+    41.3916618,
+    2.1682274,
+    41.3917194
+   ],
+   "usable_area_m2": 76.0,
+   "confidence": null,
+   "yearly_kwh": 4853,
+   "panels": 11,
+   "kwp": 4.62,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427613DF3802G",
+   "address": "CL PAU CLARIS 107 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1682771,
+    41.3915097,
+    2.1683198,
+    41.3916855
+   ],
+   "usable_area_m2": 73.5,
+   "confidence": null,
+   "yearly_kwh": 6147,
+   "panels": 14,
+   "kwp": 5.88,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427614DF3802G",
+   "address": "CL DIPUTACIO 279 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1676505,
+    41.3916449,
+    2.167834,
+    41.3917828
+   ],
+   "usable_area_m2": 435.2,
+   "confidence": null,
+   "yearly_kwh": 8396,
+   "panels": 23,
+   "kwp": 9.66,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427615DF3802G",
+   "address": "CL DIPUTACIO 275 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1675464,
+    41.3911027,
+    2.1679717,
+    41.3914436
+   ],
+   "usable_area_m2": 393.8,
+   "confidence": null,
+   "yearly_kwh": 30655,
+   "panels": 58,
+   "kwp": 24.36,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427616DF3802G",
+   "address": "CL DIPUTACIO 273 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1674557,
+    41.391001,
+    2.1677247,
+    41.3912043
+   ],
+   "usable_area_m2": 167.5,
+   "confidence": null,
+   "yearly_kwh": 15943,
+   "panels": 30,
+   "kwp": 12.6,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427617DF3802G",
+   "address": "CL DIPUTACIO 271 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1674613,
+    41.3909736,
+    2.167537,
+    41.3910526
+   ],
+   "usable_area_m2": 47.2,
+   "confidence": null,
+   "yearly_kwh": 2805,
+   "panels": 5,
+   "kwp": 2.1,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427618DF3802G",
+   "address": "PS GRACIA 32 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1670994,
+    41.3907908,
+    2.1674653,
+    41.3910124
+   ],
+   "usable_area_m2": 292.8,
+   "confidence": null,
+   "yearly_kwh": 34416,
+   "panels": 64,
+   "kwp": 26.88,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427619DF3802G",
+   "address": "PS GRACIA 34 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1670808,
+    41.3908775,
+    2.1672581,
+    41.3910697
+   ],
+   "usable_area_m2": 95.8,
+   "confidence": null,
+   "yearly_kwh": 8263,
+   "panels": 16,
+   "kwp": 6.72,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427620DF3802G",
+   "address": "PS GRACIA 36 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1668965,
+    41.3909942,
+    2.167147,
+    41.3911847
+   ],
+   "usable_area_m2": 273.0,
+   "confidence": null,
+   "yearly_kwh": 34591,
+   "panels": 64,
+   "kwp": 26.88,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0427621DF3802G",
+   "address": "PS GRACIA 38 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1665571,
+    41.3911001,
+    2.1672592,
+    41.3916007
+   ],
+   "usable_area_m2": 391.0,
+   "confidence": null,
+   "yearly_kwh": 14928,
+   "panels": 28,
+   "kwp": 11.76,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0429601DF3802G",
+   "address": "CL ARAGO 286 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 0.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0429602DF3802G",
+   "address": "CL ARAGO 288 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1668537,
+    41.3933819,
+    2.1669867,
+    41.3934701
+   ],
+   "usable_area_m2": 51.0,
+   "confidence": null,
+   "yearly_kwh": 2627,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0429603DF3802G",
+   "address": "CL ARAGO 290 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1669608,
+    41.3935057,
+    2.1669853,
+    41.3935238
+   ],
+   "usable_area_m2": 19.2,
+   "confidence": null,
+   "yearly_kwh": 437,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0429604DF3802G",
+   "address": "PJ MENDEZ VIGO 5 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1673069,
+    41.3931652,
+    2.1674338,
+    41.3932704
+   ],
+   "usable_area_m2": 88.2,
+   "confidence": null,
+   "yearly_kwh": 8019,
+   "panels": 18,
+   "kwp": 7.56,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0429605DF3802G",
+   "address": "PJ MENDEZ VIGO 3 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1673978,
+    41.3930133,
+    2.1674994,
+    41.3930906
+   ],
+   "usable_area_m2": 43.5,
+   "confidence": null,
+   "yearly_kwh": 1768,
+   "panels": 4,
+   "kwp": 1.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0429606DF3802G",
+   "address": "CL CONSELL DE CENT 365 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1676788,
+    41.3927941,
+    2.1678857,
+    41.3929025
+   ],
+   "usable_area_m2": 160.8,
+   "confidence": null,
+   "yearly_kwh": 7515,
+   "panels": 18,
+   "kwp": 7.56,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0429607DF3802G",
+   "address": "CL PAU CLARIS 122 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1671623,
+    41.3927384,
+    2.1674447,
+    41.3929333
+   ],
+   "usable_area_m2": 169.8,
+   "confidence": null,
+   "yearly_kwh": 11160,
+   "panels": 21,
+   "kwp": 8.82,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0429608DF3802G",
+   "address": "CL PAU CLARIS 126 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1671642,
+    41.39303,
+    2.1672428,
+    41.3930677
+   ],
+   "usable_area_m2": 57.2,
+   "confidence": null,
+   "yearly_kwh": 1434,
+   "panels": 3,
+   "kwp": 1.26,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0429609DF3802G",
+   "address": "CL PAU CLARIS 128 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 2.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0429610DF3802G",
+   "address": "CL PAU CLARIS 130 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1669445,
+    41.3930776,
+    2.1669687,
+    41.393096
+   ],
+   "usable_area_m2": 69.0,
+   "confidence": null,
+   "yearly_kwh": 471,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526601DF3802F",
+   "address": "CL PAU CLARIS 105 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1687002,
+    41.391298,
+    2.1687552,
+    41.3913491
+   ],
+   "usable_area_m2": 51.0,
+   "confidence": null,
+   "yearly_kwh": 2003,
+   "panels": 4,
+   "kwp": 1.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526602DF3802F",
+   "address": "CL PAU CLARIS 103 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1687624,
+    41.3912063,
+    2.1688611,
+    41.3912705
+   ],
+   "usable_area_m2": 32.0,
+   "confidence": null,
+   "yearly_kwh": 1252,
+   "panels": 3,
+   "kwp": 1.26,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526605DF3802F",
+   "address": "CL PAU CLARIS 97 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1688608,
+    41.3908542,
+    2.1692427,
+    41.3910817
+   ],
+   "usable_area_m2": 318.2,
+   "confidence": null,
+   "yearly_kwh": 23155,
+   "panels": 45,
+   "kwp": 18.9,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526606DF3802F",
+   "address": "CL PAU CLARIS 95 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1690678,
+    41.390694,
+    2.1691688,
+    41.3907717
+   ],
+   "usable_area_m2": 38.8,
+   "confidence": null,
+   "yearly_kwh": 3252,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526609DF3802F",
+   "address": "GV CORTS CATALANES 617 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1688108,
+    41.3903402,
+    2.1692085,
+    41.3906187
+   ],
+   "usable_area_m2": 375.5,
+   "confidence": null,
+   "yearly_kwh": 40667,
+   "panels": 78,
+   "kwp": 32.76,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526610DF3802F",
+   "address": "GV CORTS CATALANES 615 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1687355,
+    41.3902293,
+    2.1689836,
+    41.3904634
+   ],
+   "usable_area_m2": 209.2,
+   "confidence": null,
+   "yearly_kwh": 9998,
+   "panels": 20,
+   "kwp": 8.4,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526611DF3802F",
+   "address": "GV CORTS CATALANES 613 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.168495,
+    41.3901385,
+    2.1687148,
+    41.390345
+   ],
+   "usable_area_m2": 149.8,
+   "confidence": null,
+   "yearly_kwh": 14796,
+   "panels": 28,
+   "kwp": 11.76,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526612DF3802F",
+   "address": "GV CORTS CATALANES 611(B) BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1685903,
+    41.3900224,
+    2.168674,
+    41.3900649
+   ],
+   "usable_area_m2": 29.5,
+   "confidence": null,
+   "yearly_kwh": 3046,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526613DF3802F",
+   "address": "GV CORTS CATALANES 611 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1683677,
+    41.3899514,
+    2.1684935,
+    41.390117
+   ],
+   "usable_area_m2": 66.0,
+   "confidence": null,
+   "yearly_kwh": 3458,
+   "panels": 7,
+   "kwp": 2.94,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526614DF3802F",
+   "address": "PS GRACIA 20 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1680846,
+    41.3900085,
+    2.1682033,
+    41.3900771
+   ],
+   "usable_area_m2": 72.8,
+   "confidence": null,
+   "yearly_kwh": 3145,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526615DF3802F",
+   "address": "PS GRACIA 22 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1680442,
+    41.390175,
+    2.168113,
+    41.390205
+   ],
+   "usable_area_m2": 36.8,
+   "confidence": null,
+   "yearly_kwh": 1671,
+   "panels": 3,
+   "kwp": 1.26,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526616DF3802F",
+   "address": "PS GRACIA 24 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1680801,
+    41.3902602,
+    2.1681203,
+    41.3902896
+   ],
+   "usable_area_m2": 13.8,
+   "confidence": null,
+   "yearly_kwh": 906,
+   "panels": 2,
+   "kwp": 0.84,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526617DF3802F",
+   "address": "PS GRACIA 24(B) BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 0.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526618DF3802F",
+   "address": "PS GRACIA 26 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1679502,
+    41.3903872,
+    2.1680339,
+    41.3904692
+   ],
+   "usable_area_m2": 56.2,
+   "confidence": null,
+   "yearly_kwh": 6839,
+   "panels": 13,
+   "kwp": 5.46,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526619DF3802F",
+   "address": "PS GRACIA 28 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1676629,
+    41.3903427,
+    2.1679434,
+    41.3905667
+   ],
+   "usable_area_m2": 103.2,
+   "confidence": null,
+   "yearly_kwh": 5068,
+   "panels": 10,
+   "kwp": 4.2,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526620DF3802F",
+   "address": "PS GRACIA 30 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.167598,
+    41.3904313,
+    2.1677908,
+    41.3906141
+   ],
+   "usable_area_m2": 99.2,
+   "confidence": null,
+   "yearly_kwh": 11721,
+   "panels": 21,
+   "kwp": 8.82,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526621DF3802F",
+   "address": "CL DIPUTACIO 260 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1678594,
+    41.3906216,
+    2.1679894,
+    41.390743
+   ],
+   "usable_area_m2": 60.0,
+   "confidence": null,
+   "yearly_kwh": 3214,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526622DF3802F",
+   "address": "CL DIPUTACIO 262 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1679194,
+    41.3907268,
+    2.1682269,
+    41.3909514
+   ],
+   "usable_area_m2": 158.2,
+   "confidence": null,
+   "yearly_kwh": 14128,
+   "panels": 30,
+   "kwp": 12.6,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526623DF3802F",
+   "address": "CL DIPUTACIO 262(B) BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1680573,
+    41.3908931,
+    2.1683904,
+    41.3911423
+   ],
+   "usable_area_m2": 361.0,
+   "confidence": null,
+   "yearly_kwh": 30216,
+   "panels": 57,
+   "kwp": 23.94,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526624DF3802F",
+   "address": "CL DIPUTACIO 266 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1683354,
+    41.3911099,
+    2.1684495,
+    41.39123
+   ],
+   "usable_area_m2": 73.5,
+   "confidence": null,
+   "yearly_kwh": 2572,
+   "panels": 5,
+   "kwp": 2.1,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526625DF3802F",
+   "address": "CL DIPUTACIO 268 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1684823,
+    41.3913002,
+    2.1685066,
+    41.3913185
+   ],
+   "usable_area_m2": 15.2,
+   "confidence": null,
+   "yearly_kwh": 496,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526626DF3802F",
+   "address": "CL PAU CLARIS 99 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1687059,
+    41.3909778,
+    2.1690026,
+    41.3912008
+   ],
+   "usable_area_m2": 106.2,
+   "confidence": null,
+   "yearly_kwh": 5477,
+   "panels": 12,
+   "kwp": 5.04,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0526627DF3802F",
+   "address": "GV CORTS CATALANES 619 N2-621 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1693706,
+    41.3906405,
+    2.1694103,
+    41.3906703
+   ],
+   "usable_area_m2": 38.0,
+   "confidence": null,
+   "yearly_kwh": 1071,
+   "panels": 2,
+   "kwp": 0.84,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528501DF3802H",
+   "address": "CL CONSELL DE CENT 340 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1684743,
+    41.3929576,
+    2.1685291,
+    41.3929991
+   ],
+   "usable_area_m2": 76.8,
+   "confidence": null,
+   "yearly_kwh": 1281,
+   "panels": 3,
+   "kwp": 1.26,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528502DF3802H",
+   "address": "CL ROGER DE LLURIA 47 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1688164,
+    41.3927967,
+    2.168903,
+    41.3928886
+   ],
+   "usable_area_m2": 38.5,
+   "confidence": null,
+   "yearly_kwh": 2911,
+   "panels": 5,
+   "kwp": 2.1,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528503DF3802H",
+   "address": "PJ PERMANYER 16 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1688775,
+    41.3927158,
+    2.1690628,
+    41.3928559
+   ],
+   "usable_area_m2": 90.0,
+   "confidence": null,
+   "yearly_kwh": 8130,
+   "panels": 17,
+   "kwp": 7.14,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528504DF3802H",
+   "address": "PJ PERMANYER 14 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1686609,
+    41.3926149,
+    2.1687005,
+    41.3926447
+   ],
+   "usable_area_m2": 16.8,
+   "confidence": null,
+   "yearly_kwh": 960,
+   "panels": 2,
+   "kwp": 0.84,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528505DF3802H",
+   "address": "PJ PERMANYER 12 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1685095,
+    41.3925353,
+    2.1686033,
+    41.392606
+   ],
+   "usable_area_m2": 63.2,
+   "confidence": null,
+   "yearly_kwh": 4218,
+   "panels": 9,
+   "kwp": 3.78,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528506DF3802H",
+   "address": "PJ PERMANYER 10 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1684144,
+    41.3924486,
+    2.1685341,
+    41.3925159
+   ],
+   "usable_area_m2": 38.2,
+   "confidence": null,
+   "yearly_kwh": 3163,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528507DF3802H",
+   "address": "PJ PERMANYER 8 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 0.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528508DF3802H",
+   "address": "PJ PERMANYER 6 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1682167,
+    41.3923452,
+    2.168241,
+    41.3923635
+   ],
+   "usable_area_m2": 18.0,
+   "confidence": null,
+   "yearly_kwh": 374,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528509DF3802H",
+   "address": "PJ PERMANYER 4 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1681432,
+    41.3922445,
+    2.1682111,
+    41.3922858
+   ],
+   "usable_area_m2": 23.0,
+   "confidence": null,
+   "yearly_kwh": 1875,
+   "panels": 4,
+   "kwp": 1.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528510DF3802H",
+   "address": "PJ PERMANYER 2 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 0.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528511DF3802H",
+   "address": "CL PAU CLARIS 118 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1679664,
+    41.3923116,
+    2.1680448,
+    41.3923937
+   ],
+   "usable_area_m2": 44.0,
+   "confidence": null,
+   "yearly_kwh": 4945,
+   "panels": 9,
+   "kwp": 3.78,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528512DF3802H",
+   "address": "CL PAU CLARIS 120 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 37.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528513DF3802H",
+   "address": "CL CONSELL DE CENT 330 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1678793,
+    41.3925089,
+    2.168094,
+    41.392632
+   ],
+   "usable_area_m2": 126.8,
+   "confidence": null,
+   "yearly_kwh": 12020,
+   "panels": 23,
+   "kwp": 9.66,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528514DF3802H",
+   "address": "CL CONSELL DE CENT 332 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1681867,
+    41.392577,
+    2.1682239,
+    41.3926051
+   ],
+   "usable_area_m2": 23.8,
+   "confidence": null,
+   "yearly_kwh": 1153,
+   "panels": 2,
+   "kwp": 0.84,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528517DF3802H",
+   "address": "CL CONSELL DE CENT 338 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1683063,
+    41.3927715,
+    2.1685469,
+    41.3929649
+   ],
+   "usable_area_m2": 123.0,
+   "confidence": null,
+   "yearly_kwh": 9893,
+   "panels": 22,
+   "kwp": 9.24,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0528518DF3802H",
+   "address": "CL CONSELL DE CENT 334 N2-336 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1683424,
+    41.3926885,
+    2.1684259,
+    41.392751
+   ],
+   "usable_area_m2": 54.5,
+   "confidence": null,
+   "yearly_kwh": 3607,
+   "panels": 7,
+   "kwp": 2.94,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0529301DF3802H",
+   "address": "PJ MENDEZ VIGO 10 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1674958,
+    41.3937287,
+    2.1676308,
+    41.3937959
+   ],
+   "usable_area_m2": 111.0,
+   "confidence": null,
+   "yearly_kwh": 6101,
+   "panels": 11,
+   "kwp": 4.62,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0529302DF3802H",
+   "address": "CL ROGER DE LLURIA 59 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 25.8,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0529303DF3802H",
+   "address": "CL ROGER DE LLURIA 57 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1678799,
+    41.3935203,
+    2.167935,
+    41.3935714
+   ],
+   "usable_area_m2": 45.8,
+   "confidence": null,
+   "yearly_kwh": 2289,
+   "panels": 4,
+   "kwp": 1.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0529304DF3802H",
+   "address": "CL ROGER DE LLURIA 55 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 0.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0529305DF3802H",
+   "address": "CL ROGER DE LLURIA 53 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 24.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0529306DF3802H",
+   "address": "CL ROGER DE LLURIA 51 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1682506,
+    41.3931622,
+    2.168323,
+    41.3932364
+   ],
+   "usable_area_m2": 56.8,
+   "confidence": null,
+   "yearly_kwh": 2563,
+   "panels": 5,
+   "kwp": 2.1,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0529307DF3802H",
+   "address": "PJ MENDEZ VIGO 2 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1680586,
+    41.3930761,
+    2.1681743,
+    41.3931546
+   ],
+   "usable_area_m2": 71.0,
+   "confidence": null,
+   "yearly_kwh": 4391,
+   "panels": 8,
+   "kwp": 3.36,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0529308DF3802H",
+   "address": "PJ MENDEZ VIGO 4 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1679351,
+    41.3932739,
+    2.1680029,
+    41.3933058
+   ],
+   "usable_area_m2": 56.2,
+   "confidence": null,
+   "yearly_kwh": 2175,
+   "panels": 4,
+   "kwp": 1.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0529309DF3802H",
+   "address": "PJ MENDEZ VIGO 6 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 0.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0529310DF3802H",
+   "address": "PJ MENDEZ VIGO 8 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1674836,
+    41.3934014,
+    2.1677655,
+    41.3936144
+   ],
+   "usable_area_m2": 198.0,
+   "confidence": null,
+   "yearly_kwh": 19772,
+   "panels": 41,
+   "kwp": 17.22,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530601DF3803B",
+   "address": "CL ARAGO 302 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1679504,
+    41.3937501,
+    2.1683901,
+    41.3942092
+   ],
+   "usable_area_m2": 53.8,
+   "confidence": null,
+   "yearly_kwh": 2641,
+   "panels": 5,
+   "kwp": 2.1,
+   "block": null,
+   "block_name": null
+  },
+  {
    "refcat": "0530602DF3803B",
    "address": "CL ARAGO 308 BARCELONA (BARCELONA)",
    "bbox": [
-    2.1681613,
-    41.3940166,
-    2.1689481,
-    41.394586
+    2.16817,
+    41.3943099,
+    2.1685466,
+    41.394582
    ],
-   "usable_area_m2": 1342.8,
-   "confidence": "medium",
-   "yearly_kwh": null,
-   "panels": null,
-   "kwp": null,
+   "usable_area_m2": 378.8,
+   "confidence": null,
+   "yearly_kwh": 36560,
+   "panels": 72,
+   "kwp": 30.24,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530603DF3803B",
+   "address": "CL ARAGO 310 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1684333,
+    41.3945248,
+    2.1686743,
+    41.3946737
+   ],
+   "usable_area_m2": 110.0,
+   "confidence": null,
+   "yearly_kwh": 3391,
+   "panels": 7,
+   "kwp": 2.94,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530604DF3803B",
+   "address": "CL ARAGO 312 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1686061,
+    41.3946362,
+    2.1687433,
+    41.3947011
+   ],
+   "usable_area_m2": 50.2,
+   "confidence": null,
+   "yearly_kwh": 2246,
+   "panels": 4,
+   "kwp": 1.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530605DF3803B",
+   "address": "CL BRUC 81 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1687552,
+    41.3945138,
+    2.1689383,
+    41.3946734
+   ],
+   "usable_area_m2": 109.5,
+   "confidence": null,
+   "yearly_kwh": 8611,
+   "panels": 17,
+   "kwp": 7.14,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530606DF3803B",
+   "address": "CL BRUC 79 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1688166,
+    41.3944678,
+    2.1690051,
+    41.3945894
+   ],
+   "usable_area_m2": 84.5,
+   "confidence": null,
+   "yearly_kwh": 4894,
+   "panels": 10,
+   "kwp": 4.2,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530607DF3803B",
+   "address": "CL BRUC 77 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 23.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530608DF3803B",
+   "address": "CL BRUC 75 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1690272,
+    41.3943368,
+    2.1692003,
+    41.3944469
+   ],
+   "usable_area_m2": 78.0,
+   "confidence": null,
+   "yearly_kwh": 5910,
+   "panels": 13,
+   "kwp": 5.46,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530609DF3803B",
+   "address": "CL BRUC 73 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1690309,
+    41.3941765,
+    2.1692885,
+    41.3943704
+   ],
+   "usable_area_m2": 235.2,
+   "confidence": null,
+   "yearly_kwh": 25759,
+   "panels": 50,
+   "kwp": 21.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530610DF3803B",
+   "address": "CL CONSELL DE CENT 383 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1691495,
+    41.3939681,
+    2.1694485,
+    41.3942862
+   ],
+   "usable_area_m2": 372.2,
+   "confidence": null,
+   "yearly_kwh": 32745,
+   "panels": 61,
+   "kwp": 25.62,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530611DF3803B",
+   "address": "CL CONSELL DE CENT 381 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1690261,
+    41.3938732,
+    2.1692801,
+    41.3940417
+   ],
+   "usable_area_m2": 126.2,
+   "confidence": null,
+   "yearly_kwh": 10878,
+   "panels": 21,
+   "kwp": 8.82,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530612DF3803B",
+   "address": "CL CONSELL DE CENT 379 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1689816,
+    41.3938014,
+    2.1691661,
+    41.3939502
+   ],
+   "usable_area_m2": 90.0,
+   "confidence": null,
+   "yearly_kwh": 3062,
+   "panels": 7,
+   "kwp": 2.94,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530613DF3803B",
+   "address": "CL CONSELL DE CENT 377 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1688042,
+    41.3937226,
+    2.1690715,
+    41.3939236
+   ],
+   "usable_area_m2": 198.0,
+   "confidence": null,
+   "yearly_kwh": 16756,
+   "panels": 36,
+   "kwp": 15.12,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530614DF3803B",
+   "address": "CL CONSELL DE CENT 373 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1686507,
+    41.393633,
+    2.1689201,
+    41.3938359
+   ],
+   "usable_area_m2": 117.2,
+   "confidence": null,
+   "yearly_kwh": 7212,
+   "panels": 14,
+   "kwp": 5.88,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0530615DF3803B",
+   "address": "CL CONSELL DE CENT 371 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1684772,
+    41.3937169,
+    2.1685404,
+    41.393776
+   ],
+   "usable_area_m2": 79.0,
+   "confidence": null,
+   "yearly_kwh": 1650,
+   "panels": 3,
+   "kwp": 1.26,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627601DF3802H",
+   "address": "CL PAU CLARIS 108 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1689247,
+    41.3914316,
+    2.1691317,
+    41.3916252
+   ],
+   "usable_area_m2": 186.0,
+   "confidence": null,
+   "yearly_kwh": 18866,
+   "panels": 37,
+   "kwp": 15.54,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627602DF3802H",
+   "address": "CL DIPUTACIO 274 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1690059,
+    41.3915573,
+    2.1691954,
+    41.3917361
+   ],
+   "usable_area_m2": 82.2,
+   "confidence": null,
+   "yearly_kwh": 3620,
+   "panels": 7,
+   "kwp": 2.94,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627603DF3802H",
+   "address": "CL DIPUTACIO 276 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1690656,
+    41.3916582,
+    2.1692908,
+    41.3917993
+   ],
+   "usable_area_m2": 81.8,
+   "confidence": null,
+   "yearly_kwh": 2909,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627604DF3802H",
+   "address": "CL DIPUTACIO 278 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1693741,
+    41.3917124,
+    2.1694985,
+    41.3918159
+   ],
+   "usable_area_m2": 120.2,
+   "confidence": null,
+   "yearly_kwh": 7127,
+   "panels": 15,
+   "kwp": 6.3,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627605DF3802H",
+   "address": "CL DIPUTACIO 280 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.169344,
+    41.3918694,
+    2.1695855,
+    41.3920374
+   ],
+   "usable_area_m2": 82.5,
+   "confidence": null,
+   "yearly_kwh": 4206,
+   "panels": 8,
+   "kwp": 3.36,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627606DF3802H",
+   "address": "CL DIPUTACIO 282 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.169617,
+    41.3919444,
+    2.1697023,
+    41.392009
+   ],
+   "usable_area_m2": 57.2,
+   "confidence": null,
+   "yearly_kwh": 1142,
+   "panels": 3,
+   "kwp": 1.26,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627609DF3802H",
+   "address": "CL ROGER DE LLURIA 33 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1698027,
+    41.3918964,
+    2.1700883,
+    41.3921117
+   ],
+   "usable_area_m2": 195.8,
+   "confidence": null,
+   "yearly_kwh": 13690,
+   "panels": 28,
+   "kwp": 11.76,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627610DF3802H",
+   "address": "CL ROGER DE LLURIA 31 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1699308,
+    41.3918674,
+    2.1701362,
+    41.3920127
+   ],
+   "usable_area_m2": 119.2,
+   "confidence": null,
+   "yearly_kwh": 5219,
+   "panels": 11,
+   "kwp": 4.62,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627611DF3802H",
+   "address": "CL ROGER DE LLURIA 29 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1700949,
+    41.3916549,
+    2.1703867,
+    41.3918533
+   ],
+   "usable_area_m2": 204.5,
+   "confidence": null,
+   "yearly_kwh": 15579,
+   "panels": 28,
+   "kwp": 11.76,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627612DF3802H",
+   "address": "CL ROGER DE LLURIA 27 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1702998,
+    41.3916409,
+    2.1704317,
+    41.3917395
+   ],
+   "usable_area_m2": 30.2,
+   "confidence": null,
+   "yearly_kwh": 2530,
+   "panels": 5,
+   "kwp": 2.1,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627613DF3802H",
+   "address": "GV CORTS CATALANES 633 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1703877,
+    41.3916018,
+    2.170425,
+    41.3916299
+   ],
+   "usable_area_m2": 18.8,
+   "confidence": null,
+   "yearly_kwh": 1150,
+   "panels": 2,
+   "kwp": 0.84,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627614DF3802H",
+   "address": "GV CORTS CATALANES 631 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1702749,
+    41.3914089,
+    2.1704265,
+    41.3915693
+   ],
+   "usable_area_m2": 100.2,
+   "confidence": null,
+   "yearly_kwh": 8943,
+   "panels": 16,
+   "kwp": 6.72,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627615DF3802H",
+   "address": "GV CORTS CATALANES 629(B) BARCELONA (BARCELONA)",
+   "bbox": [
+    2.170149,
+    41.3913055,
+    2.1703907,
+    41.3914965
+   ],
+   "usable_area_m2": 127.5,
+   "confidence": null,
+   "yearly_kwh": 12222,
+   "panels": 24,
+   "kwp": 10.08,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627616DF3802H",
+   "address": "GV CORTS CATALANES 629 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 9.8,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627617DF3802H",
+   "address": "GV CORTS CATALANES 627 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1698285,
+    41.391132,
+    2.1701618,
+    41.3913632
+   ],
+   "usable_area_m2": 142.0,
+   "confidence": null,
+   "yearly_kwh": 10411,
+   "panels": 22,
+   "kwp": 9.24,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627618DF3802H",
+   "address": "GV CORTS CATALANES 625 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1697771,
+    41.3910372,
+    2.1700434,
+    41.3912389
+   ],
+   "usable_area_m2": 148.0,
+   "confidence": null,
+   "yearly_kwh": 6456,
+   "panels": 13,
+   "kwp": 5.46,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627619DF3802H",
+   "address": "GV CORTS CATALANES 623 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 0.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627620DF3802H",
+   "address": "CL PAU CLARIS 100 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1696296,
+    41.3911155,
+    2.1696693,
+    41.3911453
+   ],
+   "usable_area_m2": 14.2,
+   "confidence": null,
+   "yearly_kwh": 857,
+   "panels": 2,
+   "kwp": 0.84,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627621DF3802H",
+   "address": "CL PAU CLARIS 102 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1694176,
+    41.3911014,
+    2.1696427,
+    41.391283
+   ],
+   "usable_area_m2": 180.2,
+   "confidence": null,
+   "yearly_kwh": 14780,
+   "panels": 31,
+   "kwp": 13.02,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627622DF3802H",
+   "address": "CL PAU CLARIS 104 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1692453,
+    41.3911794,
+    2.1694703,
+    41.3913991
+   ],
+   "usable_area_m2": 129.0,
+   "confidence": null,
+   "yearly_kwh": 10169,
+   "panels": 19,
+   "kwp": 7.98,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627623DF3802H",
+   "address": "CL PAU CLARIS 106 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1690937,
+    41.3913652,
+    2.1693496,
+    41.3915174
+   ],
+   "usable_area_m2": 112.8,
+   "confidence": null,
+   "yearly_kwh": 4534,
+   "panels": 10,
+   "kwp": 4.2,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0627624DF3802H",
+   "address": "CL ROGER DE LLURIA 35 N2-37 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1696488,
+    41.3920773,
+    2.169949,
+    41.3921895
+   ],
+   "usable_area_m2": 128.8,
+   "confidence": null,
+   "yearly_kwh": 7098,
+   "panels": 15,
+   "kwp": 6.3,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628201DF3802H",
+   "address": "PJ PERMANYER 19 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1691499,
+    41.3926849,
+    2.1692025,
+    41.3927245
+   ],
+   "usable_area_m2": 50.5,
+   "confidence": null,
+   "yearly_kwh": 1594,
+   "panels": 4,
+   "kwp": 1.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628202DF3802H",
+   "address": "CL ROGER DE LLURIA 41 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 13.5,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628203DF3802H",
+   "address": "CL DIPUTACIO 301 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1693992,
+    41.3923902,
+    2.1694566,
+    41.3924528
+   ],
+   "usable_area_m2": 43.5,
+   "confidence": null,
+   "yearly_kwh": 969,
+   "panels": 2,
+   "kwp": 0.84,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628204DF3802H",
+   "address": "CL DIPUTACIO 299 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1691624,
+    41.3922959,
+    2.1693748,
+    41.3924336
+   ],
+   "usable_area_m2": 73.5,
+   "confidence": null,
+   "yearly_kwh": 7393,
+   "panels": 14,
+   "kwp": 5.88,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628205DF3802H",
+   "address": "CL DIPUTACIO 297 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1691927,
+    41.3922444,
+    2.169217,
+    41.3922627
+   ],
+   "usable_area_m2": 7.5,
+   "confidence": null,
+   "yearly_kwh": 391,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628206DF3802H",
+   "address": "CL DIPUTACIO 295 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1689882,
+    41.3921073,
+    2.1691725,
+    41.3922598
+   ],
+   "usable_area_m2": 80.8,
+   "confidence": null,
+   "yearly_kwh": 5671,
+   "panels": 11,
+   "kwp": 4.62,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628207DF3802H",
+   "address": "CL DIPUTACIO 293 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1688438,
+    41.3921509,
+    2.16894,
+    41.392225
+   ],
+   "usable_area_m2": 61.5,
+   "confidence": null,
+   "yearly_kwh": 3587,
+   "panels": 7,
+   "kwp": 2.94,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628208DF3802H",
+   "address": "CL DIPUTACIO 291 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1687462,
+    41.3920421,
+    2.1688707,
+    41.3921358
+   ],
+   "usable_area_m2": 80.5,
+   "confidence": null,
+   "yearly_kwh": 11141,
+   "panels": 20,
+   "kwp": 8.4,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628209DF3802H",
+   "address": "CL DIPUTACIO 289 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1687074,
+    41.3919102,
+    2.168861,
+    41.392061
+   ],
+   "usable_area_m2": 107.2,
+   "confidence": null,
+   "yearly_kwh": 11371,
+   "panels": 22,
+   "kwp": 9.24,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628210DF3802H",
+   "address": "CL PAU CLARIS 110 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1685021,
+    41.3918209,
+    2.1687656,
+    41.3919306
+   ],
+   "usable_area_m2": 121.8,
+   "confidence": null,
+   "yearly_kwh": 7817,
+   "panels": 17,
+   "kwp": 7.14,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628211DF3802H",
+   "address": "CL PAU CLARIS 112 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1683693,
+    41.3918658,
+    2.1685421,
+    41.3920268
+   ],
+   "usable_area_m2": 131.2,
+   "confidence": null,
+   "yearly_kwh": 6328,
+   "panels": 13,
+   "kwp": 5.46,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628212DF3802H",
+   "address": "PJ PERMANYER 1 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 26.5,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628213DF3802H",
+   "address": "PJ PERMANYER 3 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1683723,
+    41.3920895,
+    2.1683966,
+    41.3921078
+   ],
+   "usable_area_m2": 61.5,
+   "confidence": null,
+   "yearly_kwh": 429,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628214DF3802H",
+   "address": "PJ PERMANYER 5 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1685033,
+    41.3921149,
+    2.1685865,
+    41.3921678
+   ],
+   "usable_area_m2": 32.8,
+   "confidence": null,
+   "yearly_kwh": 1898,
+   "panels": 5,
+   "kwp": 2.1,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628215DF3802H",
+   "address": "PJ PERMANYER 7 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1685548,
+    41.3922325,
+    2.1685792,
+    41.3922508
+   ],
+   "usable_area_m2": 10.2,
+   "confidence": null,
+   "yearly_kwh": 494,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628216DF3802H",
+   "address": "PJ PERMANYER 9 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1687073,
+    41.3922724,
+    2.1687728,
+    41.3923218
+   ],
+   "usable_area_m2": 39.0,
+   "confidence": null,
+   "yearly_kwh": 2670,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628217DF3802H",
+   "address": "PJ PERMANYER 11 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1687608,
+    41.3923523,
+    2.1688676,
+    41.3924114
+   ],
+   "usable_area_m2": 60.8,
+   "confidence": null,
+   "yearly_kwh": 3107,
+   "panels": 7,
+   "kwp": 2.94,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628218DF3802H",
+   "address": "PJ PERMANYER 13 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1688306,
+    41.3924033,
+    2.1689657,
+    41.3924704
+   ],
+   "usable_area_m2": 57.0,
+   "confidence": null,
+   "yearly_kwh": 2663,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628219DF3802H",
+   "address": "PJ PERMANYER 15 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 0.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0628220DF3802H",
+   "address": "PJ PERMANYER 17 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1690565,
+    41.3925474,
+    2.1691245,
+    41.3926296
+   ],
+   "usable_area_m2": 45.5,
+   "confidence": null,
+   "yearly_kwh": 2976,
+   "panels": 7,
+   "kwp": 2.94,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629601DF3802H",
+   "address": "CL ROGER DE LLURIA 58 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1690549,
+    41.3931941,
+    2.169152,
+    41.3933482
+   ],
+   "usable_area_m2": 65.0,
+   "confidence": null,
+   "yearly_kwh": 2983,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629602DF3802H",
+   "address": "CL CONSELL DE CENT 344 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1690693,
+    41.3933823,
+    2.1692386,
+    41.3934983
+   ],
+   "usable_area_m2": 76.5,
+   "confidence": null,
+   "yearly_kwh": 2548,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629603DF3802H",
+   "address": "CL CONSELL DE CENT 346 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1691488,
+    41.3934244,
+    2.1693203,
+    41.3935538
+   ],
+   "usable_area_m2": 90.0,
+   "confidence": null,
+   "yearly_kwh": 7890,
+   "panels": 17,
+   "kwp": 7.14,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629604DF3802H",
+   "address": "CL CONSELL DE CENT 348 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.169311,
+    41.3935086,
+    2.1693354,
+    41.3935269
+   ],
+   "usable_area_m2": 11.0,
+   "confidence": null,
+   "yearly_kwh": 574,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629605DF3802H",
+   "address": "CL CONSELL DE CENT 350 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1692639,
+    41.3935252,
+    2.1694048,
+    41.3936776
+   ],
+   "usable_area_m2": 82.8,
+   "confidence": null,
+   "yearly_kwh": 3119,
+   "panels": 8,
+   "kwp": 3.36,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629606DF3802H",
+   "address": "CL CONSELL DE CENT 352 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1693765,
+    41.3936995,
+    2.1695036,
+    41.3937653
+   ],
+   "usable_area_m2": 70.5,
+   "confidence": null,
+   "yearly_kwh": 3068,
+   "panels": 7,
+   "kwp": 2.94,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629607DF3802H",
+   "address": "CL CONSELL DE CENT 354 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1696774,
+    41.3937656,
+    2.1697018,
+    41.3937839
+   ],
+   "usable_area_m2": 16.0,
+   "confidence": null,
+   "yearly_kwh": 512,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629608DF3802H",
+   "address": "CL BRUC 69 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1697098,
+    41.3938283,
+    2.1698885,
+    41.3939149
+   ],
+   "usable_area_m2": 130.5,
+   "confidence": null,
+   "yearly_kwh": 5630,
+   "panels": 11,
+   "kwp": 4.62,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629609DF3802H",
+   "address": "CL BRUC 67 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1698243,
+    41.393749,
+    2.1699684,
+    41.393858
+   ],
+   "usable_area_m2": 47.0,
+   "confidence": null,
+   "yearly_kwh": 1581,
+   "panels": 4,
+   "kwp": 1.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629610DF3802H",
+   "address": "CL BRUC 65 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1698617,
+    41.3935929,
+    2.1700645,
+    41.3937854
+   ],
+   "usable_area_m2": 179.8,
+   "confidence": null,
+   "yearly_kwh": 11068,
+   "panels": 21,
+   "kwp": 8.82,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629611DF3802H",
+   "address": "CL BRUC 63 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1700888,
+    41.3935205,
+    2.1702348,
+    41.3936315
+   ],
+   "usable_area_m2": 53.2,
+   "confidence": null,
+   "yearly_kwh": 3055,
+   "panels": 6,
+   "kwp": 2.52,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629612DF3802H",
+   "address": "CL BRUC 61 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1700991,
+    41.3934303,
+    2.1702927,
+    41.3935884
+   ],
+   "usable_area_m2": 79.5,
+   "confidence": null,
+   "yearly_kwh": 5569,
+   "panels": 11,
+   "kwp": 4.62,
    "block": null,
    "block_name": null
   },
@@ -35,6 +2677,57 @@
    "block_name": null
   },
   {
+   "refcat": "0629614DF3802H",
+   "address": "CL DIPUTACIO 319 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1704987,
+    41.3932473,
+    2.1705908,
+    41.3934003
+   ],
+   "usable_area_m2": 49.8,
+   "confidence": null,
+   "yearly_kwh": 2318,
+   "panels": 5,
+   "kwp": 2.1,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629615DF3802H",
+   "address": "CL DIPUTACIO 317 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1704236,
+    41.3931765,
+    2.1705099,
+    41.3932652
+   ],
+   "usable_area_m2": 35.8,
+   "confidence": null,
+   "yearly_kwh": 945,
+   "panels": 2,
+   "kwp": 0.84,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629616DF3802H",
+   "address": "CL DIPUTACIO 315 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.170209,
+    41.3930689,
+    2.1704882,
+    41.3932821
+   ],
+   "usable_area_m2": 185.5,
+   "confidence": null,
+   "yearly_kwh": 17738,
+   "panels": 34,
+   "kwp": 14.28,
+   "block": null,
+   "block_name": null
+  },
+  {
    "refcat": "0629617DF3802H",
    "address": "CL DIPUTACIO 311 BARCELONA (BARCELONA)",
    "bbox": [
@@ -43,7 +2736,7 @@
     2.1703502,
     41.3930897
    ],
-   "usable_area_m2": 226.5,
+   "usable_area_m2": 88.2,
    "confidence": null,
    "yearly_kwh": 3425,
    "panels": 8,
@@ -52,16 +2745,470 @@
    "block_name": null
   },
   {
+   "refcat": "0629618DF3802H",
+   "address": "CL DIPUTACIO 309 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1700887,
+    41.3930373,
+    2.1701131,
+    41.3930556
+   ],
+   "usable_area_m2": 47.2,
+   "confidence": null,
+   "yearly_kwh": 357,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629619DF3802H",
+   "address": "CL DIPUTACIO 307 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 44.0,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629620DF3802H",
+   "address": "CL DIPUTACIO 305 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1698189,
+    41.392783,
+    2.1700775,
+    41.3929584
+   ],
+   "usable_area_m2": 95.8,
+   "confidence": null,
+   "yearly_kwh": 4638,
+   "panels": 10,
+   "kwp": 4.2,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629621DF3802H",
+   "address": "CL ROGER DE LLURIA 48 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1697929,
+    41.3927423,
+    2.1698456,
+    41.3927721
+   ],
+   "usable_area_m2": 45.5,
+   "confidence": null,
+   "yearly_kwh": 1718,
+   "panels": 3,
+   "kwp": 1.26,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629622DF3802H",
+   "address": "CL ROGER DE LLURIA 50 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.169545,
+    41.3928546,
+    2.1696763,
+    41.3929333
+   ],
+   "usable_area_m2": 78.8,
+   "confidence": null,
+   "yearly_kwh": 4963,
+   "panels": 9,
+   "kwp": 3.78,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629623DF3802H",
+   "address": "CL ROGER DE LLURIA 52 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1694298,
+    41.3930012,
+    2.1695261,
+    41.3930636
+   ],
+   "usable_area_m2": 98.2,
+   "confidence": null,
+   "yearly_kwh": 4151,
+   "panels": 10,
+   "kwp": 4.2,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629624DF3802H",
+   "address": "CL ROGER DE LLURIA 54 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1692097,
+    41.3929676,
+    2.1694547,
+    41.3931515
+   ],
+   "usable_area_m2": 119.2,
+   "confidence": null,
+   "yearly_kwh": 7054,
+   "panels": 13,
+   "kwp": 5.46,
+   "block": null,
+   "block_name": null
+  },
+  {
    "refcat": "0629625DF3802H",
    "address": "CL ROGER DE LLURIA 56 BARCELONA (BARCELONA)",
    "bbox": [
-    2.1690994,
-    41.393038,
-    2.1694624,
-    41.3933322
+    2.1691223,
+    41.3930556,
+    2.1693667,
+    41.3932497
    ],
-   "usable_area_m2": 201.2,
-   "confidence": "medium"
+   "usable_area_m2": 160.8,
+   "confidence": null,
+   "yearly_kwh": 11009,
+   "panels": 24,
+   "kwp": 10.08,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0629627DF3802H",
+   "address": "CL ROGER DE LLURIA 52(I) BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1697918,
+    41.3932268,
+    2.1698365,
+    41.3932665
+   ],
+   "usable_area_m2": 23.8,
+   "confidence": null,
+   "yearly_kwh": 2919,
+   "panels": 5,
+   "kwp": 2.1,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728501DF3802H",
+   "address": "CL BRUC 55 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1707948,
+    41.3929449,
+    2.1710689,
+    41.3930592
+   ],
+   "usable_area_m2": 130.5,
+   "confidence": null,
+   "yearly_kwh": 12524,
+   "panels": 23,
+   "kwp": 9.66,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728502DF3802H",
+   "address": "CL BRUC 51 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1710412,
+    41.3927818,
+    2.1711351,
+    41.3929376
+   ],
+   "usable_area_m2": 107.5,
+   "confidence": null,
+   "yearly_kwh": 9808,
+   "panels": 20,
+   "kwp": 8.4,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728503DF3802H",
+   "address": "CL BRUC 49 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1711233,
+    41.3925853,
+    2.1714151,
+    41.3928476
+   ],
+   "usable_area_m2": 239.8,
+   "confidence": null,
+   "yearly_kwh": 10281,
+   "panels": 24,
+   "kwp": 10.08,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728504DF3802H",
+   "address": "GV CORTS CATALANES 645 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1713691,
+    41.3924293,
+    2.1716416,
+    41.3926616
+   ],
+   "usable_area_m2": 161.2,
+   "confidence": null,
+   "yearly_kwh": 10136,
+   "panels": 20,
+   "kwp": 8.4,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728505DF3802H",
+   "address": "GV CORTS CATALANES 643 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1716229,
+    41.3922958,
+    2.1716601,
+    41.392324
+   ],
+   "usable_area_m2": 25.8,
+   "confidence": null,
+   "yearly_kwh": 955,
+   "panels": 2,
+   "kwp": 0.84,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728506DF3802H",
+   "address": "GV CORTS CATALANES 641 BARCELONA (BARCELONA)",
+   "bbox": null,
+   "usable_area_m2": 149.2,
+   "confidence": null,
+   "yearly_kwh": 0,
+   "panels": 0,
+   "kwp": 0.0,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728507DF3802H",
+   "address": "GV CORTS CATALANES 639 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.171017,
+    41.3920176,
+    2.1713838,
+    41.3922831
+   ],
+   "usable_area_m2": 300.2,
+   "confidence": null,
+   "yearly_kwh": 32188,
+   "panels": 68,
+   "kwp": 28.56,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728508DF3802H",
+   "address": "GV CORTS CATALANES 637 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.17095,
+    41.3920821,
+    2.1710333,
+    41.3921331
+   ],
+   "usable_area_m2": 56.0,
+   "confidence": null,
+   "yearly_kwh": 2012,
+   "panels": 4,
+   "kwp": 1.68,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728509DF3802H",
+   "address": "GV CORTS CATALANES 635 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1707031,
+    41.3918182,
+    2.1711081,
+    41.3919821
+   ],
+   "usable_area_m2": 265.2,
+   "confidence": null,
+   "yearly_kwh": 31279,
+   "panels": 57,
+   "kwp": 23.94,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728510DF3802H",
+   "address": "CL ROGER DE LLURIA 38 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1706217,
+    41.3919773,
+    2.1708205,
+    41.3920974
+   ],
+   "usable_area_m2": 94.0,
+   "confidence": null,
+   "yearly_kwh": 5022,
+   "panels": 10,
+   "kwp": 4.2,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728511DF3802H",
+   "address": "CL ROGER DE LLURIA 40 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1704501,
+    41.3920106,
+    2.1707516,
+    41.3922371
+   ],
+   "usable_area_m2": 128.2,
+   "confidence": null,
+   "yearly_kwh": 13438,
+   "panels": 27,
+   "kwp": 11.34,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728512DF3802H",
+   "address": "CL ROGER DE LLURIA 42 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1703238,
+    41.3921056,
+    2.1705689,
+    41.3922894
+   ],
+   "usable_area_m2": 158.5,
+   "confidence": null,
+   "yearly_kwh": 14132,
+   "panels": 28,
+   "kwp": 11.76,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728513DF3802H",
+   "address": "CL ROGER DE LLURIA 44 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1702678,
+    41.3922933,
+    2.170449,
+    41.3923802
+   ],
+   "usable_area_m2": 119.0,
+   "confidence": null,
+   "yearly_kwh": 7466,
+   "panels": 15,
+   "kwp": 6.3,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728514DF3802H",
+   "address": "CL ROGER DE LLURIA 46 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1700663,
+    41.3922914,
+    2.1703378,
+    41.392606
+   ],
+   "usable_area_m2": 360.8,
+   "confidence": null,
+   "yearly_kwh": 36573,
+   "panels": 75,
+   "kwp": 31.5,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728515DF3802H",
+   "address": "CL DIPUTACIO 288 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1702327,
+    41.3925221,
+    2.1704301,
+    41.3926595
+   ],
+   "usable_area_m2": 40.2,
+   "confidence": null,
+   "yearly_kwh": 1468,
+   "panels": 3,
+   "kwp": 1.26,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728516DF3802H",
+   "address": "CL DIPUTACIO 290 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1703453,
+    41.3925765,
+    2.1705817,
+    41.3927547
+   ],
+   "usable_area_m2": 89.8,
+   "confidence": null,
+   "yearly_kwh": 7191,
+   "panels": 15,
+   "kwp": 6.3,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728517DF3802H",
+   "address": "CL DIPUTACIO 292 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1705658,
+    41.3926843,
+    2.1705901,
+    41.3927026
+   ],
+   "usable_area_m2": 51.0,
+   "confidence": null,
+   "yearly_kwh": 548,
+   "panels": 1,
+   "kwp": 0.42,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728518DF3802H",
+   "address": "CL DIPUTACIO 294 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.17055,
+    41.3927211,
+    2.1708298,
+    41.3929323
+   ],
+   "usable_area_m2": 152.0,
+   "confidence": null,
+   "yearly_kwh": 12466,
+   "panels": 24,
+   "kwp": 10.08,
+   "block": null,
+   "block_name": null
+  },
+  {
+   "refcat": "0728519DF3802H",
+   "address": "CL DIPUTACIO 296 BARCELONA (BARCELONA)",
+   "bbox": [
+    2.1706703,
+    41.3928108,
+    2.1709352,
+    41.3930217
+   ],
+   "usable_area_m2": 133.2,
+   "confidence": null,
+   "yearly_kwh": 9961,
+   "panels": 19,
+   "kwp": 7.98,
+   "block": null,
+   "block_name": null
   }
  ]
 }

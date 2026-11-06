@@ -1,0 +1,35 @@
+{
+  "building": {
+    "refcat": "0529305DF3802H",
+    "address": "CL ROGER DE LLURIA 53 BARCELONA (BARCELONA)",
+    "query": "41.3934414,2.1680935"
+  },
+  "yield": {
+    "panels": 0,
+    "kwp": 0.0,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.6,
+    "yearly_kwh": 0,
+    "kwh_per_kwp": null,
+    "mean_shade_loss": null,
+    "monthly_kwh": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "peak_hour_kw": 0.0,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 24.0,
+  "panels": []
+}

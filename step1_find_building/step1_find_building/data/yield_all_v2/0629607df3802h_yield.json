@@ -1,0 +1,42 @@
+{
+  "building": {
+    "refcat": "0629607DF3802H",
+    "address": "CL CONSELL DE CENT 354 BARCELONA (BARCELONA)",
+    "query": "41.3937759,2.1696136"
+  },
+  "yield": {
+    "panels": 1,
+    "kwp": 0.42,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.9,
+    "yearly_kwh": 512,
+    "kwh_per_kwp": 1218,
+    "mean_shade_loss": 0.125,
+    "monthly_kwh": [
+      19,
+      31,
+      42,
+      52,
+      68,
+      67,
+      69,
+      63,
+      43,
+      22,
+      20,
+      16
+    ],
+    "peak_hour_kw": 0.33,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 16.0,
+  "panels": [
+    {
+      "x": 430586.56,
+      "y": 4582803.88,
+      "kwh_year": 511.6,
+      "shade_loss": 0.125
+    }
+  ]
+}

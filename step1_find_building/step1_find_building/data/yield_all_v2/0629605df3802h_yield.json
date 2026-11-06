@@ -1,0 +1,84 @@
+{
+  "building": {
+    "refcat": "0629605DF3802H",
+    "address": "CL CONSELL DE CENT 350 BARCELONA (BARCELONA)",
+    "query": "41.3935847,2.169381"
+  },
+  "yield": {
+    "panels": 8,
+    "kwp": 3.36,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.6,
+    "yearly_kwh": 3119,
+    "kwh_per_kwp": 928,
+    "mean_shade_loss": 0.333,
+    "monthly_kwh": [
+      70,
+      128,
+      244,
+      340,
+      461,
+      457,
+      478,
+      413,
+      268,
+      124,
+      79,
+      56
+    ],
+    "peak_hour_kw": 2.58,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 82.8,
+  "panels": [
+    {
+      "x": 430561.48,
+      "y": 4582777.43,
+      "kwh_year": 392.5,
+      "shade_loss": 0.33
+    },
+    {
+      "x": 430560.41,
+      "y": 4582778.52,
+      "kwh_year": 369.5,
+      "shade_loss": 0.37
+    },
+    {
+      "x": 430552.9,
+      "y": 4582786.19,
+      "kwh_year": 358.5,
+      "shade_loss": 0.386
+    },
+    {
+      "x": 430551.82,
+      "y": 4582787.29,
+      "kwh_year": 381.2,
+      "shade_loss": 0.347
+    },
+    {
+      "x": 430553.12,
+      "y": 4582788.56,
+      "kwh_year": 373.6,
+      "shade_loss": 0.36
+    },
+    {
+      "x": 430554.41,
+      "y": 4582789.82,
+      "kwh_year": 390.2,
+      "shade_loss": 0.331
+    },
+    {
+      "x": 430555.71,
+      "y": 4582791.09,
+      "kwh_year": 409.2,
+      "shade_loss": 0.299
+    },
+    {
+      "x": 430557.0,
+      "y": 4582792.35,
+      "kwh_year": 444.3,
+      "shade_loss": 0.24
+    }
+  ]
+}

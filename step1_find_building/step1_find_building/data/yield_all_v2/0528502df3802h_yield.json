@@ -1,0 +1,66 @@
+{
+  "building": {
+    "refcat": "0528502DF3802H",
+    "address": "CL ROGER DE LLURIA 47 BARCELONA (BARCELONA)",
+    "query": "41.3928195,2.168863"
+  },
+  "yield": {
+    "panels": 5,
+    "kwp": 2.1,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 223.2,
+    "yearly_kwh": 2911,
+    "kwh_per_kwp": 1386,
+    "mean_shade_loss": 0.021,
+    "monthly_kwh": [
+      133,
+      189,
+      243,
+      285,
+      363,
+      358,
+      375,
+      332,
+      241,
+      134,
+      134,
+      124
+    ],
+    "peak_hour_kw": 1.65,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 38.5,
+  "panels": [
+    {
+      "x": 430513.58,
+      "y": 4582699.54,
+      "kwh_year": 583.1,
+      "shade_loss": 0.019
+    },
+    {
+      "x": 430517.26,
+      "y": 4582698.18,
+      "kwh_year": 570.5,
+      "shade_loss": 0.041
+    },
+    {
+      "x": 430518.58,
+      "y": 4582696.94,
+      "kwh_year": 573.9,
+      "shade_loss": 0.035
+    },
+    {
+      "x": 430517.77,
+      "y": 4582704.01,
+      "kwh_year": 591.6,
+      "shade_loss": 0.005
+    },
+    {
+      "x": 430518.82,
+      "y": 4582705.13,
+      "kwh_year": 591.7,
+      "shade_loss": 0.005
+    }
+  ]
+}

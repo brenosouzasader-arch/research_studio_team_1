@@ -1,0 +1,60 @@
+{
+  "building": {
+    "refcat": "0629609DF3802H",
+    "address": "CL BRUC 67 BARCELONA (BARCELONA)",
+    "query": "41.3937469,2.1698495"
+  },
+  "yield": {
+    "panels": 4,
+    "kwp": 1.68,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.4,
+    "yearly_kwh": 1581,
+    "kwh_per_kwp": 941,
+    "mean_shade_loss": 0.323,
+    "monthly_kwh": [
+      40,
+      52,
+      107,
+      170,
+      244,
+      246,
+      255,
+      213,
+      122,
+      55,
+      43,
+      33
+    ],
+    "peak_hour_kw": 1.3,
+    "panels_left_out": 3,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 47.0,
+  "panels": [
+    {
+      "x": 430599.91,
+      "y": 4582801.91,
+      "kwh_year": 408.0,
+      "shade_loss": 0.302
+    },
+    {
+      "x": 430608.92,
+      "y": 4582810.81,
+      "kwh_year": 363.0,
+      "shade_loss": 0.378
+    },
+    {
+      "x": 430598.83,
+      "y": 4582803.0,
+      "kwh_year": 424.3,
+      "shade_loss": 0.273
+    },
+    {
+      "x": 430607.85,
+      "y": 4582811.9,
+      "kwh_year": 385.8,
+      "shade_loss": 0.338
+    }
+  ]
+}

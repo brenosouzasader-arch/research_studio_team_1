@@ -1,0 +1,54 @@
+{
+  "building": {
+    "refcat": "0526621DF3802F",
+    "address": "CL DIPUTACIO 260 BARCELONA (BARCELONA)",
+    "query": "41.3907189,2.1678961"
+  },
+  "yield": {
+    "panels": 3,
+    "kwp": 1.26,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.9,
+    "yearly_kwh": 1643,
+    "kwh_per_kwp": 1304,
+    "mean_shade_loss": 0.065,
+    "monthly_kwh": [
+      73,
+      107,
+      136,
+      160,
+      207,
+      204,
+      213,
+      189,
+      136,
+      74,
+      74,
+      69
+    ],
+    "peak_hour_kw": 0.99,
+    "panels_left_out": 4,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 91.8,
+  "panels": [
+    {
+      "x": 430441.45,
+      "y": 4582460.77,
+      "kwh_year": 525.3,
+      "shade_loss": 0.104
+    },
+    {
+      "x": 430431.38,
+      "y": 4582465.96,
+      "kwh_year": 562.3,
+      "shade_loss": 0.039
+    },
+    {
+      "x": 430432.67,
+      "y": 4582467.22,
+      "kwh_year": 555.4,
+      "shade_loss": 0.051
+    }
+  ]
+}

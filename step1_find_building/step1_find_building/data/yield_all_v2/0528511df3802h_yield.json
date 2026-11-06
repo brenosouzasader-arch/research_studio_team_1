@@ -1,0 +1,90 @@
+{
+  "building": {
+    "refcat": "0528511DF3802H",
+    "address": "CL PAU CLARIS 118 BARCELONA (BARCELONA)",
+    "query": "41.3923329,2.1680046"
+  },
+  "yield": {
+    "panels": 9,
+    "kwp": 3.78,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.9,
+    "yearly_kwh": 4945,
+    "kwh_per_kwp": 1308,
+    "mean_shade_loss": 0.061,
+    "monthly_kwh": [
+      191,
+      303,
+      410,
+      498,
+      645,
+      639,
+      664,
+      591,
+      419,
+      221,
+      197,
+      165
+    ],
+    "peak_hour_kw": 2.99,
+    "panels_left_out": 1,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 44.0,
+  "panels": [
+    {
+      "x": 430442.63,
+      "y": 4582643.82,
+      "kwh_year": 578.7,
+      "shade_loss": 0.012
+    },
+    {
+      "x": 430443.93,
+      "y": 4582645.08,
+      "kwh_year": 580.7,
+      "shade_loss": 0.008
+    },
+    {
+      "x": 430446.53,
+      "y": 4582647.6,
+      "kwh_year": 522.2,
+      "shade_loss": 0.107
+    },
+    {
+      "x": 430444.16,
+      "y": 4582647.44,
+      "kwh_year": 580.8,
+      "shade_loss": 0.008
+    },
+    {
+      "x": 430445.46,
+      "y": 4582648.7,
+      "kwh_year": 517.1,
+      "shade_loss": 0.115
+    },
+    {
+      "x": 430443.09,
+      "y": 4582648.54,
+      "kwh_year": 498.3,
+      "shade_loss": 0.148
+    },
+    {
+      "x": 430444.4,
+      "y": 4582649.8,
+      "kwh_year": 543.0,
+      "shade_loss": 0.072
+    },
+    {
+      "x": 430442.03,
+      "y": 4582649.64,
+      "kwh_year": 557.6,
+      "shade_loss": 0.047
+    },
+    {
+      "x": 430443.33,
+      "y": 4582650.9,
+      "kwh_year": 566.0,
+      "shade_loss": 0.034
+    }
+  ]
+}

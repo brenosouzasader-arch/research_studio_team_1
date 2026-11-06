@@ -1,0 +1,48 @@
+{
+  "building": {
+    "refcat": "0526616DF3802F",
+    "address": "PS GRACIA 24 BARCELONA (BARCELONA)",
+    "query": "41.3903117,2.1681034"
+  },
+  "yield": {
+    "panels": 2,
+    "kwp": 0.84,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 137.0,
+    "yearly_kwh": 906,
+    "kwh_per_kwp": 1079,
+    "mean_shade_loss": 0.225,
+    "monthly_kwh": [
+      22,
+      28,
+      69,
+      98,
+      136,
+      138,
+      144,
+      120,
+      74,
+      34,
+      23,
+      20
+    ],
+    "peak_hour_kw": 0.66,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 13.8,
+  "panels": [
+    {
+      "x": 430449.3,
+      "y": 4582415.98,
+      "kwh_year": 416.0,
+      "shade_loss": 0.289
+    },
+    {
+      "x": 430450.62,
+      "y": 4582417.22,
+      "kwh_year": 490.3,
+      "shade_loss": 0.161
+    }
+  ]
+}

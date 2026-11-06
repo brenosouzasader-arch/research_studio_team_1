@@ -1,0 +1,1367 @@
+{
+ "0526601DF3802F": {
+  "dwellings": 5,
+  "floors": 6,
+  "footprint_m2": 184.1,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0526602DF3802F": {
+  "dwellings": 9,
+  "floors": 6,
+  "footprint_m2": 208.5,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0526605DF3802F": {
+  "dwellings": 1,
+  "floors": 7,
+  "footprint_m2": 856.2,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0526606DF3802F": {
+  "dwellings": 0,
+  "floors": 10,
+  "footprint_m2": 691.5,
+  "current_use": "4_1_office",
+  "year_built": 1970
+ },
+ "0526609DF3802F": {
+  "dwellings": 0,
+  "floors": 7,
+  "footprint_m2": 1114.2,
+  "current_use": "4_1_office",
+  "year_built": 1975
+ },
+ "0526610DF3802F": {
+  "dwellings": 51,
+  "floors": 7,
+  "footprint_m2": 616.9,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0526611DF3802F": {
+  "dwellings": 0,
+  "floors": 10,
+  "footprint_m2": 958.3,
+  "current_use": "4_1_office",
+  "year_built": 1967
+ },
+ "0526612DF3802F": {
+  "dwellings": 1,
+  "floors": 7,
+  "footprint_m2": 254.3,
+  "current_use": "1_residential",
+  "year_built": 1936
+ },
+ "0526613DF3802F": {
+  "dwellings": 1,
+  "floors": 8,
+  "footprint_m2": 704.8,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0526614DF3802F": {
+  "dwellings": 0,
+  "floors": 9,
+  "footprint_m2": 670.5,
+  "current_use": "4_1_office",
+  "year_built": 1968
+ },
+ "0526615DF3802F": {
+  "dwellings": 1,
+  "floors": 8,
+  "footprint_m2": 337.3,
+  "current_use": "1_residential",
+  "year_built": 1884
+ },
+ "0526616DF3802F": {
+  "dwellings": 0,
+  "floors": 8,
+  "footprint_m2": 468.9,
+  "current_use": "4_2_retail",
+  "year_built": 1888
+ },
+ "0526617DF3802F": {
+  "dwellings": 0,
+  "floors": 2,
+  "footprint_m2": 1663.3,
+  "current_use": "4_2_retail",
+  "year_built": 1900
+ },
+ "0526618DF3802F": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 433.0,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0526619DF3802F": {
+  "dwellings": 0,
+  "floors": 9,
+  "footprint_m2": 498.5,
+  "current_use": "4_1_office",
+  "year_built": 1993
+ },
+ "0526620DF3802F": {
+  "dwellings": 21,
+  "floors": 9,
+  "footprint_m2": 709.7,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0526621DF3802F": {
+  "dwellings": 0,
+  "floors": 9,
+  "footprint_m2": 612.3,
+  "current_use": "4_1_office",
+  "year_built": 1995
+ },
+ "0526622DF3802F": {
+  "dwellings": 1,
+  "floors": 7,
+  "footprint_m2": 642.5,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0526623DF3802F": {
+  "dwellings": 0,
+  "floors": 6,
+  "footprint_m2": 894.4,
+  "current_use": "4_2_retail",
+  "year_built": 1992
+ },
+ "0526624DF3802F": {
+  "dwellings": 11,
+  "floors": 6,
+  "footprint_m2": 312.5,
+  "current_use": "1_residential",
+  "year_built": 1987
+ },
+ "0526625DF3802F": {
+  "dwellings": 23,
+  "floors": 7,
+  "footprint_m2": 327.3,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0526626DF3802F": {
+  "dwellings": 1,
+  "floors": 8,
+  "footprint_m2": 1061.1,
+  "current_use": "1_residential",
+  "year_built": 2009
+ },
+ "0526627DF3802F": {
+  "dwellings": 0,
+  "floors": 11,
+  "footprint_m2": 737.7,
+  "current_use": "4_2_retail",
+  "year_built": 1981
+ },
+ "0627601DF3802H": {
+  "dwellings": 1,
+  "floors": 7,
+  "footprint_m2": 400.6,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0627602DF3802H": {
+  "dwellings": 10,
+  "floors": 6,
+  "footprint_m2": 289.9,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0627603DF3802H": {
+  "dwellings": 3,
+  "floors": 7,
+  "footprint_m2": 805.4,
+  "current_use": "4_1_office",
+  "year_built": 1970
+ },
+ "0627604DF3802H": {
+  "dwellings": 12,
+  "floors": 8,
+  "footprint_m2": 737.9,
+  "current_use": "1_residential",
+  "year_built": 1948
+ },
+ "0627605DF3802H": {
+  "dwellings": 11,
+  "floors": 8,
+  "footprint_m2": 743.9,
+  "current_use": "1_residential",
+  "year_built": 1997
+ },
+ "0627606DF3802H": {
+  "dwellings": 1,
+  "floors": 8,
+  "footprint_m2": 444.5,
+  "current_use": "1_residential",
+  "year_built": 1890
+ },
+ "0627609DF3802H": {
+  "dwellings": 8,
+  "floors": 6,
+  "footprint_m2": 527.5,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0627610DF3802H": {
+  "dwellings": 14,
+  "floors": 6,
+  "footprint_m2": 523.7,
+  "current_use": "1_residential",
+  "year_built": 1980
+ },
+ "0627611DF3802H": {
+  "dwellings": 18,
+  "floors": 8,
+  "footprint_m2": 771.4,
+  "current_use": "1_residential",
+  "year_built": 1945
+ },
+ "0627612DF3802H": {
+  "dwellings": 9,
+  "floors": 9,
+  "footprint_m2": 226.6,
+  "current_use": "1_residential",
+  "year_built": 1967
+ },
+ "0627613DF3802H": {
+  "dwellings": 24,
+  "floors": 7,
+  "footprint_m2": 409.4,
+  "current_use": "1_residential",
+  "year_built": 2001
+ },
+ "0627614DF3802H": {
+  "dwellings": 11,
+  "floors": 10,
+  "footprint_m2": 320.6,
+  "current_use": "1_residential",
+  "year_built": 1877
+ },
+ "0627615DF3802H": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 781.8,
+  "current_use": "1_residential",
+  "year_built": 1970
+ },
+ "0627616DF3802H": {
+  "dwellings": 0,
+  "floors": 6,
+  "footprint_m2": 711.4,
+  "current_use": "4_2_retail",
+  "year_built": 1970
+ },
+ "0627617DF3802H": {
+  "dwellings": 6,
+  "floors": 5,
+  "footprint_m2": 797.6,
+  "current_use": "1_residential",
+  "year_built": 1939
+ },
+ "0627618DF3802H": {
+  "dwellings": 1,
+  "floors": 7,
+  "footprint_m2": 826.9,
+  "current_use": "1_residential",
+  "year_built": 1980
+ },
+ "0627619DF3802H": {
+  "dwellings": 1,
+  "floors": 7,
+  "footprint_m2": 409.6,
+  "current_use": "1_residential",
+  "year_built": 1910
+ },
+ "0627620DF3802H": {
+  "dwellings": 1,
+  "floors": 7,
+  "footprint_m2": 219.0,
+  "current_use": "1_residential",
+  "year_built": 1893
+ },
+ "0627621DF3802H": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 403.2,
+  "current_use": "1_residential",
+  "year_built": 1970
+ },
+ "0627622DF3802H": {
+  "dwellings": 11,
+  "floors": 8,
+  "footprint_m2": 458.1,
+  "current_use": "1_residential",
+  "year_built": 1960
+ },
+ "0627623DF3802H": {
+  "dwellings": 10,
+  "floors": 7,
+  "footprint_m2": 409.7,
+  "current_use": "1_residential",
+  "year_built": 1887
+ },
+ "0627624DF3802H": {
+  "dwellings": 0,
+  "floors": 7,
+  "footprint_m2": 491.4,
+  "current_use": "4_1_office",
+  "year_built": 1960
+ },
+ "0728501DF3802H": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 477.3,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0728502DF3802H": {
+  "dwellings": 7,
+  "floors": 8,
+  "footprint_m2": 243.8,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0728503DF3802H": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 1704.7,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0728504DF3802H": {
+  "dwellings": 0,
+  "floors": 12,
+  "footprint_m2": 738.0,
+  "current_use": "4_1_office",
+  "year_built": 1970
+ },
+ "0728505DF3802H": {
+  "dwellings": 7,
+  "floors": 9,
+  "footprint_m2": 541.2,
+  "current_use": "1_residential",
+  "year_built": 1920
+ },
+ "0728506DF3802H": {
+  "dwellings": 0,
+  "floors": 11,
+  "footprint_m2": 865.8,
+  "current_use": "4_1_office",
+  "year_built": 1979
+ },
+ "0728507DF3802H": {
+  "dwellings": 0,
+  "floors": 6,
+  "footprint_m2": 602.3,
+  "current_use": "4_3_publicServices",
+  "year_built": 1878
+ },
+ "0728508DF3802H": {
+  "dwellings": 14,
+  "floors": 9,
+  "footprint_m2": 301.7,
+  "current_use": "1_residential",
+  "year_built": 1920
+ },
+ "0728509DF3802H": {
+  "dwellings": 0,
+  "floors": 11,
+  "footprint_m2": 702.6,
+  "current_use": "4_1_office",
+  "year_built": 1920
+ },
+ "0728510DF3802H": {
+  "dwellings": 12,
+  "floors": 7,
+  "footprint_m2": 301.7,
+  "current_use": "1_residential",
+  "year_built": 1999
+ },
+ "0728511DF3802H": {
+  "dwellings": 1,
+  "floors": 8,
+  "footprint_m2": 425.3,
+  "current_use": "1_residential",
+  "year_built": 1890
+ },
+ "0728512DF3802H": {
+  "dwellings": 8,
+  "floors": 5,
+  "footprint_m2": 551.9,
+  "current_use": "1_residential",
+  "year_built": 1890
+ },
+ "0728513DF3802H": {
+  "dwellings": 0,
+  "floors": 10,
+  "footprint_m2": 551.7,
+  "current_use": "4_1_office",
+  "year_built": 1978
+ },
+ "0728514DF3802H": {
+  "dwellings": 4,
+  "floors": 6,
+  "footprint_m2": 646.6,
+  "current_use": "1_residential",
+  "year_built": 1890
+ },
+ "0728515DF3802H": {
+  "dwellings": 15,
+  "floors": 7,
+  "footprint_m2": 300.1,
+  "current_use": "1_residential",
+  "year_built": 1890
+ },
+ "0728516DF3802H": {
+  "dwellings": 14,
+  "floors": 8,
+  "footprint_m2": 516.5,
+  "current_use": "1_residential",
+  "year_built": 1890
+ },
+ "0728517DF3802H": {
+  "dwellings": 16,
+  "floors": 7,
+  "footprint_m2": 524.7,
+  "current_use": "1_residential",
+  "year_built": 1890
+ },
+ "0728518DF3802H": {
+  "dwellings": 5,
+  "floors": 6,
+  "footprint_m2": 365.0,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0728519DF3802H": {
+  "dwellings": 10,
+  "floors": 6,
+  "footprint_m2": 344.9,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0427601DF3802G": {
+  "dwellings": 13,
+  "floors": 11,
+  "footprint_m2": 448.1,
+  "current_use": "1_residential",
+  "year_built": 1957
+ },
+ "0427602DF3802G": {
+  "dwellings": 11,
+  "floors": 8,
+  "footprint_m2": 688.2,
+  "current_use": "1_residential",
+  "year_built": 1953
+ },
+ "0427603DF3802G": {
+  "dwellings": 10,
+  "floors": 6,
+  "footprint_m2": 684.6,
+  "current_use": "1_residential",
+  "year_built": 1862
+ },
+ "0427604DF3802G": {
+  "dwellings": 18,
+  "floors": 6,
+  "footprint_m2": 517.8,
+  "current_use": "1_residential",
+  "year_built": 1996
+ },
+ "0427605DF3802G": {
+  "dwellings": 9,
+  "floors": 10,
+  "footprint_m2": 441.3,
+  "current_use": "4_1_office",
+  "year_built": 1970
+ },
+ "0427606DF3802G": {
+  "dwellings": 1,
+  "floors": 7,
+  "footprint_m2": 430.1,
+  "current_use": "1_residential",
+  "year_built": 1940
+ },
+ "0427607DF3802G": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 218.5,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0427608DF3802G": {
+  "dwellings": 1,
+  "floors": 7,
+  "footprint_m2": 339.9,
+  "current_use": "1_residential",
+  "year_built": 1880
+ },
+ "0427609DF3802G": {
+  "dwellings": 18,
+  "floors": 11,
+  "footprint_m2": 566.6,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0427610DF3802G": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 223.3,
+  "current_use": "1_residential",
+  "year_built": 1960
+ },
+ "0427611DF3802G": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 106.3,
+  "current_use": "1_residential",
+  "year_built": 1960
+ },
+ "0427612DF3802G": {
+  "dwellings": 1,
+  "floors": 5,
+  "footprint_m2": 215.6,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0427613DF3802G": {
+  "dwellings": 9,
+  "floors": 7,
+  "footprint_m2": 237.1,
+  "current_use": "1_residential",
+  "year_built": 1960
+ },
+ "0427614DF3802G": {
+  "dwellings": 2,
+  "floors": 10,
+  "footprint_m2": 1496.4,
+  "current_use": "4_1_office",
+  "year_built": 1980
+ },
+ "0427615DF3802G": {
+  "dwellings": 0,
+  "floors": 8,
+  "footprint_m2": 1048.8,
+  "current_use": "4_3_publicServices",
+  "year_built": 1970
+ },
+ "0427616DF3802G": {
+  "dwellings": 12,
+  "floors": 6,
+  "footprint_m2": 510.3,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0427617DF3802G": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 194.2,
+  "current_use": "1_residential",
+  "year_built": 1902
+ },
+ "0427618DF3802G": {
+  "dwellings": 11,
+  "floors": 7,
+  "footprint_m2": 665.4,
+  "current_use": "1_residential",
+  "year_built": 1879
+ },
+ "0427619DF3802G": {
+  "dwellings": 5,
+  "floors": 7,
+  "footprint_m2": 596.5,
+  "current_use": "4_2_retail",
+  "year_built": 1900
+ },
+ "0427620DF3802G": {
+  "dwellings": 0,
+  "floors": 6,
+  "footprint_m2": 1174.3,
+  "current_use": "4_2_retail",
+  "year_built": 1892
+ },
+ "0427621DF3802G": {
+  "dwellings": 0,
+  "floors": 11,
+  "footprint_m2": 2221.1,
+  "current_use": "4_2_retail",
+  "year_built": 1954
+ },
+ "0528501DF3802H": {
+  "dwellings": 16,
+  "floors": 5,
+  "footprint_m2": 795.6,
+  "current_use": "1_residential",
+  "year_built": 1863
+ },
+ "0528502DF3802H": {
+  "dwellings": 4,
+  "floors": 7,
+  "footprint_m2": 302.3,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0528503DF3802H": {
+  "dwellings": 4,
+  "floors": 5,
+  "footprint_m2": 350.3,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0528504DF3802H": {
+  "dwellings": 1,
+  "floors": 3,
+  "footprint_m2": 136.2,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0528505DF3802H": {
+  "dwellings": 1,
+  "floors": 3,
+  "footprint_m2": 184.2,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0528506DF3802H": {
+  "dwellings": 1,
+  "floors": 3,
+  "footprint_m2": 175.0,
+  "current_use": "1_residential",
+  "year_built": 1866
+ },
+ "0528507DF3802H": {
+  "dwellings": 1,
+  "floors": 3,
+  "footprint_m2": 149.5,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0528508DF3802H": {
+  "dwellings": 2,
+  "floors": 2,
+  "footprint_m2": 158.7,
+  "current_use": "1_residential",
+  "year_built": 1999
+ },
+ "0528509DF3802H": {
+  "dwellings": 1,
+  "floors": 3,
+  "footprint_m2": 154.8,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0528510DF3802H": {
+  "dwellings": 0,
+  "floors": 2,
+  "footprint_m2": 150.7,
+  "current_use": "4_2_retail",
+  "year_built": 1900
+ },
+ "0528511DF3802H": {
+  "dwellings": 9,
+  "floors": 5,
+  "footprint_m2": 329.6,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0528512DF3802H": {
+  "dwellings": 8,
+  "floors": 6,
+  "footprint_m2": 415.1,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0528513DF3802H": {
+  "dwellings": 6,
+  "floors": 5,
+  "footprint_m2": 253.8,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0528514DF3802H": {
+  "dwellings": 18,
+  "floors": 10,
+  "footprint_m2": 267.8,
+  "current_use": "1_residential",
+  "year_built": 1902
+ },
+ "0528517DF3802H": {
+  "dwellings": 11,
+  "floors": 9,
+  "footprint_m2": 536.8,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0528518DF3802H": {
+  "dwellings": 0,
+  "floors": 11,
+  "footprint_m2": 786.5,
+  "current_use": "4_1_office",
+  "year_built": 1936
+ },
+ "0628201DF3802H": {
+  "dwellings": 1,
+  "floors": 3,
+  "footprint_m2": 142.1,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628202DF3802H": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 277.7,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628203DF3802H": {
+  "dwellings": 7,
+  "floors": 6,
+  "footprint_m2": 281.2,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628204DF3802H": {
+  "dwellings": 10,
+  "floors": 6,
+  "footprint_m2": 371.5,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628205DF3802H": {
+  "dwellings": 0,
+  "floors": 5,
+  "footprint_m2": 371.8,
+  "current_use": "4_1_office",
+  "year_built": 1965
+ },
+ "0628206DF3802H": {
+  "dwellings": 15,
+  "floors": 11,
+  "footprint_m2": 344.6,
+  "current_use": "1_residential",
+  "year_built": 1959
+ },
+ "0628207DF3802H": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 392.8,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628208DF3802H": {
+  "dwellings": 17,
+  "floors": 5,
+  "footprint_m2": 312.7,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628209DF3802H": {
+  "dwellings": 1,
+  "floors": 5,
+  "footprint_m2": 301.3,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628210DF3802H": {
+  "dwellings": 7,
+  "floors": 7,
+  "footprint_m2": 299.8,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628211DF3802H": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 288.3,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628212DF3802H": {
+  "dwellings": 1,
+  "floors": 3,
+  "footprint_m2": 140.4,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628213DF3802H": {
+  "dwellings": 0,
+  "floors": 2,
+  "footprint_m2": 135.9,
+  "current_use": "4_1_office",
+  "year_built": 1900
+ },
+ "0628214DF3802H": {
+  "dwellings": 0,
+  "floors": 3,
+  "footprint_m2": 138.1,
+  "current_use": "4_1_office",
+  "year_built": 1900
+ },
+ "0628215DF3802H": {
+  "dwellings": 0,
+  "floors": 2,
+  "footprint_m2": 155.7,
+  "current_use": "4_3_publicServices",
+  "year_built": 1900
+ },
+ "0628216DF3802H": {
+  "dwellings": 1,
+  "floors": 2,
+  "footprint_m2": 157.7,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628217DF3802H": {
+  "dwellings": 0,
+  "floors": 2,
+  "footprint_m2": 185.3,
+  "current_use": "4_3_publicServices",
+  "year_built": 1900
+ },
+ "0628218DF3802H": {
+  "dwellings": 2,
+  "floors": 2,
+  "footprint_m2": 146.1,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0628219DF3802H": {
+  "dwellings": 0,
+  "floors": 2,
+  "footprint_m2": 155.4,
+  "current_use": "4_3_publicServices",
+  "year_built": 1900
+ },
+ "0628220DF3802H": {
+  "dwellings": 1,
+  "floors": 2,
+  "footprint_m2": 149.4,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0629601DF3802H": {
+  "dwellings": 24,
+  "floors": 10,
+  "footprint_m2": 687.4,
+  "current_use": "1_residential",
+  "year_built": 1959
+ },
+ "0629602DF3802H": {
+  "dwellings": 5,
+  "floors": 6,
+  "footprint_m2": 241.3,
+  "current_use": "1_residential",
+  "year_built": 1920
+ },
+ "0629603DF3802H": {
+  "dwellings": 5,
+  "floors": 6,
+  "footprint_m2": 233.4,
+  "current_use": "1_residential",
+  "year_built": 1920
+ },
+ "0629604DF3802H": {
+  "dwellings": 5,
+  "floors": 7,
+  "footprint_m2": 150.9,
+  "current_use": "1_residential",
+  "year_built": 1893
+ },
+ "0629605DF3802H": {
+  "dwellings": 9,
+  "floors": 6,
+  "footprint_m2": 287.8,
+  "current_use": "1_residential",
+  "year_built": 1920
+ },
+ "0629606DF3802H": {
+  "dwellings": 12,
+  "floors": 5,
+  "footprint_m2": 380.0,
+  "current_use": "1_residential",
+  "year_built": 1920
+ },
+ "0629607DF3802H": {
+  "dwellings": 16,
+  "floors": 9,
+  "footprint_m2": 296.0,
+  "current_use": "1_residential",
+  "year_built": 1936
+ },
+ "0629608DF3802H": {
+  "dwellings": 8,
+  "floors": 6,
+  "footprint_m2": 329.6,
+  "current_use": "1_residential",
+  "year_built": 1886
+ },
+ "0629609DF3802H": {
+  "dwellings": 6,
+  "floors": 7,
+  "footprint_m2": 220.9,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0629610DF3802H": {
+  "dwellings": 1,
+  "floors": 8,
+  "footprint_m2": 598.6,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0629611DF3802H": {
+  "dwellings": 13,
+  "floors": 7,
+  "footprint_m2": 476.3,
+  "current_use": "1_residential",
+  "year_built": 1883
+ },
+ "0629612DF3802H": {
+  "dwellings": 6,
+  "floors": 7,
+  "footprint_m2": 266.1,
+  "current_use": "1_residential",
+  "year_built": 1936
+ },
+ "0629613DF3802H": {
+  "dwellings": 12,
+  "floors": 7,
+  "footprint_m2": 513.9,
+  "current_use": "1_residential",
+  "year_built": 1936
+ },
+ "0629614DF3802H": {
+  "dwellings": 11,
+  "floors": 9,
+  "footprint_m2": 224.2,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0629615DF3802H": {
+  "dwellings": 1,
+  "floors": 7,
+  "footprint_m2": 173.6,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0629616DF3802H": {
+  "dwellings": 13,
+  "floors": 6,
+  "footprint_m2": 634.9,
+  "current_use": "1_residential",
+  "year_built": 1890
+ },
+ "0629617DF3802H": {
+  "dwellings": 15,
+  "floors": 7,
+  "footprint_m2": 605.9,
+  "current_use": "1_residential",
+  "year_built": 1981
+ },
+ "0629618DF3802H": {
+  "dwellings": 12,
+  "floors": 8,
+  "footprint_m2": 237.9,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0629619DF3802H": {
+  "dwellings": 21,
+  "floors": 10,
+  "footprint_m2": 371.1,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0629620DF3802H": {
+  "dwellings": 21,
+  "floors": 9,
+  "footprint_m2": 680.4,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0629621DF3802H": {
+  "dwellings": 0,
+  "floors": 10,
+  "footprint_m2": 611.1,
+  "current_use": "4_1_office",
+  "year_built": 1976
+ },
+ "0629622DF3802H": {
+  "dwellings": 0,
+  "floors": 10,
+  "footprint_m2": 452.2,
+  "current_use": "4_2_retail",
+  "year_built": 1974
+ },
+ "0629623DF3802H": {
+  "dwellings": 10,
+  "floors": 7,
+  "footprint_m2": 444.2,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0629624DF3802H": {
+  "dwellings": 18,
+  "floors": 7,
+  "footprint_m2": 438.4,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0629625DF3802H": {
+  "dwellings": 10,
+  "floors": 6,
+  "footprint_m2": 502.6,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0629627DF3802H": {
+  "dwellings": 0,
+  "floors": 6,
+  "footprint_m2": 58.9,
+  "current_use": "4_3_publicServices",
+  "year_built": 1867
+ },
+ "0328601DF3802G": {
+  "dwellings": 0,
+  "floors": 8,
+  "footprint_m2": 2839.4,
+  "current_use": "4_3_publicServices",
+  "year_built": 1937
+ },
+ "0328602DF3802G": {
+  "dwellings": 0,
+  "floors": 5,
+  "footprint_m2": 1654.1,
+  "current_use": "4_3_publicServices",
+  "year_built": 1950
+ },
+ "0328603DF3802G": {
+  "dwellings": 0,
+  "floors": 10,
+  "footprint_m2": 884.9,
+  "current_use": "4_1_office",
+  "year_built": 1980
+ },
+ "0328604DF3802G": {
+  "dwellings": 12,
+  "floors": 8,
+  "footprint_m2": 499.9,
+  "current_use": "1_residential",
+  "year_built": 1920
+ },
+ "0328605DF3802G": {
+  "dwellings": 40,
+  "floors": 10,
+  "footprint_m2": 693.6,
+  "current_use": "1_residential",
+  "year_built": 1955
+ },
+ "0328606DF3802G": {
+  "dwellings": 7,
+  "floors": 10,
+  "footprint_m2": 602.0,
+  "current_use": "4_1_office",
+  "year_built": 1920
+ },
+ "0328607DF3802G": {
+  "dwellings": 8,
+  "floors": 8,
+  "footprint_m2": 743.4,
+  "current_use": "4_2_retail",
+  "year_built": 1920
+ },
+ "0328608DF3802G": {
+  "dwellings": 5,
+  "floors": 9,
+  "footprint_m2": 650.4,
+  "current_use": "4_1_office",
+  "year_built": 1900
+ },
+ "0328609DF3802G": {
+  "dwellings": 10,
+  "floors": 10,
+  "footprint_m2": 266.8,
+  "current_use": "1_residential",
+  "year_built": 1957
+ },
+ "0328610DF3802G": {
+  "dwellings": 0,
+  "floors": 12,
+  "footprint_m2": 876.7,
+  "current_use": "4_1_office",
+  "year_built": 1980
+ },
+ "0328611DF3802G": {
+  "dwellings": 15,
+  "floors": 8,
+  "footprint_m2": 544.2,
+  "current_use": "1_residential",
+  "year_built": 1910
+ },
+ "0328612DF3802G": {
+  "dwellings": 21,
+  "floors": 11,
+  "footprint_m2": 988.7,
+  "current_use": "1_residential",
+  "year_built": 1950
+ },
+ "0328613DF3802G": {
+  "dwellings": 28,
+  "floors": 10,
+  "footprint_m2": 666.9,
+  "current_use": "1_residential",
+  "year_built": 1950
+ },
+ "0429601DF3802G": {
+  "dwellings": 0,
+  "floors": 11,
+  "footprint_m2": 591.7,
+  "current_use": "4_1_office",
+  "year_built": 1975
+ },
+ "0429602DF3802G": {
+  "dwellings": 7,
+  "floors": 9,
+  "footprint_m2": 263.5,
+  "current_use": "1_residential",
+  "year_built": 1960
+ },
+ "0429603DF3802G": {
+  "dwellings": 1,
+  "floors": 8,
+  "footprint_m2": 457.6,
+  "current_use": "1_residential",
+  "year_built": 1960
+ },
+ "0429604DF3802G": {
+  "dwellings": 0,
+  "floors": 4,
+  "footprint_m2": 236.3,
+  "current_use": "4_1_office",
+  "year_built": 1900
+ },
+ "0429605DF3802G": {
+  "dwellings": 0,
+  "floors": 6,
+  "footprint_m2": 349.4,
+  "current_use": "4_1_office",
+  "year_built": 1983
+ },
+ "0429606DF3802G": {
+  "dwellings": 0,
+  "floors": 4,
+  "footprint_m2": 559.6,
+  "current_use": "4_1_office",
+  "year_built": 1983
+ },
+ "0429607DF3802G": {
+  "dwellings": 0,
+  "floors": 12,
+  "footprint_m2": 1193.1,
+  "current_use": "4_2_retail",
+  "year_built": 1967
+ },
+ "0429608DF3802G": {
+  "dwellings": 13,
+  "floors": 9,
+  "footprint_m2": 335.9,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0429609DF3802G": {
+  "dwellings": 13,
+  "floors": 8,
+  "footprint_m2": 335.7,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0429610DF3802G": {
+  "dwellings": 10,
+  "floors": 8,
+  "footprint_m2": 269.3,
+  "current_use": "1_residential",
+  "year_built": 2020
+ },
+ "0529301DF3802H": {
+  "dwellings": 0,
+  "floors": 6,
+  "footprint_m2": 839.6,
+  "current_use": "1_residential",
+  "year_built": 1994
+ },
+ "0529302DF3802H": {
+  "dwellings": 15,
+  "floors": 10,
+  "footprint_m2": 328.2,
+  "current_use": "1_residential",
+  "year_built": 1950
+ },
+ "0529303DF3802H": {
+  "dwellings": 1,
+  "floors": 9,
+  "footprint_m2": 326.7,
+  "current_use": "1_residential",
+  "year_built": 1910
+ },
+ "0529304DF3802H": {
+  "dwellings": 8,
+  "floors": 10,
+  "footprint_m2": 137.0,
+  "current_use": "1_residential",
+  "year_built": 1920
+ },
+ "0529305DF3802H": {
+  "dwellings": 12,
+  "floors": 6,
+  "footprint_m2": 386.1,
+  "current_use": "1_residential",
+  "year_built": 1870
+ },
+ "0529306DF3802H": {
+  "dwellings": 11,
+  "floors": 6,
+  "footprint_m2": 376.8,
+  "current_use": "1_residential",
+  "year_built": 1863
+ },
+ "0529307DF3802H": {
+  "dwellings": 0,
+  "floors": 5,
+  "footprint_m2": 251.7,
+  "current_use": "4_1_office",
+  "year_built": 1900
+ },
+ "0529308DF3802H": {
+  "dwellings": 3,
+  "floors": 4,
+  "footprint_m2": 191.3,
+  "current_use": "1_residential",
+  "year_built": 2003
+ },
+ "0529309DF3802H": {
+  "dwellings": 1,
+  "floors": 4,
+  "footprint_m2": 193.2,
+  "current_use": "1_residential",
+  "year_built": 1860
+ },
+ "0529310DF3802H": {
+  "dwellings": 0,
+  "floors": 4,
+  "footprint_m2": 397.0,
+  "current_use": "4_1_office",
+  "year_built": 1911
+ },
+ "0530601DF3803B": {
+  "dwellings": 0,
+  "floors": 4,
+  "footprint_m2": 2544.6,
+  "current_use": "4_3_publicServices",
+  "year_built": 1964
+ },
+ "0530602DF3803B": {
+  "dwellings": 10,
+  "floors": 6,
+  "footprint_m2": 1955.2,
+  "current_use": "1_residential",
+  "year_built": 1915
+ },
+ "0530603DF3803B": {
+  "dwellings": 18,
+  "floors": 9,
+  "footprint_m2": 368.3,
+  "current_use": "1_residential",
+  "year_built": 1983
+ },
+ "0530604DF3803B": {
+  "dwellings": 1,
+  "floors": 10,
+  "footprint_m2": 354.7,
+  "current_use": "1_residential",
+  "year_built": 1967
+ },
+ "0530605DF3803B": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 266.8,
+  "current_use": "1_residential",
+  "year_built": 1874
+ },
+ "0530606DF3803B": {
+  "dwellings": 1,
+  "floors": 7,
+  "footprint_m2": 225.2,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0530607DF3803B": {
+  "dwellings": 9,
+  "floors": 6,
+  "footprint_m2": 423.4,
+  "current_use": "1_residential",
+  "year_built": 1877
+ },
+ "0530608DF3803B": {
+  "dwellings": 8,
+  "floors": 7,
+  "footprint_m2": 250.9,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0530609DF3803B": {
+  "dwellings": 30,
+  "floors": 9,
+  "footprint_m2": 468.1,
+  "current_use": "1_residential",
+  "year_built": 1973
+ },
+ "0530610DF3803B": {
+  "dwellings": 41,
+  "floors": 9,
+  "footprint_m2": 844.1,
+  "current_use": "1_residential",
+  "year_built": 1889
+ },
+ "0530611DF3803B": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 413.2,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0530612DF3803B": {
+  "dwellings": 8,
+  "floors": 6,
+  "footprint_m2": 421.6,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0530613DF3803B": {
+  "dwellings": 1,
+  "floors": 6,
+  "footprint_m2": 507.2,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0530614DF3803B": {
+  "dwellings": 12,
+  "floors": 6,
+  "footprint_m2": 541.4,
+  "current_use": "1_residential",
+  "year_built": 1900
+ },
+ "0530615DF3803B": {
+  "dwellings": 0,
+  "floors": 8,
+  "footprint_m2": 912.7,
+  "current_use": "4_2_retail",
+  "year_built": 2003
+ }
+}

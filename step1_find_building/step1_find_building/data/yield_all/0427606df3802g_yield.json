@@ -1,0 +1,48 @@
+{
+  "building": {
+    "refcat": "0427606DF3802G",
+    "address": "CL CONSELL DE CENT 324 BARCELONA (BARCELONA)",
+    "query": "41.3920537,2.1674136"
+  },
+  "yield": {
+    "panels": 2,
+    "kwp": 0.84,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 136.6,
+    "yearly_kwh": 844,
+    "kwh_per_kwp": 1005,
+    "mean_shade_loss": 0.279,
+    "monthly_kwh": [
+      28,
+      46,
+      65,
+      89,
+      116,
+      113,
+      119,
+      107,
+      70,
+      36,
+      32,
+      22
+    ],
+    "peak_hour_kw": 0.64,
+    "panels_left_out": 1,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 41.2,
+  "panels": [
+    {
+      "x": 430401.51,
+      "y": 4582611.93,
+      "kwh_year": 425.1,
+      "shade_loss": 0.274
+    },
+    {
+      "x": 430400.45,
+      "y": 4582613.05,
+      "kwh_year": 418.7,
+      "shade_loss": 0.284
+    }
+  ]
+}

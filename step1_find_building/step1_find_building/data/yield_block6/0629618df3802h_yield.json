@@ -1,0 +1,42 @@
+{
+  "building": {
+    "refcat": "0629618DF3802H",
+    "address": "CL DIPUTACIO 309 BARCELONA (BARCELONA)",
+    "query": "41.3929461,2.1702367"
+  },
+  "yield": {
+    "panels": 1,
+    "kwp": 0.42,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 136.1,
+    "yearly_kwh": 357,
+    "kwh_per_kwp": 851,
+    "mean_shade_loss": 0.392,
+    "monthly_kwh": [
+      10,
+      15,
+      26,
+      34,
+      54,
+      56,
+      57,
+      44,
+      31,
+      14,
+      10,
+      7
+    ],
+    "peak_hour_kw": 0.32,
+    "panels_left_out": 6,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 54.2,
+  "panels": [
+    {
+      "x": 430620.17,
+      "y": 4582722.7,
+      "kwh_year": 357.4,
+      "shade_loss": 0.392
+    }
+  ]
+}

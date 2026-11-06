@@ -1,0 +1,42 @@
+{
+  "building": {
+    "refcat": "0528508DF3802H",
+    "address": "PJ PERMANYER 6 BARCELONA (BARCELONA)",
+    "query": "41.3923392,2.1682774"
+  },
+  "yield": {
+    "panels": 1,
+    "kwp": 0.42,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.8,
+    "yearly_kwh": 374,
+    "kwh_per_kwp": 890,
+    "mean_shade_loss": 0.36,
+    "monthly_kwh": [
+      7,
+      18,
+      29,
+      43,
+      54,
+      53,
+      55,
+      53,
+      33,
+      14,
+      9,
+      5
+    ],
+    "peak_hour_kw": 0.32,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 18.0,
+  "panels": [
+    {
+      "x": 430462.93,
+      "y": 4582647.36,
+      "kwh_year": 373.8,
+      "shade_loss": 0.36
+    }
+  ]
+}

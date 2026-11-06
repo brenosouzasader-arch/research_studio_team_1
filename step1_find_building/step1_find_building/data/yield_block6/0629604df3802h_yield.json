@@ -1,0 +1,42 @@
+{
+  "building": {
+    "refcat": "0629604DF3802H",
+    "address": "CL CONSELL DE CENT 348 BARCELONA (BARCELONA)",
+    "query": "41.3935207,2.1693085"
+  },
+  "yield": {
+    "panels": 1,
+    "kwp": 0.42,
+    "tilt_deg": 10.0,
+    "azimuth_deg": 135.8,
+    "yearly_kwh": 574,
+    "kwh_per_kwp": 1367,
+    "mean_shade_loss": 0.019,
+    "monthly_kwh": [
+      25,
+      36,
+      48,
+      57,
+      73,
+      72,
+      75,
+      67,
+      49,
+      26,
+      25,
+      23
+    ],
+    "peak_hour_kw": 0.33,
+    "panels_left_out": 0,
+    "max_shade_loss": 0.4
+  },
+  "usable_area_m2": 11.0,
+  "panels": [
+    {
+      "x": 430555.66,
+      "y": 4582775.64,
+      "kwh_year": 574.2,
+      "shade_loss": 0.019
+    }
+  ]
+}
